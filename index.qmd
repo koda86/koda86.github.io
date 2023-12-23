@@ -1,0 +1,56 @@
+---
+title: "Daniel Koska"
+subtitle: "Data; Science; Biomechanics"
+---
+
+## Welcome
+
+This is intended to be a collection of ongoing and past projects, papers, coding adventures and whatever else seems worth sharing.
+
+## Methods for biomechanical time series data
+
+A lot of my recent work, including my PhD thesis, has evolved around methods for adequately characterizing continuous (biomechanical) data. 
+
+### FunBootBand (R)
+
+[FunBootBand](https://koda86.github.io/FunBootBand/) (Github)
+
+The FunBootBand package contains a function to generate statistical (prediction or confidence) bands from curve data using a functional approach and bootstrapping.
+
+```{r echo=FALSE}
+# devtools::install_github("koda86/FunBootBand")
+library(FunBootBand)
+
+prediction.band <- band(data,
+                        type = "prediction",
+                        B = 5,
+                        alpha = 0.05,
+                        iid = TRUE)
+
+plot(data[, 1], type = "l", ylim = c(-3, 3), ylab = "Amplitude")
+apply(data, 2, function(x) lines(x)) |> invisible()
+apply(prediction.band, 1, function(x) lines(x, col = "red", lwd = 4)) |> invisible()
+```
+
+
+The development version of FunBootBand can be installed from GitHub with:
+
+devtools::install_github("koda86/FunBootBand")
+
+### FunBootBand (Python)
+
+This is currently on my to-do list and should be a good way to dive deeper into Python.
+
+### Effort to compress
+
+While trying out different complexity measures, I stumbled upon the 'effort to compress' (ETC) method introduced in (Nagaraj et al., 2013). ETC is a complexity measure for which code was originally presented as Matlab and Python Code. This repository contains an R implementation of the algorithm.
+
+[effort2compress](https://github.com/koda86/effort2compress) (GitHub)
+
+See also the website of Nithin Nagaraj for the Matlab and Python versions: [Website Nagaraj](https://sites.google.com/site/nithinnagaraj2/journal/software-toolbox-for-etc-measure)
+
+Python implementation: [Github](https://github.com/pranaysy/ETCPy)
+
+<!-- ## 3D joint angle calculations in Matlab -->
+
+<!-- Matlab Code TH -->

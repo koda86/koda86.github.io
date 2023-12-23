@@ -1,0 +1,12 @@
+project:
+  type: website
+  output-dir: docs
+
+title: "Daniel Koska"
+subtitle: "Data; Science; Biomechanics"
+
+format:
+  html:
+    theme: [cosmo, theme.scss]
+editor: visual
+toc: true
