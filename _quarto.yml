@@ -2,8 +2,14 @@ project:
   type: website
   output-dir: docs
 
-title: "Daniel Koska"
-subtitle: "Data; Science; Biomechanics"
+website:
+  title: "Daniel Koska"
+  navbar:
+    right:
+      - text: Home
+        file: index.qmd
+      - text: About
+        file: about.qmd
 
 format:
   html:

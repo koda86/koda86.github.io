@@ -5,11 +5,11 @@ subtitle: "Data; Science; Biomechanics"
 
 ## Welcome
 
-This is intended to be a collection of ongoing and past projects, papers, coding adventures and whatever else seems worth sharing.
+This is intended to be a collection of ongoing and past projects, papers, coding adventures and whatever else seems worth sharing. This blog's running on GitHub Pages and is written using Quarto, making it easy to share code examples. And hey, if you spot something cool, you can dive straight into the GitHub repo and start playing around with it.
 
-## Methods for biomechanical time series data
+## Software contributions
 
-A lot of my recent work, including my PhD thesis, has evolved around methods for adequately characterizing continuous (biomechanical) data. 
+<!-- A lot of my recent work, including my PhD thesis, has evolved around methods for adequately characterizing continuous (biomechanical) data.  -->
 
 ### FunBootBand (R)
 
@@ -32,14 +32,13 @@ apply(data, 2, function(x) lines(x)) |> invisible()
 apply(prediction.band, 1, function(x) lines(x, col = "red", lwd = 4)) |> invisible()
 ```
 
-
 The development version of FunBootBand can be installed from GitHub with:
 
 devtools::install_github("koda86/FunBootBand")
 
 ### FunBootBand (Python)
 
-This is currently on my to-do list and should be a good way to dive deeper into Python.
+This is currently on my to-do list.
 
 ### Effort to compress
 
@@ -54,3 +53,15 @@ Python implementation: [Github](https://github.com/pranaysy/ETCPy)
 <!-- ## 3D joint angle calculations in Matlab -->
 
 <!-- Matlab Code TH -->
+
+<!-- ## Webscraping -->
+
+<!-- ### OpenLigaDB-Api -->
+
+<!-- ## Blog -->
+
+<!-- ### Benchmarking classification algorithms -->
+
+<!-- ### SPM project -->
+
+
