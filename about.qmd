@@ -3,6 +3,14 @@ title: "About me"
 image: dk_bass.png
 ---
 
+**Daniel Koska**
+
+dkoska\@proton.me
+
+[GitHub/koda86](https://github.com/koda86)
+
+------------------------------------------------------------------------
+
 Hey there! I'm currently working as a postdoc at Chemnitz University of Technology.
 
 My professional playground includes data analysis, research methods, and stats. My PhD (finished 2023) involved developing methods for adequately characterizing continuous biomechanical data such as joint angles or force curves. Every now and then, I do some machine learning stuff and play with dynamic systems methods.
@@ -12,5 +20,3 @@ I'm a big supporter of Free and Open Source Software -- it's the way to go! You'
 Off the clock, I switch gears and jam on my bass. 🎸
 
 ![](dk_bass.png){fig-align="center" width="281"}
-
-------------------------------------------------------------------------

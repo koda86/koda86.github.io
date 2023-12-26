@@ -11,7 +11,7 @@ This is intended to be a collection of ongoing and past projects, papers, coding
 
 <!-- A lot of my recent work, including my PhD thesis, has evolved around methods for adequately characterizing continuous (biomechanical) data.  -->
 
-### FunBootBand (R)
+### Functional Bootstrapped Bands (FunBootBand, R version)
 
 [FunBootBand](https://koda86.github.io/FunBootBand/) (Github)
 
@@ -36,11 +36,11 @@ The development version of FunBootBand can be installed from GitHub with:
 
 devtools::install_github("koda86/FunBootBand")
 
-### FunBootBand (Python)
+### Functional Bootstrapped Bands (FunBootBand, Python version)
 
-This is currently on my to-do list.
+Work in progress, see here: \[FunBoot\]
 
-### Effort to compress
+### Effort to compress (R code)
 
 While trying out different complexity measures, I stumbled upon the 'effort to compress' (ETC) method introduced in (Nagaraj et al., 2013). ETC is a complexity measure for which code was originally presented as Matlab and Python Code. This repository contains an R implementation of the algorithm.
 
@@ -63,5 +63,3 @@ Python implementation: [Github](https://github.com/pranaysy/ETCPy)
 <!-- ### Benchmarking classification algorithms -->
 
 <!-- ### SPM project -->
-
-
