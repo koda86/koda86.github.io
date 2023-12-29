@@ -107,9 +107,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#software-contributions" id="toc-software-contributions" class="nav-link" data-scroll-target="#software-contributions">Software contributions</a>
   <ul class="collapse">
   <li><a href="#functional-bootstrapped-bands" id="toc-functional-bootstrapped-bands" class="nav-link" data-scroll-target="#functional-bootstrapped-bands">Functional Bootstrapped Bands</a></li>
-  <li><a href="#r-version" id="toc-r-version" class="nav-link" data-scroll-target="#r-version">R version</a></li>
-  <li><a href="#python-version" id="toc-python-version" class="nav-link" data-scroll-target="#python-version">Python version</a></li>
-  <li><a href="#rcpp-version" id="toc-rcpp-version" class="nav-link" data-scroll-target="#rcpp-version">RCpp version</a></li>
   <li><a href="#effort-to-compress-r-code" id="toc-effort-to-compress-r-code" class="nav-link" data-scroll-target="#effort-to-compress-r-code">Effort to compress (R code)</a></li>
   </ul></li>
   </ul>
@@ -156,9 +153,8 @@ ul.task-list li input[type="checkbox"] {
 <p>In the course of implementing the method, I noticed something else: All examined bootstrap methods (including that of Roislien) have implemented a naive bootstrap, meaning they assume independence of the curves in the dataset. Accordingly, only one time series per subject was included in the bootstrap in these papers. From a methodological point of view, this is problematic since it ignores the intraindividual variance component. In the context of investigating measurement errors, for instance, this means that the variance across repeated measurements within a person is not taken into account. This may further aggravate the problem of bands being too narrow.</p>
 <p>We therefore extended the functional bootstrap bands to include a possibility to account for repeated measurements (i.e., dependent curves). This was realized using the two-stage bootstrap described in Davison and Hinkley (1997), in which subjects (including all of their curves) are sampled with replacement in the first stage, and one curve per subject is drawn without replacement in the second stage. In addition to the publication of the code, this implementation is, IMHO, the main contribution made by ‘our’ FunBootBand method. A systematic comparison of the method with the previously described methodological approaches (pointwise LoA, Functional LoA, Functional Bootstrapped bands) can be found in in Koska et al.&nbsp;(2023).</p>
 <p>What follows are various versions of the functional bootstrap bands (ongoing development) in different programming languages. The R code has already been published as an R package. Future goals include making the code available in more programming languages and reducing the relatively high computation times (particularly due to bootstrapping). In R this may be done using RCpp, a C++ version. In Python, there is Cython, which should significantly reduce execution time. The goal is to make the method less accessible and thus further establish it. Of course, the method is not limited to the description of differences between measurement systems, but is useful wherever the variation of curve data needs to be analyzed statistically. This makes these functional bands a highly valuable tool.</p>
-</section>
-<section id="r-version" class="level3">
-<h3 class="anchored" data-anchor-id="r-version">R version</h3>
+<section id="r-version" class="level4">
+<h4 class="anchored" data-anchor-id="r-version">R version</h4>
 <p>The <a href="https://koda86.github.io/FunBootBand/">FunBootBand</a> package contains a function to generate statistical (prediction or confidence) bands from curve data using a functional approach and bootstrapping.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -168,13 +164,14 @@ ul.task-list li input[type="checkbox"] {
 <p>The development version of FunBootBand can be installed from GitHub with:</p>
 <p>devtools::install_github(“koda86/FunBootBand”)</p>
 </section>
-<section id="python-version" class="level3">
-<h3 class="anchored" data-anchor-id="python-version">Python version</h3>
+<section id="python-version" class="level4">
+<h4 class="anchored" data-anchor-id="python-version">Python version</h4>
 <p>Work in progress, see here: [FunBoot]</p>
 </section>
-<section id="rcpp-version" class="level3">
-<h3 class="anchored" data-anchor-id="rcpp-version">RCpp version</h3>
+<section id="rcpp-version" class="level4">
+<h4 class="anchored" data-anchor-id="rcpp-version">RCpp version</h4>
 <p>On my TODO list.</p>
+</section>
 </section>
 <section id="effort-to-compress-r-code" class="level3">
 <h3 class="anchored" data-anchor-id="effort-to-compress-r-code">Effort to compress (R code)</h3>

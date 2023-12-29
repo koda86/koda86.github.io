@@ -31,7 +31,7 @@ We therefore extended the functional bootstrap bands to include a possibility to
 
 What follows are various versions of the functional bootstrap bands (ongoing development) in different programming languages. The R code has already been published as an R package. Future goals include making the code available in more programming languages and reducing the relatively high computation times (particularly due to bootstrapping). In R this may be done using RCpp, a C++ version. In Python, there is Cython, which should significantly reduce execution time. The goal is to make the method less accessible and thus further establish it. Of course, the method is not limited to the description of differences between measurement systems, but is useful wherever the variation of curve data needs to be analyzed statistically. This makes these functional bands a highly valuable tool.
 
-### R version
+#### R version
 
 The [FunBootBand](https://koda86.github.io/FunBootBand/) package contains a function to generate statistical (prediction or confidence) bands from curve data using a functional approach and bootstrapping.
 
@@ -54,11 +54,11 @@ The development version of FunBootBand can be installed from GitHub with:
 
 devtools::install_github("koda86/FunBootBand")
 
-### Python version
+#### Python version
 
 Work in progress, see here: \[FunBoot\]
 
-### RCpp version
+#### RCpp version
 
 On my TODO list.
 
