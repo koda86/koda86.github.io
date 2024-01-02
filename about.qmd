@@ -15,7 +15,7 @@ Hey there! I'm currently working as a postdoc at Chemnitz University of Technolo
 
 My professional playground includes data analysis, research methods, and stats. My PhD (finished 2023) involved developing methods for adequately characterizing continuous biomechanical data such as joint angles or force curves. Every now and then, I do some machine learning stuff and play with dynamic systems methods.
 
-I'm a big supporter of Free and Open Source Software -- it's the way to go! You'll usually find me coding in R and Python.
+I'm a big supporter of Free and Open Source Software, as well as the idea of open science -- it's the way to go! You'll usually find me coding in R and Python.
 
 Off the clock, I switch gears and jam on my bass. 🎸
 
