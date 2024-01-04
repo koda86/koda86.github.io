@@ -62,7 +62,7 @@ devtools::install_github("koda86/FunBootBand")
 
 #### Python version
 
-The first alpha-ish version is available, see here: <https://github.com/koda86/FunBootBand-python.>
+The first alpha-ish version is available, see here: <https://github.com/koda86/FunBootBand-python>
 
 My TODO list still includes a bunch of items, such as extensive testing ... I'm getting there. Learned a whole lot about Python in the process as well so far.
 
