@@ -12,7 +12,7 @@ This is intended to be a collection of ongoing and past projects, papers, coding
 <details>
 <summary>Click to expand</summary>
 
-### Functional Bootstrapped Bands
+### Functional Bootstrapped Bands (FunBootBand)
 
 #### Background story
 
@@ -45,7 +45,7 @@ We therefore extended the functional bootstrap bands to include a possibility to
 
 What follows are various versions of the functional bootstrap bands (ongoing development) in different programming languages. The R code has already been published as a (devtools) package, and I plan to add it to CRAN at some point as well. In addition, I'm currently porting the code to Python. If time permits and I can delve into Julia, this may be next in line. Besides porting the function to different languages to improve the accessibility, my main goal is to increase code efficiency and reduce computation times - after all, bootstrapping is quite a computationally intensive. In R this may be done using RCpp, a C++ version. In Python, there is Cython, which should significantly reduce execution time.
 
-#### R version
+#### FunBootBand R
 
 <details>
 <summary>Click to expand</summary>
@@ -71,7 +71,7 @@ The development version of FunBootBand can be installed from GitHub with:
 
 devtools::install_github("koda86/FunBootBand")
 
-#### Python version
+#### FunBootBand Python
 
 <details>
 <summary>Click to expand</summary>
@@ -80,14 +80,14 @@ The first alpha-ish version is available, see here: <https://github.com/koda86/F
 
 My TODO list still includes a bunch of items, such as extensive testing ... I'm getting there. Learned a whole lot about Python in the process as well so far.
 
-#### RCpp version
+#### FunBootBand RCpp
 
 <details>
 <summary>Click to expand</summary>
 
 On my TODO list.
 
-### Effort to compress (R code)
+### Effort to compress
 
 <details>
 <summary>Click to expand</summary>
