@@ -184,8 +184,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="software-contributions" class="level2">
 <h2 class="anchored" data-anchor-id="software-contributions">Software contributions</h2>
+<details>
+<summary>
+Click to expand
+</summary>
 <section id="functional-bootstrapped-bands" class="level3">
 <h3 class="anchored" data-anchor-id="functional-bootstrapped-bands">Functional Bootstrapped Bands</h3>
+<section id="background-story" class="level4">
+<h4 class="anchored" data-anchor-id="background-story">Background story</h4>
+<details>
+<summary>
+Click to expand
+</summary>
 <p>The whole journey began when I started thinking about ways to adequately characterize differences between joint angles calculated from different measurement systems. In my case, I wanted to compare joint angles from a 3D camera system and an inertial measurement unit system. In terms of choosing appropriate statistics, there are some good reads about what <strong>not</strong> to do and how to implement methods for <strong>discrete</strong> data. See, e. g., the highly cited work by Bland and Altman (e.g the papers form 1986, or 2007), who introduced the so called Limits of Agreement (LoA) approach. There’s much less literature, however, on how to handle continuous differences between two measurement systems.</p>
 <p>One paper that caught my attention is the article by <a href="https://doi.org/10.1016/j.gaitpost.2012.05.001">Røslien et al., (2012)</a>, which describes a way to expand the LoA method to continuous data by using a functional approach. The paper in a nutshell: Continuous data (aka curves) are approximated using functions to calculate a functional counterpart of the LoA. The problem, however, is that the approach described in the paper is not entirely functional. Rather, the actual calculation of the Functional Limits of Agreement is carried out for each individual point of the previously determined functional curves (for details see the implementation in the utilized R package <em>fda</em> by James Ramsay). Strictly speaking, this turns the whole idea of using functions on its head and results in functional LoA (or more generally: statistical bands) that are likely too narrow (<a href="https://doi.org/10.1016/j.jbiomech.2023.111506">Koska et al., 2023</a>). Applied to my original problem of describing continuous differences between measurement systems, this would mean that the random measurement error is likely underestimated.</p>
 <p>Another paper that describes a functional approach is the one by <a href="https://doi.org/10.1016/S0966-6362(98)00043-5">Lenhoff et al.&nbsp;(1999)</a>, i.e., curves/time series are approximated using functions just like in Røislien et al.&nbsp;(2012). The paper is not specifically about quantifying differences between measurement systems, but more generally about the construction of statistical bands (more precisely confidence and prediction bands) for biomechanical curve data. The actual hack here is that the distribution of curves is estimated by bootstrapping the coefficients of the curve functions. This means that bands are no longer calculated pointwise, but the entire curve is included in the calculation. The method in Lenhoff et al., to the best of my knowledge, is based on the work of Olshen, Biden, Wyatt, and Sutherland from the 1980s (see, for example, Sutherland et al., 1988; Olshen et al., 1989).</p>
@@ -203,8 +213,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We therefore extended the functional bootstrap bands to include a possibility to account for repeated measurements (i.e., dependent curves). This was realized using the two-stage or double bootstrap described in <a href="https://doi.org/10.1017/CBO9780511802843">Davison and Hinkley (1997)</a>, in which subjects (including all of their curves) are sampled with replacement in the first stage, and one curve per subject is drawn without replacement in the second stage. In addition to sharing our code, this implementation of the two-stage bootstrap is - IMHO - the main contribution of ‘our’ FunBootBand method. A systematic comparison of the method with other methodological approaches for characterizing continuous differences between two measurement systemes (pointwise LoA, Functional LoA, Functional Bootstrapped bands) can be found in in <a href="https://doi.org/10.1016/j.jbiomech.2023.111506">Koska et al.&nbsp;(2023)</a>. Here, we analyzed the coverage probabilites of these models in different error scenarios (simulated and real-world data) and found that the FunBootBands showed superior performance.</p>
 <hr>
 <p>What follows are various versions of the functional bootstrap bands (ongoing development) in different programming languages. The R code has already been published as a (devtools) package, and I plan to add it to CRAN at some point as well. In addition, I’m currently porting the code to Python. If time permits and I can delve into Julia, this may be next in line. Besides porting the function to different languages to improve the accessibility, my main goal is to increase code efficiency and reduce computation times - after all, bootstrapping is quite a computationally intensive. In R this may be done using RCpp, a C++ version. In Python, there is Cython, which should significantly reduce execution time.</p>
+</details></section>
 <section id="r-version" class="level4">
 <h4 class="anchored" data-anchor-id="r-version">R version</h4>
+<details>
+<summary>
+Click to expand
+</summary>
 <p>The <a href="https://koda86.github.io/FunBootBand/">FunBootBand</a> package contains a function to generate statistical (prediction or confidence) bands from curve data using a functional approach and bootstrapping.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -217,26 +232,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The development version of FunBootBand can be installed from GitHub with:</p>
 <p>devtools::install_github(“koda86/FunBootBand”)</p>
-</section>
+</details></section>
 <section id="python-version" class="level4">
 <h4 class="anchored" data-anchor-id="python-version">Python version</h4>
+<details>
+<summary>
+Click to expand
+</summary>
 <p>The first alpha-ish version is available, see here: <a href="https://github.com/koda86/FunBootBand-python" class="uri">https://github.com/koda86/FunBootBand-python</a></p>
 <p>My TODO list still includes a bunch of items, such as extensive testing … I’m getting there. Learned a whole lot about Python in the process as well so far.</p>
-</section>
+</details></section>
 <section id="rcpp-version" class="level4">
 <h4 class="anchored" data-anchor-id="rcpp-version">RCpp version</h4>
+<details>
+<summary>
+Click to expand
+</summary>
 <p>On my TODO list.</p>
-</section>
+</details></section>
 </section>
 <section id="effort-to-compress-r-code" class="level3">
 <h3 class="anchored" data-anchor-id="effort-to-compress-r-code">Effort to compress (R code)</h3>
+<details>
+<summary>
+Click to expand
+</summary>
 <p>While trying out different complexity measures, I stumbled upon the ‘effort to compress’ (ETC) method introduced in (Nagaraj et al., 2013). ETC is a complexity measure for which code was originally presented as Matlab and Python Code. This repository contains an R implementation of the algorithm.</p>
 <p><a href="https://github.com/koda86/effort2compress">effort2compress</a> (GitHub)</p>
 <p>See also the website of Nithin Nagaraj for the Matlab and Python versions: <a href="https://sites.google.com/site/nithinnagaraj2/journal/software-toolbox-for-etc-measure">Website Nagaraj</a></p>
 <p>Python implementation: <a href="https://github.com/pranaysy/ETCPy">Github</a></p>
-</section>
+</details></section>
 <section id="identify-duplicates-in-metadata-duplicheck" class="level3">
 <h3 class="anchored" data-anchor-id="identify-duplicates-in-metadata-duplicheck">Identify duplicates in metadata (DupliCheck)</h3>
+<details>
+<summary>
+Click to expand
+</summary>
 <!-- TODO: Implementieren eines schnelleren Suchalgorithmus -->
 <div id="image-container" style="text-align: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -271,13 +302,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- ## 3D joint angle calculations in Matlab -->
 <!-- Matlab Code TH -->
 <!-- ### OpenLigaDB-Api -->
-<!-- ## Blog -->
 <!-- ### Benchmarking classification algorithms -->
 <!-- ### SPM in R project -->
 
 
-</section>
-</section>
+</details></section>
+</details></section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

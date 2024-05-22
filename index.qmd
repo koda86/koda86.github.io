@@ -9,7 +9,15 @@ This is intended to be a collection of ongoing and past projects, papers, coding
 
 ## Software contributions
 
+<details>
+<summary>Click to expand</summary>
+
 ### Functional Bootstrapped Bands
+
+#### Background story
+
+<details>
+<summary>Click to expand</summary>
 
 The whole journey began when I started thinking about ways to adequately characterize differences between joint angles calculated from different measurement systems. In my case, I wanted to compare joint angles from a 3D camera system and an inertial measurement unit system. In terms of choosing appropriate statistics, there are some good reads about what **not** to do and how to implement methods for **discrete** data. See, e. g., the highly cited work by Bland and Altman (e.g the papers form 1986, or 2007), who introduced the so called Limits of Agreement (LoA) approach. There's much less literature, however, on how to handle continuous differences between two measurement systems.
 
@@ -39,6 +47,9 @@ What follows are various versions of the functional bootstrap bands (ongoing dev
 
 #### R version
 
+<details>
+<summary>Click to expand</summary>
+
 The [FunBootBand](https://koda86.github.io/FunBootBand/) package contains a function to generate statistical (prediction or confidence) bands from curve data using a functional approach and bootstrapping.
 
 ```{r echo=FALSE}
@@ -62,15 +73,24 @@ devtools::install_github("koda86/FunBootBand")
 
 #### Python version
 
+<details>
+<summary>Click to expand</summary>
+
 The first alpha-ish version is available, see here: <https://github.com/koda86/FunBootBand-python>
 
 My TODO list still includes a bunch of items, such as extensive testing ... I'm getting there. Learned a whole lot about Python in the process as well so far.
 
 #### RCpp version
 
+<details>
+<summary>Click to expand</summary>
+
 On my TODO list.
 
 ### Effort to compress (R code)
+
+<details>
+<summary>Click to expand</summary>
 
 While trying out different complexity measures, I stumbled upon the 'effort to compress' (ETC) method introduced in (Nagaraj et al., 2013). ETC is a complexity measure for which code was originally presented as Matlab and Python Code. This repository contains an R implementation of the algorithm.
 
@@ -81,6 +101,9 @@ See also the website of Nithin Nagaraj for the Matlab and Python versions: [Webs
 Python implementation: [Github](https://github.com/pranaysy/ETCPy)
 
 ### Identify duplicates in metadata (DupliCheck)
+
+<details>
+<summary>Click to expand</summary>
 
 <!-- TODO: Implementieren eines schnelleren Suchalgorithmus -->
 
@@ -124,8 +147,6 @@ Computational cost and execution speed were issues with my initial (simplistic) 
 <!-- Matlab Code TH -->
 
 <!-- ### OpenLigaDB-Api -->
-
-<!-- ## Blog -->
 
 <!-- ### Benchmarking classification algorithms -->
 
