@@ -94,7 +94,7 @@ Before deciding which papers to include in the meta-analysis, I needed to identi
 
 One obvious candidate, the base function duplicated(), only works on exact copies of a string and fails if even a single character is off. This happens, for example, when author names are written differently across databases. For instance, the author "Çelik" is not the same as "Celik." Another issue is that two distinct papers can have identical titles and the same authors (in a different order). This should be discernible from their different DOIs, but DOIs are not always available and often come in various formats. The list of complications goes on, making the task more complex. To spare others from the same pain, I packed everything into a small R package called **DupliCheck**.
 
-The package contains a single function called *dupliHunter*. *dupliHunter* takes a data frame with (at least) title, author, and DOI columns. It also includes a threshold parameter to possibly fine-tune the allowed similarity between titles (calculated using **stringdist::stringdistmatrix** with the Jaccard distance method).
+The package contains a single function called *dupliHunter*. *dupliHunter* takes a data frame with (at least) title, author, and DOI columns. It also includes a threshold parameter to possibly fine-tune the allowed similarity between titles (calculated using stringdist::stringdistmatrix with the Jaccard distance method).
 
 Here's how you can use the package:
 
