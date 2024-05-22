@@ -80,11 +80,48 @@ See also the website of Nithin Nagaraj for the Matlab and Python versions: [Webs
 
 Python implementation: [Github](https://github.com/pranaysy/ETCPy)
 
+### Identify duplicates in metadata (DupliCheck)
+
+<!-- TODO: Implementieren eines schnelleren Suchalgorithmus -->
+
+::: {#image-container style="text-align: center;"}
+![DupliCheck](DupliCheck_logo.png){width=40%}
+:::
+
+I was recently conducting a meta-analysis to get an idea of the effect of digital physiotherapy for the treatment of various orthopedic diseases. For this, I used Pubmed, Cochrane, BASE (Bielefeld Academic Search Engine) and Embase, which resulted in large csv files containing metadata from the identified scientific articles. This metadata includes paper titles, authors, and the DOI, among others. Not going to talk about the pain of designing adequate search strings and exporting these articles here ...
+
+Before deciding which papers to include in the meta-analysis, I needed to identify duplicates, i.e., papers that appeared more than once. This seems like a fairly straightforward job, but, as usual, the devil is in the detail. This probably explains why I wasn't able to find a suitable R function for the job (though, to be honest, I didn't invest an awful lot of time searching).
+
+One obvious candidate, the base function duplicated(), only works on exact copies of a string and fails if even a single character is off. This happens, for example, when author names are written differently across databases. For instance, the author "Çelik" is not the same as "Celik." Another issue is that two distinct papers can have identical titles and the same authors (in a different order). This should be discernible from their different DOIs, but DOIs are not always available and often come in various formats. The list of complications goes on, making the task more complex. To spare others from the same pain, I packed everything into a small R package called **DupliCheck**.
+
+The package contains a single function called *dupliHunter*. *dupliHunter* takes a data frame with (at least) title, author, and DOI columns. It also includes a threshold parameter to possibly fine-tune the allowed similarity between titles (calculated using **stringdist::stringdistmatrix** with the Jaccard distance method).
+
+Here's how you can use the package:
+
+```{r}
+library(usethis)
+library(devtools)
+# devtools::install_github("koda86/DupliCheck")
+library(DupliCheck)
+
+load("~/tmp/data.RData") # Example data; load your own data here
+
+duplicates <- dupliHunter(data,
+                            title_col = "Title",
+                            author_col = "Authors",
+                            doi_col = "DOI",
+                            threshold = 0.03)
+```
+
+The current version of the function works decently. I haven't quantified Type I and II error rates so far, but my experience from working with several datasets and the feedback form colleagues suggest that errors are minimal. I’m also optimistic about the function’s ability to generalize across data from different search engines since the tested files represent data from commonly used sources.
+
+Computational cost and execution speed were issues with my initial (simplistic) loop-based approach. I did some optimzation that included preprocessing titles to escape special characters, or the use of parallel processing. This reduced the execution time for a 4191-row test file significantly (down from 2856 s to about 952 s). It’s not lightning fast, but it's acceptable for vanilla R code. I hope to port the code to C++ to speed up processing time for future projects. We'll see ...
+
+<!-- Diss hochladen (englische Version basteln!?) -->
+
 <!-- ## 3D joint angle calculations in Matlab -->
 
 <!-- Matlab Code TH -->
-
-<!-- ## Webscraping -->
 
 <!-- ### OpenLigaDB-Api -->
 
@@ -92,4 +129,4 @@ Python implementation: [Github](https://github.com/pranaysy/ETCPy)
 
 <!-- ### Benchmarking classification algorithms -->
 
-<!-- ### SPM project -->
+<!-- ### SPM in R project -->
