@@ -140,14 +140,82 @@ The current version of the function works decently. I haven't quantified Type I 
 
 Computational cost and execution speed were issues with my initial (simplistic) loop-based approach. I did some optimzation that included preprocessing titles to escape special characters, or the use of parallel processing. This reduced the execution time for a 4191-row test file significantly (down from 2856 s to about 952 s). It’s not lightning fast, but it's acceptable for vanilla R code. I hope to port the code to C++ to speed up processing time for future projects. We'll see ...
 
-<!-- Diss hochladen (englische Version basteln!?) -->
+## Disco Diffusion Music Video
 
-<!-- ## 3D joint angle calculations in Matlab -->
+<details>
+<summary>Click to expand</summary>
 
-<!-- Matlab Code TH -->
+This post is about a ('AI'-generated) music video that I created for my Band [ICTRL](https://ictrl.bandcamp.com/track/dead-horse). Before I go on with the nerdy details, you should check out the video first:
 
-<!-- ### OpenLigaDB-Api -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/l7dXeudFoDc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<!-- ### Benchmarking classification algorithms -->
+The video illustrates our song Dead Horse, which is the first of a bunch of singles we are going to drop this year. The idea to create a video like this was inspired by a [Reddit post](https://www.reddit.com/r/KGATLW/comments/1bxew7e/is_the_iron_lung_music_video_really_ai/) about a recent video by one of my favorite bands: King Gizzard and the Lizzard Wizard (the song is called Iron Lung). The post provided some insights into how the video was created, e.g. this quote from user *No_Stay2400*:
 
-<!-- ### SPM in R project -->
+*_"From Spod, the guy who made it (in a Reddit post back when it came out): Cheers, yeah it was 2 months of trial and error, and using a bunch of different techniques alongside the newest diffusion programs as they rolled out. It was all mapped out frame by frame to work with the music, trying see if I could illustrate the feeling of the music through the video. At times it feels like driving a bus from the backseat, but is amazing when it all comes together. The hardest thing is steering it away from the generic look that AI art can get. Anyway, thanks."_*
+
+<!-- https://www.reddit.com/r/KGATLW/comments/xvdigb/music_video_iron_lung_ice_death_planets_lungs/ -->
+
+The main tool that caught my interest was Disco Diffusion, a neat open-source AI tool for generative art. Imagine typing in some text prompt and getting intricate pieces of visual art (for all "future" readers of the last sentence: Imagine a world where 'AI' was a new and exciting thing). Quickly, the idea was born to create a low-budget video where the prompts and thus the video sequences fit the lyrics of the song.
+
+<!-- Disco Diffusion uses some pretty advanced deep learning models to make it all happen -->
+
+Disco Diffusion was developed using Google Colab, which is a free, cloud-based Jupyter notebook environment provided by Google. If you are a data scientist or machine learning practitioner, you have probably heard of it. Being cloud-based, Colab requires no setup or installation. Users can start coding immediately in their web browser. Colab supports Python, so it was easy to read and understand the code. That bein said, there's absolutely no need for any programming skills, since there are empty fields for all relevant parameters, prompts etc. in the notebook.
+
+<!-- Colab notebooks and all generated files can be stored directly on Google Drive, making it easy to manage and share files.  -->
+
+Colab also provides access to powerful computational resources, including different GPUs and TPUs, which are essential for training deep learning models. There is a certain amount of free resources (so called compute units) one can use to test the setup and get some early images. That, however, is rather slow and these provided credits will be exhausted soon. So it makes sense to switch to the Colab Pro, which cost me roughly 50 Euros or so for a month. I know there's also a [local version of Disco Diffusion](https://github.com/MohamadZeina/Disco_Diffusion_Local), but I didn't consider my computation ressources enough to make a video in reasonable time, so I abandoned that for the moment. This may be something to investigate more in the future, especially since I'm not particularly keen on throwing my money towards Google. Well.
+
+The Colab notebook itself is pretty much self-explanatory. One has to run a bunch of cells to check GPU status, prepare folders and connect a (cloud) drive, import dependencies and set up runtime devices, define necessary functions and so on. The first interesting part are the diffusion and CLIP model settings. I watched a bunch of Youtube videos such as [this one](https://www.youtube.com/watch?v=gWxmtdZL8FE) where they explained which settings worked for them. Copying mostly from that, I used a "512x512_diffusion_uncond_finetune_008100" diffusion model and checked the 'use_secondary_model' box.
+
+The next big thing are the settings. Here I set the number of steps to 150. this values, I believe, is responsible for the amount of details in a single frame. I further set the picture dimension to [1280, 768]. For all the rest, I stuck with the default settings.
+
+For the animation settings, I chose the 2D animation mode, checked the 'key_frames' box, and set 'max_frames' to 3500. I calculated the number of frames (3500) to make the length of the video match the length of the song at the chosen framerate of 12 fps. To create the movement you can see in the video, I changed the following parameters (leaving the rest at default):
+
+> interp_spline = 'Linear'  
+> angle = "0:(1.03)"  
+> zoom = "0:(1.03)"  
+> translation_x = "0:(0)"  
+> translation_y = "0:(0)"  
+> translation_z = "0:(10.0)"
+
+Initially, I changed the values for the 3D rotation as well, which caused some hard to pin down errors. Took me way too long to figure that out and caused some real frustrations along the way. 
+
+Next in line was the design of the prompts. First of all, I spent a LOT of time figuring out which style I would like to have. The YouTube video linked above, created by a guy called Doctor Diffusion, used pictures from the Polish artist Zdzisław Beksiński, famously know for his dystopian surrealism, and the American artist Lisa Frank, who is known for rainbow and neon colors and stylized depictions of animals, including dolphins, pandas, and unicorns. I threw in some Edvard Munch, who's paintings I admire since being in the Munch museum in Oslo, and I really liked what I saw. Here are the exact prompts I used:
+
+> text_prompts = {  
+>     0: ["A single horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     216: ["A single ear by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     300: ["A single cloud by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     300: ["A burning cloud by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     384: ["A single horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     468: ["A single running woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     684: ["A single vomiting woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     720: ["A single beating heart by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     888: ["A single race horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     1080: ["A single curtain by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     1164: ["A single crow by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     1212: ["A picture of a broken spine by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     1320: ["A picture of a torch by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     1380: ["A single running woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     1560: ["A single vomiting woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     1656: ["A single running horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     1860: ["A single bass player by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     1980: ["A single running horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     2100: ["A single running woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     2280: ["A single vomiting woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     2340: ["A picture of a screaming woman in the background by Zdzisław Beksiński and Edvard Munch, Trending on artstation."],  
+>     2400: ["A picture of a thunderstorm with fire in the background by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     2460: ["A picture of a screaming woman in the background by Zdzisław Beksiński and Edvard Munch, Trending on artstation."],  
+>     2520: ["A single vomiting woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     2700: ["A picture of a horse running through a thunderstorm by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     2940: ["A picture of a dying horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     3060: ["A picture of a golden ship in the sea by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     3144: ["A picture of a dying horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     3204: ["A picture of a horse in hell by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     3276: ["A picture of a horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."],  
+>     3372: ["A picture of a rainbow by Zdzisław Beksiński and Lisa Frank, Trending on artstation."]  
+> }
+
+For the actual creation of the video, I set the 'blend' to 0.5 and always started at the 'final_frame' when I had to rerun the script. This happened quite a few times, for instance because of errors or when I ran out of computing units.
+
+Finally, after the animation was, it required some minor editing to overlay the audio track onto the video. Et voilà, a new video was born.
