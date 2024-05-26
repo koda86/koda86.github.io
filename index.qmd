@@ -147,7 +147,9 @@ Computational cost and execution speed were issues with my initial (simplistic) 
 
 This post is about a ('AI'-generated) music video that I created for my Band [ICTRL](https://ictrl.bandcamp.com/track/dead-horse). Before I go on with the nerdy details, you should check out the video first:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/l7dXeudFoDc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/l7dXeudFoDc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
 
 The video illustrates our song Dead Horse, which is the first of a bunch of singles we are going to drop this year. The idea to create a video like this was inspired by a [Reddit post](https://www.reddit.com/r/KGATLW/comments/1bxew7e/is_the_iron_lung_music_video_really_ai/) about a recent video by one of my favorite bands: King Gizzard and the Lizzard Wizard (the song is called Iron Lung). The post provided some insights into how the video was created, e.g. this quote from user *No_Stay2400*:
 
