@@ -296,7 +296,7 @@ This did the track and created a folder named 'Exoplanet' including isolated (*.
 
 Here's the isolated bass track for "Exoplanet" by Mother Engine:
 
-[🎧 Listen to "Exoplanet" Isolated Bass Track](bass.mp3){target="_blank"}
+[🎧 Listen to "Exoplanet" Isolated Bass Track](assets/audio/bass.mp3){target="_blank"}
 
 <!-- <audio controls> -->
 <!--   <source src="bass.mp3" type="audio/mpeg"> -->
