@@ -14,5 +14,6 @@ website:
 format:
   html:
     theme: [cosmo, theme.scss]
+    resource-path: ["/assets/audio"]
 editor: visual
 toc: true
