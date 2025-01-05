@@ -221,3 +221,107 @@ Next in line was the design of the prompts. First of all, I spent a LOT of time 
 For the actual creation of the video, I set the 'blend' to 0.5 and always started at the 'final_frame' when I had to rerun the script. This happened quite a few times, for instance because of errors or when I ran out of computing units.
 
 Finally, after the animation was, it required some minor editing to overlay the audio track onto the video. Et voilà, a new video was born.
+
+## Isolating Bass Tracks
+
+<details>
+<summary>Click to expand</summary>
+
+I am a fan Rick Beato's YouTube channel, especially the series 'What Makes This Song Great?'. Also, I always wondered how he got those isolated instrument tracks, especially the bass tracks. One reason, I assume, is that he's a well-copnnected producer with access to separated high-quality tracks directly from the artists or record labels for his deep dives.
+
+As for my motivation, I thought it would be helpful to have isolated bass tracks for songs I would like to learn. The problem, though, is that I'm neither a producer nor well-connected. Also, for much of the music I like, YouTube - despite it's sheer endless content on almost every niche topic - does not provide either isolated bass tracks or bass players covering these songs. So I did some searching online and found that there a several ways to isolate tracks for single instruments. These include EQ and filtering, layering and reconstruction, and several audio separation techniques such as spectral editing or phase cancellation.
+
+The most convenient way, at least for my purposes, seems to be machine learning and AI-based tools since they require the least amount of audio engineering know-how. My current go-to LLM suggested four options (assuming I need a free option available under Linux):
+
+- Spleeter (by Deezer)
+- Demucs (by Facebook AI Research)
+- Open-Unmix
+- VocalRemover.org (Command-Line Interface)
+
+I decided to give Open-Unmix a try, mainly because of the description: "Open-Unmix is an open-source tool for music source separation, developed by the Music Technology Group at the Technical University of Madrid. It focuses on separating vocals, bass, and drums from music tracks." 
+
+Well, I like open-source solutions and I have an academic background, so that was enough to convince me. As for the cons, Open-Unmix may be less computationally efficient, but that wasn't my main concern at this stage. I may do a comparison of different tools in a future post, though. Open-Unmix utilizes a bidirectional LSTM architecture for effective separation and requires FFmpeg for audio processing. Also, like basically all the other tools in the list, Open-Unmix is Python-based. Here are the bash commands I used to set up everything:
+
+1. Install Python 3 and essential tools
+
+```bash
+sudo apt update
+sudo apt install python3 python3-venv python3-pip ffmpeg
+```
+
+python3 is the Python 3 interpreter. python3-venv is the module to create virtual environments. python3-pip ist the Python package installer and ffmpeg is, well ffmpeg ;-)
+
+2. Create and activate a virtual environment
+
+```bash
+cd ~
+python3 -m venv openunmix_env
+source openunmix_env/bin/activate
+```
+
+3. Upgrade pip within the virtual environment
+
+```bash
+pip install --upgrade pip
+```
+
+4. Install Open-Unmix and verify the installation
+
+```bash
+pip install openunmix
+umx --help
+```
+
+By the way, 'deactivate' allows one to leave the virtual environment.
+
+For a first test, I chose the song Exoplanet by Mother Engine. If converted this (YouTube video) [https://www.youtube.com/watch?v=MJu7bSh_03I] to an MP3 file and used this bash command:
+
+```bash
+umx --outdir ~/music/isolated_tracks ~/music/isolated_tracks/Exoplanet.mp3
+```
+
+from which I got this error:
+
+```bash
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 640.00 MiB. GPU 0 has a total capacity of 1.95 GiB of which 518.62 MiB is free. Including non-PyTorch memory, this process has 1.44 GiB memory in use. Of the allocated memory 1.36 GiB is allocated by PyTorch, and 44.48 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+```
+
+This error message indicates that my GPU does not have sufficient memory to process the audio file using Open-Unmix. I therefore switched to CPU Processing (instead of GPU processing).
+
+```bash
+umx --no-cuda --outdir ~/music/isolated_tracks ~/music/isolated_tracks/Exoplanet.mp3
+```
+
+This did the track and created a folder named 'Exoplanet' including isolated (*.wav) tracks for bass, drums, vocals and others in the same directory as the original MP3 file.
+
+Here's the isolated bass track for "Exoplanet" by Mother Engine:
+
+[🎧 Listen to "Exoplanet" Isolated Bass Track](/assets/audio/bass.mp3){target="_blank"}
+
+<!-- <audio controls> -->
+<!--   <source src="../assets/audio/Exoplanet_Bass.mp3" type="audio/mp3"> -->
+<!--   Your browser does not support the audio element. -->
+<!-- </audio> -->
+
+<!-- How can I track the time needed to process this on my system (system specs)? -->
+
+There are some additional tricks that may help improve the performance for future tries. I could, for instance, ...
+
+1. Optimize CPU processing
+
+For instance,
+
+```bash
+umx --no-cuda --outdir ~/music/isolated_tracks ~/music/isolated_tracks/Exoplanet.mp3 --start 30 --duration 60
+```
+
+should processes a 60-second segment starting at 30 seconds into the track. I could also limit the number of targets/tracks to specific instruments (e.g., bass):
+
+```bash
+umx --no-cuda --outdir ~/music/isolated_tracks --targets bass ~/music/isolated_tracks/Exoplanet.mp3
+```
+
+2. Explore alternative, faster and less resource-intensive tools such as Spleeter or Demucs.
+
+3. Or I could use higher-quality audio files such as WAV, or FLAC instead of compressed formats like MP3. These may yield better separation results and may also reduce processing time due to less decoding overhead.
+

@@ -153,6 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#identify-duplicates-in-metadata-duplicheck" id="toc-identify-duplicates-in-metadata-duplicheck" class="nav-link" data-scroll-target="#identify-duplicates-in-metadata-duplicheck">Identify duplicates in metadata (DupliCheck)</a></li>
   </ul></li>
   <li><a href="#disco-diffusion-music-video" id="toc-disco-diffusion-music-video" class="nav-link" data-scroll-target="#disco-diffusion-music-video">Disco Diffusion Music Video</a></li>
+  <li><a href="#isolating-bass-tracks" id="toc-isolating-bass-tracks" class="nav-link" data-scroll-target="#isolating-bass-tracks">Isolating Bass Tracks</a></li>
   </ul>
 </nav>
     </div>
@@ -369,6 +370,72 @@ translation_z = “0:(10.0)”</p>
 </blockquote>
 <p>For the actual creation of the video, I set the ‘blend’ to 0.5 and always started at the ‘final_frame’ when I had to rerun the script. This happened quite a few times, for instance because of errors or when I ran out of computing units.</p>
 <p>Finally, after the animation was, it required some minor editing to overlay the audio track onto the video. Et voilà, a new video was born.</p>
+</details></section>
+<section id="isolating-bass-tracks" class="level2">
+<h2 class="anchored" data-anchor-id="isolating-bass-tracks">Isolating Bass Tracks</h2>
+<details>
+<summary>
+Click to expand
+</summary>
+<p>I am a fan Rick Beato’s YouTube channel, especially the series ‘What Makes This Song Great?’. Also, I always wondered how he got those isolated instrument tracks, especially the bass tracks. One reason, I assume, is that he’s a well-copnnected producer with access to separated high-quality tracks directly from the artists or record labels for his deep dives.</p>
+<p>As for my motivation, I thought it would be helpful to have isolated bass tracks for songs I would like to learn. The problem, though, is that I’m neither a producer nor well-connected. Also, for much of the music I like, YouTube - despite it’s sheer endless content on almost every niche topic - does not provide either isolated bass tracks or bass players covering these songs. So I did some searching online and found that there a several ways to isolate tracks for single instruments. These include EQ and filtering, layering and reconstruction, and several audio separation techniques such as spectral editing or phase cancellation.</p>
+<p>The most convenient way, at least for my purposes, seems to be machine learning and AI-based tools since they require the least amount of audio engineering know-how. My current go-to LLM suggested four options (assuming I need a free option available under Linux):</p>
+<ul>
+<li>Spleeter (by Deezer)</li>
+<li>Demucs (by Facebook AI Research)</li>
+<li>Open-Unmix</li>
+<li>VocalRemover.org (Command-Line Interface)</li>
+</ul>
+<p>I decided to give Open-Unmix a try, mainly because of the description: “Open-Unmix is an open-source tool for music source separation, developed by the Music Technology Group at the Technical University of Madrid. It focuses on separating vocals, bass, and drums from music tracks.”</p>
+<p>Well, I like open-source solutions and I have an academic background, so that was enough to convince me. As for the cons, Open-Unmix may be less computationally efficient, but that wasn’t my main concern at this stage. I may do a comparison of different tools in a future post, though. Open-Unmix utilizes a bidirectional LSTM architecture for effective separation and requires FFmpeg for audio processing. Also, like basically all the other tools in the list, Open-Unmix is Python-based. Here are the bash commands I used to set up everything:</p>
+<ol type="1">
+<li>Install Python 3 and essential tools</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install python3 python3-venv python3-pip ffmpeg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>python3 is the Python 3 interpreter. python3-venv is the module to create virtual environments. python3-pip ist the Python package installer and ffmpeg is, well ffmpeg ;-)</p>
+<ol start="2" type="1">
+<li>Create and activate a virtual environment</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv openunmix_env</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> openunmix_env/bin/activate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>Upgrade pip within the virtual environment</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--upgrade</span> pip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li>Install Open-Unmix and verify the installation</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install openunmix</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">umx</span> <span class="at">--help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>By the way, ‘deactivate’ allows one to leave the virtual environment.</p>
+<p>For a first test, I chose the song Exoplanet by Mother Engine. If converted this (YouTube video) [https://www.youtube.com/watch?v=MJu7bSh_03I] to an MP3 file and used this bash command:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">umx</span> <span class="at">--outdir</span> ~/music/isolated_tracks ~/music/isolated_tracks/Exoplanet.mp3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>from which I got this error:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">torch.OutOfMemoryError:</span> CUDA out of memory. Tried to allocate 640.00 MiB. GPU 0 has a total capacity of 1.95 GiB of which 518.62 MiB is free. Including non-PyTorch memory, this process has 1.44 GiB memory in use. Of the allocated memory 1.36 GiB is allocated by PyTorch, and 44.48 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  <span class="er">(</span><span class="ex">https://pytorch.org/docs/stable/notes/cuda.html#environment-variables</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This error message indicates that my GPU does not have sufficient memory to process the audio file using Open-Unmix. I therefore switched to CPU Processing (instead of GPU processing).</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">umx</span> <span class="at">--no-cuda</span> <span class="at">--outdir</span> ~/music/isolated_tracks ~/music/isolated_tracks/Exoplanet.mp3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This did the track and created a folder named ‘Exoplanet’ including isolated (*.wav) tracks for bass, drums, vocals and others in the same directory as the original MP3 file.</p>
+<p>Here’s the isolated bass track for “Exoplanet” by Mother Engine:</p>
+<p><a href="bass.mp3" target="_blank">🎧 Listen to “Exoplanet” Isolated Bass Track</a></p>
+<!-- <audio controls> -->
+<!--   <source src="../assets/audio/Exoplanet_Bass.mp3" type="audio/mp3"> -->
+<!--   Your browser does not support the audio element. -->
+<!-- </audio> -->
+<!-- How can I track the time needed to process this on my system (system specs)? -->
+<p>There are some additional tricks that may help improve the performance for future tries. I could, for instance, …</p>
+<ol type="1">
+<li>Optimize CPU processing</li>
+</ol>
+<p>For instance,</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">umx</span> <span class="at">--no-cuda</span> <span class="at">--outdir</span> ~/music/isolated_tracks ~/music/isolated_tracks/Exoplanet.mp3 <span class="at">--start</span> 30 <span class="at">--duration</span> 60</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>should processes a 60-second segment starting at 30 seconds into the track. I could also limit the number of targets/tracks to specific instruments (e.g., bass):</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">umx</span> <span class="at">--no-cuda</span> <span class="at">--outdir</span> ~/music/isolated_tracks <span class="at">--targets</span> bass ~/music/isolated_tracks/Exoplanet.mp3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li><p>Explore alternative, faster and less resource-intensive tools such as Spleeter or Demucs.</p></li>
+<li><p>Or I could use higher-quality audio files such as WAV, or FLAC instead of compressed formats like MP3. These may yield better separation results and may also reduce processing time due to less decoding overhead.</p></li>
+</ol>
 
 
 </details></section>
