@@ -161,26 +161,26 @@ If you’ve ever worked with Generalized Procrustes Analysis (GPA) in statistica
 
 The core idea of GPA is to remove differences that are *not* actual shape variation — things like translation, rotation, and scale — so that PCA or other analyses reflect pure shape.
 
-For each shape \(X\) compared to a reference (often the current mean shape), GPA does:
+For each shape (X) compared to a reference (often the current mean shape), GPA does:
 
-1. **Translation:** Move the centroid to the origin.
-2. **Isotropic scaling:** Resize uniformly in all directions to match the reference size.
-3. **Rotation:** Rotate to minimize the distance to the reference.
+1.  **Translation:** Move the centroid to the origin.
+2.  **Isotropic scaling:** Resize uniformly in all directions to match the reference size.
+3.  **Rotation:** Rotate to minimize the distance to the reference.
 
 Then it updates the mean shape and repeats until everything stops changing much.
 
 ### What isotropic scaling really is
 
-Isotropic scaling means multiplying **all** coordinates by the same scalar \(s\).  
+Isotropic scaling means multiplying **all** coordinates by the same scalar (s).\
 No stretching in one direction, no skewing — every axis gets scaled equally.
 
-Mathematically, if \(X \in \mathbb{R}^{k \times m}\) is a translated shape (with \(k\) points in \(m\) dimensions, usually \(m=2\) or \(3\)), the scaled shape is:
+Mathematically, if (X \in \mathbb{R}\^{k \times m}) is a translated shape (with (k) points in (m) dimensions, usually (m=2) or (3)), the scaled shape is:
 
 $$
 X_{\text{scaled}} = s \, X
 $$
 
-The scalar \(s > 0\) is chosen so that the scaled shape is as close as possible to the reference \(Y\).
+The scalar (s \> 0) is chosen so that the scaled shape is as close as possible to the reference (Y).
 
 ### Deriving the scaling factor
 
@@ -190,9 +190,9 @@ $$
 D^2(s) = \|\, sX - Y \,\|_F^2
 $$
 
-where \(\|\cdot\|_F\) is the Frobenius norm (sum of squared coordinates, square-rooted).
+where (\|\cdot\|\_F) is the Frobenius norm (sum of squared coordinates, square-rooted).
 
-Expanding and differentiating with respect to \(s\):
+Expanding and differentiating with respect to (s):
 
 $$
 D^2(s) = s^2 \sum_{i,j} X_{ij}^2 - 2s \sum_{i,j} X_{ij} Y_{ij} + \sum_{i,j} Y_{ij}^2
@@ -234,19 +234,18 @@ This prevents large shapes from dominating the mean early on.
 
 ### Why it matters
 
-Without scaling, size differences will dominate PCA.  
-With isotropic scaling, we remove those size differences, leaving only relative point configurations.  
+Without scaling, size differences will dominate PCA.\
+With isotropic scaling, we remove those size differences, leaving only relative point configurations.\
 That’s great for *pure shape* analysis — but it can be risky if size is biologically meaningful.
 
-And here’s the catch: isotropic scaling ties *all* coordinate axes to a single size factor.  
-If your sample varies in length or width, this scaling will also change **vertical coordinates**, even if they were identical before.  
+And here’s the catch: isotropic scaling ties *all* coordinate axes to a single size factor.\
+If your sample varies in length or width, this scaling will also change **vertical coordinates**, even if they were identical before.\
 That can create *artificial deformation* in anisotropic structures like weight-bearing feet — a subtle source of bias you might not expect.
 
----
+------------------------------------------------------------------------
 
-So, isotropic scaling: simple to describe, easy to code, but worth thinking about carefully.  
+So, isotropic scaling: simple to describe, easy to code, but worth thinking about carefully.\
 Because sometimes, what looks like a “neutral” preprocessing step can quietly rewrite your shape story.
-
 
 ## Disco Diffusion Music Video
 
@@ -257,7 +256,9 @@ Because sometimes, what looks like a “neutral” preprocessing step can quietl
 This post is about a ('AI'-generated) music video that I created for my Band [ICTRL](https://ictrl.bandcamp.com/track/dead-horse). Before I go on with the nerdy details, you should check out the video first:
 
 ::: {style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;"}
-<iframe width="100%" height="100%" src="https://www.youtube.com/embed/l7dXeudFoDc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+<iframe width="100%" height="100%" src="https://www.youtube.com/embed/l7dXeudFoDc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+
+</iframe>
 :::
 
 The video illustrates our song Dead Horse, which is the first of a bunch of singles we are going to drop this year. The idea to create a video like this was inspired by a [Reddit post](https://www.reddit.com/r/KGATLW/comments/1bxew7e/is_the_iron_lung_music_video_really_ai/) about a recent video by one of my favorite bands: King Gizzard and the Lizzard Wizard (the song is called Iron Lung). The post provided some insights into how the video was created, e.g. this quote from user *No_Stay2400*:
