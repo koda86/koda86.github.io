@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -69,10 +69,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1ce8974c855accd5a54353bfe40f7ac3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -131,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -152,6 +152,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#effort-to-compress" id="toc-effort-to-compress" class="nav-link" data-scroll-target="#effort-to-compress">Effort to compress</a></li>
   <li><a href="#identify-duplicates-in-metadata-duplicheck" id="toc-identify-duplicates-in-metadata-duplicheck" class="nav-link" data-scroll-target="#identify-duplicates-in-metadata-duplicheck">Identify duplicates in metadata (DupliCheck)</a></li>
   </ul></li>
+  <li><a href="#how-isotropic-scaling-in-gpa-works" id="toc-how-isotropic-scaling-in-gpa-works" class="nav-link" data-scroll-target="#how-isotropic-scaling-in-gpa-works">How Isotropic Scaling in GPA Works</a></li>
   <li><a href="#disco-diffusion-music-video" id="toc-disco-diffusion-music-video" class="nav-link" data-scroll-target="#disco-diffusion-music-video">Disco Diffusion Music Video</a></li>
   <li><a href="#isolating-bass-tracks" id="toc-isolating-bass-tracks" class="nav-link" data-scroll-target="#isolating-bass-tracks">Isolating Bass Tracks</a></li>
   </ul>
@@ -302,6 +303,14 @@ Click to expand
 <p>Computational cost and execution speed were issues with my initial (simplistic) loop-based approach. I did some optimzation that included preprocessing titles to escape special characters, or the use of parallel processing. This reduced the execution time for a 4191-row test file significantly (down from 2856 s to about 952 s). It’s not lightning fast, but it’s acceptable for vanilla R code. I hope to port the code to C++ to speed up processing time for future projects. We’ll see …</p>
 </details></section>
 </details></section>
+<section id="how-isotropic-scaling-in-gpa-works" class="level2">
+<h2 class="anchored" data-anchor-id="how-isotropic-scaling-in-gpa-works">How Isotropic Scaling in GPA Works</h2>
+<details>
+<summary>
+Click to expand
+</summary>
+<p>This entry is more of a mental note for my future self than anything else (which I guess most of this blog is tbh).</p>
+</details></section>
 <section id="disco-diffusion-music-video" class="level2">
 <h2 class="anchored" data-anchor-id="disco-diffusion-music-video">Disco Diffusion Music Video</h2>
 <details>
@@ -310,10 +319,11 @@ Click to expand
 </summary>
 <p>This post is about a (‘AI’-generated) music video that I created for my Band <a href="https://ictrl.bandcamp.com/track/dead-horse">ICTRL</a>. Before I go on with the nerdy details, you should check out the video first:</p>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-<p><iframe width="100%" height="100%" src="https://www.youtube.com/embed/l7dXeudFoDc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></p>
+<iframe width="100%" height="100%" src="https://www.youtube.com/embed/l7dXeudFoDc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+</iframe>
 </div>
 <p>The video illustrates our song Dead Horse, which is the first of a bunch of singles we are going to drop this year. The idea to create a video like this was inspired by a <a href="https://www.reddit.com/r/KGATLW/comments/1bxew7e/is_the_iron_lung_music_video_really_ai/">Reddit post</a> about a recent video by one of my favorite bands: King Gizzard and the Lizzard Wizard (the song is called Iron Lung). The post provided some insights into how the video was created, e.g.&nbsp;this quote from user <em>No_Stay2400</em>:</p>
-<p><em><em>“From Spod, the guy who made it (in a Reddit post back when it came out): Cheers, yeah it was 2 months of trial and error, and using a bunch of different techniques alongside the newest diffusion programs as they rolled out. It was all mapped out frame by frame to work with the music, trying see if I could illustrate the feeling of the music through the video. At times it feels like driving a bus from the backseat, but is amazing when it all comes together. The hardest thing is steering it away from the generic look that AI art can get. Anyway, thanks.”</em></em></p>
+<p><em>“From Spod, the guy who made it (in a Reddit post back when it came out): Cheers, yeah it was 2 months of trial and error, and using a bunch of different techniques alongside the newest diffusion programs as they rolled out. It was all mapped out frame by frame to work with the music, trying see if I could illustrate the feeling of the music through the video. At times it feels like driving a bus from the backseat, but is amazing when it all comes together. The hardest thing is steering it away from the generic look that AI art can get. Anyway, thanks.”</em></p>
 <!-- https://www.reddit.com/r/KGATLW/comments/xvdigb/music_video_iron_lung_ice_death_planets_lungs/ -->
 <p>The main tool that caught my interest was Disco Diffusion, a neat open-source AI tool for generative art. Imagine typing in some text prompt and getting intricate pieces of visual art (for all “future” readers of the last sentence: Imagine a world where ‘AI’ was a new and exciting thing). Quickly, the idea was born to create a low-budget video where the prompts and thus the video sequences fit the lyrics of the song.</p>
 <!-- Disco Diffusion uses some pretty advanced deep learning models to make it all happen -->
@@ -476,18 +486,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -519,7 +518,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -527,7 +546,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -624,7 +643,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
