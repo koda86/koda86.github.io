@@ -10,6 +10,101 @@
 <atom:link href="https://koda86.github.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>Posts on statistics, biomechanics, and other topics.</description>
 <generator>quarto-1.6.42</generator>
-<lastBuildDate>Tue, 12 Aug 2025 13:53:32 GMT</lastBuildDate>
+<lastBuildDate>Mon, 11 Aug 2025 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>How Isotropic Scaling Works in Generalized Procrustes Analysis</title>
+  <dc:creator>Daniel Koska</dc:creator>
+  <link>https://koda86.github.io/posts/2025-08-12-isotropic-scaling-gpa.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>## Introduction</p>
+<p>Generalized Procrustes Analysis (GPA) is a core step in Statistical Shape Modeling (SSM).<br>
+It removes differences in position, orientation, and size so that what’s left reflects <strong>pure shape</strong>.</p>
+<p>One crucial step in GPA is <strong>isotropic scaling</strong> — a uniform scaling in all directions.<br>
+It sounds harmless, but understanding exactly how it works (and where it can cause trouble) is important.</p>
+<hr>
+<p>## Where Isotropic Scaling Fits in GPA</p>
+<p>In each GPA iteration, every shape is:</p>
+<ol type="1">
+<li><strong>Translated</strong> – moved so its centroid is at the origin.<br>
+</li>
+<li><strong>Isotropically scaled</strong> – zoomed in or out so it matches the reference shape’s size.<br>
+</li>
+<li><strong>Rotated</strong> – oriented to minimize the squared distance to the reference.</li>
+</ol>
+<p>These steps repeat until the mean shape stabilizes.</p>
+<hr>
+<p>## Definition</p>
+<p>Isotropic scaling multiplies <strong>all coordinates</strong> by the same scalar <code>s</code>:</p>
+<p>[ X_{} = s X ]</p>
+<p>No shearing, no stretching in one direction — the aspect ratio stays fixed.</p>
+<hr>
+<p>## How the Scaling Factor Is Computed</p>
+<p>Let:</p>
+<ul>
+<li>( X ) = translated shape<br>
+</li>
+<li>( Y ) = translated reference shape<br>
+</li>
+<li>( k ) = number of points, ( m ) = dimensions</li>
+</ul>
+<p>We choose ( s ) to minimize the squared Procrustes distance:</p>
+<p>[ D^2(s) = | sX - Y |_F^2 ]</p>
+<p>Expanding:</p>
+<p>[ D^2(s) = s^2 <em>{i,j} X</em>{ij}^2 - 2s <em>{i,j} X</em>{ij}Y_{ij} + <em>{i,j} Y</em>{ij}^2 ]</p>
+<p>Derivative wrt ( s ), set to zero:</p>
+<p>[ = 2s <em>{i,j} X</em>{ij}^2 - 2 <em>{i,j} X</em>{ij}Y_{ij} = 0 ]</p>
+<p>Solve:</p>
+<p>[ s = ]</p>
+<p>Or in matrix form:</p>
+<p>[ s = ]</p>
+<hr>
+<p>## Connection to Centroid Size</p>
+<p>If there’s no specific reference shape (initial step), each shape is often scaled to <strong>unit centroid size</strong>:</p>
+<p>[ C = ]</p>
+<p>Scaling to unit size means:</p>
+<p>[ s = ]</p>
+<p>This prevents large shapes from dominating the early mean shape.</p>
+<hr>
+<p>## Why It Matters</p>
+<ul>
+<li><strong>Without scaling:</strong> Size differences dominate PCA results.<br>
+</li>
+<li><strong>With isotropic scaling:</strong> You analyze only shape variation.<br>
+</li>
+<li><strong>But beware:</strong> If size is biologically relevant, removing it discards important info.</li>
+</ul>
+<hr>
+<p>## Pitfalls — Hidden Artifacts</p>
+<p>Here’s where it gets interesting. Isotropic scaling links all coordinate axes to a <strong>single size factor</strong>.<br>
+If your sample varies in length or width, the scaling factor changes — and that <strong>also changes vertical coordinates</strong>, even if those vertical values were constant before scaling.</p>
+<p>This can create <strong>artificial vertical deformation</strong>.<br>
+PCA may then interpret this as meaningful biological variation, when in fact it’s just a side-effect of the scaling.</p>
+<hr>
+<p>## Intuition</p>
+<p>Think of each shape as a clay model:</p>
+<ul>
+<li><strong>Translation</strong> moves the center to the origin.<br>
+</li>
+<li><strong>Isotropic scaling</strong> zooms it in/out so it matches the reference size.<br>
+</li>
+<li><strong>Rotation</strong> aligns features as best as possible.</li>
+</ul>
+<p>Simple idea — but in practice, the isotropic step can subtly distort regions that were never meant to change.</p>
+<hr>
+<p>## Closing Thoughts</p>
+<p>Isotropic scaling is essential in many GPA workflows, but like any preprocessing step, it’s not neutral — it <strong>changes your data</strong> in a specific way.<br>
+If your study focuses on regions that should remain fixed (e.g., plantar surface in foot scans), you may need <strong>constrained alignment</strong> to avoid bias.</p>
+
+ ]]></description>
+  <category>statistical-shape-modeling</category>
+  <category>gpa</category>
+  <category>scaling</category>
+  <guid>https://koda86.github.io/posts/2025-08-12-isotropic-scaling-gpa.html</guid>
+  <pubDate>Mon, 11 Aug 2025 22:00:00 GMT</pubDate>
+</item>
 </channel>
 </rss>
