@@ -155,6 +155,100 @@ Computational cost and execution speed were issues with my initial (simplistic) 
 
 This entry is more of a mental note for my future self than anything else (which I guess most of this blog is tbh).
 
+f you’ve ever worked with Generalized Procrustes Analysis (GPA) in statistical shape modeling, you’ve probably come across the *isotropic scaling* step.  
+It sounds innocent enough — just scale all coordinates equally — but this step is both powerful and a little sneaky.  
+Let’s unpack what’s really going on.
+
+### Where it fits in GPA
+
+The core idea of GPA is to remove differences that are *not* actual shape variation — things like translation, rotation, and scale — so that PCA or other analyses reflect pure shape.
+
+For each shape \(X\) compared to a reference (often the current mean shape), GPA does:
+
+1. **Translation:** Move the centroid to the origin.
+2. **Isotropic scaling:** Resize uniformly in all directions to match the reference size.
+3. **Rotation:** Rotate to minimize the distance to the reference.
+
+Then it updates the mean shape and repeats until everything stops changing much.
+
+### What isotropic scaling really is
+
+Isotropic scaling means multiplying **all** coordinates by the same scalar \(s\).  
+No stretching in one direction, no skewing — every axis gets scaled equally.
+
+Mathematically, if \(X \in \mathbb{R}^{k \times m}\) is a translated shape (with \(k\) points in \(m\) dimensions, usually \(m=2\) or \(3\)), the scaled shape is:
+
+$$
+X_{\text{scaled}} = s \, X
+$$
+
+The scalar \(s > 0\) is chosen so that the scaled shape is as close as possible to the reference \(Y\).
+
+### Deriving the scaling factor
+
+We want to minimize the squared Procrustes distance:
+
+$$
+D^2(s) = \|\, sX - Y \,\|_F^2
+$$
+
+where \(\|\cdot\|_F\) is the Frobenius norm (sum of squared coordinates, square-rooted).
+
+Expanding and differentiating with respect to \(s\):
+
+$$
+D^2(s) = s^2 \sum_{i,j} X_{ij}^2 - 2s \sum_{i,j} X_{ij} Y_{ij} + \sum_{i,j} Y_{ij}^2
+$$
+
+Set derivative to zero:
+
+$$
+2s \sum_{i,j} X_{ij}^2 - 2 \sum_{i,j} X_{ij} Y_{ij} = 0
+$$
+
+And solve:
+
+$$
+s = \frac{\sum_{i,j} X_{ij} Y_{ij}}{\sum_{i,j} X_{ij}^2}
+$$
+
+In matrix form:
+
+$$
+s = \frac{\mathrm{trace}(X^\mathsf{T} Y)}{\mathrm{trace}(X^\mathsf{T} X)}
+$$
+
+### The centroid size connection
+
+If no specific reference is chosen yet (e.g., the very first iteration), shapes are often scaled to **unit centroid size**:
+
+$$
+C = \sqrt{\sum_{i=1}^k \sum_{j=1}^m X_{ij}^2}
+$$
+
+and
+
+$$
+s = \frac{1}{C}
+$$
+
+This prevents large shapes from dominating the mean early on.
+
+### Why it matters
+
+Without scaling, size differences will dominate PCA.  
+With isotropic scaling, we remove those size differences, leaving only relative point configurations.  
+That’s great for *pure shape* analysis — but it can be risky if size is biologically meaningful.
+
+And here’s the catch: isotropic scaling ties *all* coordinate axes to a single size factor.  
+If your sample varies in length or width, this scaling will also change **vertical coordinates**, even if they were identical before.  
+That can create *artificial deformation* in anisotropic structures like weight-bearing feet — a subtle source of bias you might not expect.
+
+---
+
+So, isotropic scaling: simple to describe, easy to code, but worth thinking about carefully.  
+Because sometimes, what looks like a “neutral” preprocessing step can quietly rewrite your shape story.
+
 ## Disco Diffusion Music Video
 
 <details>
