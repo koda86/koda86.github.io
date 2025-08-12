@@ -1,9 +1,9 @@
 ---
 title: "How Isotropic Scaling Works in Generalized Procrustes Analysis"
-author: "Your Name"
+author: "Daniel Koska"
 date: 2025-08-12
 categories: [statistical-shape-modeling, gpa, scaling]
-description: "A deep dive into isotropic scaling in GPA — with formulas, intuition, and potential pitfalls."
+description: "A deep dive into isotropic scaling in GPA with formulas, intuition, and potential pitfalls."
 format:
   html:
     toc: true
