@@ -1,6 +1,9 @@
 ---
 title: "Daniel Koska"
 subtitle: "Data; Science; Biomechanics"
+format:
+  html:
+    code-tools: false
 listing:
   id: latest
   contents:
