@@ -99,6 +99,10 @@ PCA may then interpret this as meaningful biological variation, when in fact it�
 <p>Isotropic scaling is essential in many GPA workflows, but like any preprocessing step, it’s not neutral — it <strong>changes your data</strong> in a specific way.<br>
 If your study focuses on regions that should remain fixed (e.g., plantar surface in foot scans), you may need <strong>constrained alignment</strong> to avoid bias.</p>
 
+
+<!-- -->
+
+
  ]]></description>
   <category>statistical-shape-modeling</category>
   <category>gpa</category>

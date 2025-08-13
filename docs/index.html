@@ -64,6 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -100,6 +102,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-latest .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-latest'] = new List('listing-latest', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -132,7 +163,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="styles.css">
-</head>
+<link rel="alternate" type="application/rss+xml" title="Koda86 Blog" href="index.xml" data-external="1"></head>
 
 <body class="nav-fixed">
 
@@ -189,7 +220,7 @@ window.Quarto = {
   <li><a href="#isolating-bass-tracks" id="toc-isolating-bass-tracks" class="nav-link" data-scroll-target="#isolating-bass-tracks">Isolating Bass Tracks</a></li>
   </ul>
 </nav>
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(13)</span></div><div class="category" data-category="Z3Bh">gpa <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2NhbGluZw==">scaling <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3RhdGlzdGljYWwtc2hhcGUtbW9kZWxpbmc=">statistical-shape-modeling <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -217,7 +248,304 @@ window.Quarto = {
 <p>This is intended to be a collection of ongoing and past projects, papers, coding adventures and whatever else seems worth sharing. This blog’s running on GitHub Pages and is written using Quarto, (hopefully) making it easy to share code examples. And hey, if you spot something cool, you can dive straight into the GitHub repo and start playing around with it.</p>
 <section id="latest-posts" class="level2">
 <h2 class="anchored" data-anchor-id="latest-posts">Latest Posts</h2>
-{{&lt; listing    contents="posts/**,!posts/software-contributions/**"    sort="date desc"    type="default"    categories=true    filter-ui=false    feed=true &gt;}}
+<div id="listing-latest" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1755070335074">
+<div class="thumbnail">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa.html" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa.html" class="no-external">
+</a><p><a href="./posts/2025-08-12-isotropic-scaling-gpa.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa.html" class="no-external"></a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa.html" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa.html" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1755006345473">
+<div class="thumbnail">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-201d047d503be8785fdc7f6ee62d953f.min.css" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-201d047d503be8785fdc7f6ee62d953f.min.css" class="no-external">
+</a><p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-201d047d503be8785fdc7f6ee62d953f.min.css" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-201d047d503be8785fdc7f6ee62d953f.min.css" class="no-external"></a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-201d047d503be8785fdc7f6ee62d953f.min.css" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-201d047d503be8785fdc7f6ee62d953f.min.css" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-201d047d503be8785fdc7f6ee62d953f.min.css" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-201d047d503be8785fdc7f6ee62d953f.min.css" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1740415081000">
+<div class="thumbnail">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-icons.css" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-icons.css" class="no-external">
+</a><p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-icons.css" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-icons.css" class="no-external"></a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-icons.css" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-icons.css" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-icons.css" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-icons.css" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-listing-file-modified-sort="1740415081000">
+<div class="thumbnail">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-icons.woff" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-icons.woff" class="no-external">
+</a><p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-icons.woff" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-icons.woff" class="no-external"></a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-icons.woff" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-icons.woff" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-icons.woff" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap-icons.woff" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-listing-file-modified-sort="1740415081000">
+<div class="thumbnail">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap.min.js" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap.min.js" class="no-external">
+</a><p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap.min.js" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap.min.js" class="no-external"></a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap.min.js" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap.min.js" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap.min.js" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/bootstrap/bootstrap.min.js" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-listing-file-modified-sort="1740415081000">
+<div class="thumbnail">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/clipboard/clipboard.min.js" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/clipboard/clipboard.min.js" class="no-external">
+</a><p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/clipboard/clipboard.min.js" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/clipboard/clipboard.min.js" class="no-external"></a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/clipboard/clipboard.min.js" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/clipboard/clipboard.min.js" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/clipboard/clipboard.min.js" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/clipboard/clipboard.min.js" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-listing-file-modified-sort="1740415081000">
+<div class="thumbnail">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/anchor.min.js" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/anchor.min.js" class="no-external">
+</a><p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/anchor.min.js" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/anchor.min.js" class="no-external"></a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/anchor.min.js" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/anchor.min.js" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/anchor.min.js" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/anchor.min.js" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-listing-file-modified-sort="1740415081000">
+<div class="thumbnail">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/popper.min.js" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/popper.min.js" class="no-external">
+</a><p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/popper.min.js" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/popper.min.js" class="no-external"></a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/popper.min.js" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/popper.min.js" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/popper.min.js" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/popper.min.js" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-listing-file-modified-sort="1755003058928">
+<div class="thumbnail">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" class="no-external">
+</a><p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" class="no-external"></a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-listing-file-modified-sort="1740415081000">
+<div class="thumbnail">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/quarto.js" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/quarto.js" class="no-external">
+</a><p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/quarto.js" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/quarto.js" class="no-external"></a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/quarto.js" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/quarto.js" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/quarto.js" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/quarto.js" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="10" data-listing-file-modified-sort="1740415081000">
+<div class="thumbnail">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/tippy.css" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/tippy.css" class="no-external">
+</a><p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/tippy.css" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/tippy.css" class="no-external"></a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/tippy.css" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/tippy.css" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/tippy.css" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/tippy.css" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="11" data-listing-file-modified-sort="1740415081000">
+<div class="thumbnail">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/tippy.umd.min.js" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/tippy.umd.min.js" class="no-external">
+</a><p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/tippy.umd.min.js" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/tippy.umd.min.js" class="no-external"></a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/tippy.umd.min.js" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/tippy.umd.min.js" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/tippy.umd.min.js" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa_files/libs/quarto-html/tippy.umd.min.js" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="12" data-categories="c3RhdGlzdGljYWwtc2hhcGUtbW9kZWxpbmclMkNncGElMkNzY2FsaW5n" data-listing-date-sort="1754949600000" data-listing-file-modified-sort="1755006330419" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="670">
+<div class="thumbnail">
+<p><a href="./posts/2025-08-12-isotropic-scaling-gpa.html" class="no-external"></a></p><a href="./posts/2025-08-12-isotropic-scaling-gpa.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2025-08-12-isotropic-scaling-gpa.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa.html" class="no-external">How Isotropic Scaling Works in Generalized Procrustes Analysis</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljYWwtc2hhcGUtbW9kZWxpbmc='); return false;">
+statistical-shape-modeling
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Z3Bh'); return false;">
+gpa
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('c2NhbGluZw=='); return false;">
+scaling
+</div>
+</div>
+<div class="listing-description">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa.html" class="no-external">A deep dive into isotropic scaling in GPA with formulas, intuition, and potential pitfalls.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/2025-08-12-isotropic-scaling-gpa.html" class="no-external">
+<div class="listing-date">
+Aug 12, 2025
+</div>
+<div class="listing-author">
+Daniel Koska
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
 </section>
 <section id="software-contributions" class="level2">
 <h2 class="anchored" data-anchor-id="software-contributions">Software Contributions</h2>
@@ -553,6 +881,7 @@ Click to expand
 <li><p>Explore alternative, faster and less resource-intensive tools such as Spleeter or Demucs.</p></li>
 <li><p>Or I could use higher-quality audio files such as WAV, or FLAC instead of compressed formats like MP3. These may yield better separation results and may also reduce processing time due to less decoding overhead.</p></li>
 </ol>
+
 
 
 <!-- -->
@@ -1031,454 +1360,457 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <div class="sourceCode" id="cb11" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Daniel Koska"</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Data; Science; Biomechanics"</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="an">page-layout:</span><span class="co"> full</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>Welcome to my blog.</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>This is intended to be a collection of ongoing and past projects, papers, coding adventures and whatever else seems worth sharing. This blog's running on GitHub Pages and is written using Quarto, (hopefully) making it easy to share code examples. And hey, if you spot something cool, you can dive straight into the GitHub repo and start playing around with it.</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Latest Posts</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>{{&lt; listing</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>   contents="posts/**,!posts/software-contributions/**"</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>   sort="date desc"</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>   type="default"</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>   categories=true</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>   filter-ui=false</span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>   feed=true</span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;}}</span></span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Software Contributions</span></span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="fu">### Functional Bootstrapped Bands (FunBootBand)</span></span>
-<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Background story</span></span>
-<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
-<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
-<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>The whole journey began when I started thinking about ways to adequately characterize differences between joint angles calculated from different measurement systems. In my case, I wanted to compare joint angles from a 3D camera system and an inertial measurement unit system. In terms of choosing appropriate statistics, there are some good reads about what **not** to do and how to implement methods for **discrete** data. See, e. g., the highly cited work by Bland and Altman (e.g the papers form 1986, or 2007), who introduced the so called Limits of Agreement (LoA) approach. There's much less literature, however, on how to handle continuous differences between two measurement systems.</span>
-<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>One paper that caught my attention is the article by <span class="co">[</span><span class="ot">Røslien et al., (2012)</span><span class="co">](https://doi.org/10.1016/j.gaitpost.2012.05.001)</span>, which describes a way to expand the LoA method to continuous data by using a functional approach. The paper in a nutshell: Continuous data (aka curves) are approximated using functions to calculate a functional counterpart of the LoA. The problem, however, is that the approach described in the paper is not entirely functional. Rather, the actual calculation of the Functional Limits of Agreement is carried out for each individual point of the previously determined functional curves (for details see the implementation in the utilized R package *fda* by James Ramsay). Strictly speaking, this turns the whole idea of using functions on its head and results in functional LoA (or more generally: statistical bands) that are likely too narrow (<span class="co">[</span><span class="ot">Koska et al., 2023</span><span class="co">](https://doi.org/10.1016/j.jbiomech.2023.111506)</span>). Applied to my original problem of describing continuous differences between measurement systems, this would mean that the random measurement error is likely underestimated.</span>
-<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>Another paper that describes a functional approach is the one by <span class="co">[</span><span class="ot">Lenhoff et al. (1999)</span><span class="co">]</span>(https://doi.org/10.1016/S0966-6362(98)00043-5), i.e., curves/time series are approximated using functions just like in Røislien et al. (2012). The paper is not specifically about quantifying differences between measurement systems, but more generally about the construction of statistical bands (more precisely confidence and prediction bands) for biomechanical curve data. The actual hack here is that the distribution of curves is estimated by bootstrapping the coefficients of the curve functions. This means that bands are no longer calculated pointwise, but the entire curve is included in the calculation. The method in Lenhoff et al., to the best of my knowledge, is based on the work of Olshen, Biden, Wyatt, and Sutherland from the 1980s (see, for example, Sutherland et al., 1988; Olshen et al., 1989).</span>
-<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Sutherland, D., Olshen, R., Biden, E., Wyatt, M., 1988. Development of Mature Walking. Mac Keith Press. Olshen, R.A., Biden, E.N., Wyatt, M.P., Sutherland, D.H., 1989. Gait analysis and the bootstrap. Ann. Statist. 17 (4), <span class="ot">&lt;http://dx.doi.org/10.1214/aos/1176347372&gt;</span>.</span>
-<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Olshen, R.A., Biden, E.N., Wyatt, M.P., Sutherland, D.H., 1989. Gait analysis and the bootstrap. Ann. Statist. 17 (4), <span class="ot">&lt;http://dx.doi.org/10.1214/aos/1176347372&gt;</span>.</span>
-<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>As you can see, the method is not exactly new. I was all the more surprised that I wasn't able to find a coded version of the algorithm online. This forced me to implement the algorithm from scratch, which I did using R and the formulas in the appendix of Lenhoff et al. (1999). Extremely helpful at this point was the Matlab code that a former colleague at our institute, Dr. Doris Oriwol, kindly provided me with. Her code allowed me to cross-check my implementation and correct a couple of mistakes. For instance - if I remember correctly - I struggled to implement the correction facor that adjusts the width of the bands to the desired confidence level. Not sure if I'd gotten it right without Doris' help. So, full credit to Doris!</span>
-<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; *As a side note: I am very grateful for people who have the know-how and the time to review the code. The description in the Lenhoff paper is rather brief, and we were not always 100% sure whether we had correctly implemented the algorithm. Further opinions and possible corrections are very welcome.*</span></span>
-<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>I'm sure other researchers have been here before and would have loved to read a coded version of the algorithm. My hope is that sharing our code is a major pain release in that regard and will lead to more people adopting the method. As indicated by Lenhoff et al., functional statistical bands are not limited to the description of differences between measurement systems, but are useful wherever the variation of curve data needs to be analyzed statistically. This includes a ton of important tasks such as estimating population parameters, indicating precision, assessing statistical significance, comparing groups, forecasting future observations, quantifying uncertainty in predictions etc..</span>
-<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>In the course of implementing the method, I noticed something else: The examined bootstrap methods (including that of Røislien) have implemented a naive bootstrap, meaning they assume independence of the curves in the dataset. Accordingly, the papers suggested to include only one curve per subject in the bootstrap. From a methodological point of view, this is somewhat problematic since it ignores the intraindividual variance component. In the context of investigating measurement errors, for instance, this means that the variance across repeated measurements within a person is not taken into account. This may further aggravate the problem of bands being too narrow.</span>
-<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a>We therefore extended the functional bootstrap bands to include a possibility to account for repeated measurements (i.e., dependent curves). This was realized using the two-stage or double bootstrap described in <span class="co">[</span><span class="ot">Davison and Hinkley (1997)</span><span class="co">](https://doi.org/10.1017/CBO9780511802843)</span>, in which subjects (including all of their curves) are sampled with replacement in the first stage, and one curve per subject is drawn without replacement in the second stage. In addition to sharing our code, this implementation of the two-stage bootstrap is - IMHO - the main contribution of 'our' FunBootBand method. A systematic comparison of the method with other methodological approaches for characterizing continuous differences between two measurement systemes (pointwise LoA, Functional LoA, Functional Bootstrapped bands) can be found in in <span class="co">[</span><span class="ot">Koska et al. (2023)</span><span class="co">](https://doi.org/10.1016/j.jbiomech.2023.111506)</span>. Here, we analyzed the coverage probabilites of these models in different error scenarios (simulated and real-world data) and found that the FunBootBands showed superior performance.</span>
-<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a>What follows are various versions of the functional bootstrap bands (ongoing development) in different programming languages. The R code has already been published as a (devtools) package, and I plan to add it to CRAN at some point as well. In addition, I'm currently porting the code to Python. If time permits and I can delve into Julia, this may be next in line. Besides porting the function to different languages to improve the accessibility, my main goal is to increase code efficiency and reduce computation times - after all, bootstrapping is quite a computationally intensive. In R this may be done using RCpp, a C++ version. In Python, there is Cython, which should significantly reduce execution time.</span>
-<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a><span class="fu">#### FunBootBand R</span></span>
-<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
-<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
-<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a>The <span class="co">[</span><span class="ot">FunBootBand</span><span class="co">](https://koda86.github.io/FunBootBand/)</span> package contains a function to generate statistical (prediction or confidence) bands from curve data using a functional approach and bootstrapping.</span>
-<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo=FALSE}</span></span>
-<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a><span class="in"># devtools::install_github("koda86/FunBootBand")</span></span>
-<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a><span class="in">library(FunBootBand)</span></span>
-<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a><span class="in">prediction.band &lt;- band(data,</span></span>
-<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a><span class="in">                        type = "prediction",</span></span>
-<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a><span class="in">                        B = 5,</span></span>
-<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a><span class="in">                        alpha = 0.05,</span></span>
-<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a><span class="in">                        iid = TRUE)</span></span>
-<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a><span class="in">plot(data[, 1], type = "l", ylim = c(-3, 3), ylab = "Amplitude")</span></span>
-<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a><span class="in">apply(data, 2, function(x) lines(x)) |&gt; invisible()</span></span>
-<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a><span class="in">apply(prediction.band, 1, function(x) lines(x, col = "red", lwd = 4)) |&gt; invisible()</span></span>
-<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a>The development version of FunBootBand can be installed from GitHub with:</span>
-<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a>devtools::install_github("koda86/FunBootBand")</span>
-<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a><span class="fu">#### FunBootBand Python</span></span>
-<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
-<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
-<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a>The first alpha-ish version is available, see here: <span class="ot">&lt;https://github.com/koda86/FunBootBand-python&gt;</span></span>
-<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a>My TODO list still includes a bunch of items, such as extensive testing ... I'm getting there. Learned a whole lot about Python in the process as well so far.</span>
-<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a><span class="fu">#### FunBootBand RCpp</span></span>
-<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
-<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
-<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a>On my TODO list.</span>
-<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a><span class="fu">### Effort to compress</span></span>
-<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
-<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
-<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a>While trying out different complexity measures, I stumbled upon the 'effort to compress' (ETC) method introduced in (Nagaraj et al., 2013). ETC is a complexity measure for which code was originally presented as Matlab and Python Code. This repository contains an R implementation of the algorithm.</span>
-<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">effort2compress</span><span class="co">](https://github.com/koda86/effort2compress)</span> (GitHub)</span>
-<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a>See also the website of Nithin Nagaraj for the Matlab and Python versions: <span class="co">[</span><span class="ot">Website Nagaraj</span><span class="co">](https://sites.google.com/site/nithinnagaraj2/journal/software-toolbox-for-etc-measure)</span></span>
-<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a>Python implementation: <span class="co">[</span><span class="ot">Github</span><span class="co">](https://github.com/pranaysy/ETCPy)</span></span>
-<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a><span class="fu">### Identify duplicates in metadata (DupliCheck)</span></span>
-<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
-<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
-<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- </span><span class="al">TODO</span><span class="co">: Implementieren eines schnelleren Suchalgorithmus --&gt;</span></span>
-<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a>::: {#image-container style="text-align: center;"}</span>
-<span id="cb11-129"><a href="#cb11-129" aria-hidden="true" tabindex="-1"></a><span class="al">![DupliCheck](DupliCheck_logo.png)</span>{width="40%"}</span>
-<span id="cb11-130"><a href="#cb11-130" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb11-131"><a href="#cb11-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-132"><a href="#cb11-132" aria-hidden="true" tabindex="-1"></a>I was recently conducting a meta-analysis to get an idea of the effect of digital physiotherapy for the treatment of various orthopedic diseases. For this, I used Pubmed, Cochrane, BASE (Bielefeld Academic Search Engine) and Embase, which resulted in large csv files containing metadata from the identified scientific articles. This metadata includes paper titles, authors, and the DOI, among others. Not going to talk about the pain of designing adequate search strings and exporting these articles here ...</span>
-<span id="cb11-133"><a href="#cb11-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-134"><a href="#cb11-134" aria-hidden="true" tabindex="-1"></a>Before deciding which papers to include in the meta-analysis, I needed to identify duplicates, i.e., papers that appeared more than once. This seems like a fairly straightforward job, but, as usual, the devil is in the detail. This probably explains why I wasn't able to find a suitable R function for the job (though, to be honest, I didn't invest an awful lot of time searching).</span>
-<span id="cb11-135"><a href="#cb11-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-136"><a href="#cb11-136" aria-hidden="true" tabindex="-1"></a>One obvious candidate, the base function duplicated(), only works on exact copies of a string and fails if even a single character is off. This happens, for example, when author names are written differently across databases. For instance, the author "Çelik" is not the same as "Celik." Another issue is that two distinct papers can have identical titles and the same authors (in a different order). This should be discernible from their different DOIs, but DOIs are not always available and often come in various formats. The list of complications goes on, making the task more complex. To spare others from the same pain, I packed everything into a small R package called **DupliCheck**.</span>
-<span id="cb11-137"><a href="#cb11-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-138"><a href="#cb11-138" aria-hidden="true" tabindex="-1"></a>The package contains a single function called **dupliHunter**. dupliHunter takes a data frame with (at least) title, author, and DOI columns. It also includes a threshold parameter to possibly fine-tune the allowed similarity between titles (calculated using stringdist::stringdistmatrix with the Jaccard distance method).</span>
-<span id="cb11-139"><a href="#cb11-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-140"><a href="#cb11-140" aria-hidden="true" tabindex="-1"></a>Here's how you can use the package:</span>
-<span id="cb11-141"><a href="#cb11-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-144"><a href="#cb11-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb11-145"><a href="#cb11-145" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span>
-<span id="cb11-146"><a href="#cb11-146" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
-<span id="cb11-147"><a href="#cb11-147" aria-hidden="true" tabindex="-1"></a><span class="co"># devtools::install_github("koda86/DupliCheck")</span></span>
-<span id="cb11-148"><a href="#cb11-148" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DupliCheck)</span>
-<span id="cb11-149"><a href="#cb11-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-150"><a href="#cb11-150" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"~/tmp/data.RData"</span>) <span class="co"># Example data; load your own data here</span></span>
-<span id="cb11-151"><a href="#cb11-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-152"><a href="#cb11-152" aria-hidden="true" tabindex="-1"></a>duplicates <span class="ot">&lt;-</span> <span class="fu">dupliHunter</span>(data,</span>
-<span id="cb11-153"><a href="#cb11-153" aria-hidden="true" tabindex="-1"></a>                            <span class="at">title_col =</span> <span class="st">"Title"</span>,</span>
-<span id="cb11-154"><a href="#cb11-154" aria-hidden="true" tabindex="-1"></a>                            <span class="at">author_col =</span> <span class="st">"Authors"</span>,</span>
-<span id="cb11-155"><a href="#cb11-155" aria-hidden="true" tabindex="-1"></a>                            <span class="at">doi_col =</span> <span class="st">"DOI"</span>,</span>
-<span id="cb11-156"><a href="#cb11-156" aria-hidden="true" tabindex="-1"></a>                            <span class="at">threshold =</span> <span class="fl">0.03</span>)</span>
-<span id="cb11-157"><a href="#cb11-157" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-158"><a href="#cb11-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-159"><a href="#cb11-159" aria-hidden="true" tabindex="-1"></a>The current version of the function works decently. I haven't quantified Type I and II error rates so far, but my experience from working with several datasets and the feedback from colleagues suggest that errors are minimal. I’m also optimistic about the function’s ability to generalize across data from different search engines since the tested files represent data from commonly used sources.</span>
-<span id="cb11-160"><a href="#cb11-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-161"><a href="#cb11-161" aria-hidden="true" tabindex="-1"></a>Computational cost and execution speed were issues with my initial (simplistic) loop-based approach. I did some optimzation that included preprocessing titles to escape special characters, or the use of parallel processing. This reduced the execution time for a 4191-row test file significantly (down from 2856 s to about 952 s). It’s not lightning fast, but it's acceptable for vanilla R code. I hope to port the code to C++ to speed up processing time for future projects. We'll see ...</span>
-<span id="cb11-162"><a href="#cb11-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-163"><a href="#cb11-163" aria-hidden="true" tabindex="-1"></a><span class="fu">## How Isotropic Scaling in GPA Works</span></span>
-<span id="cb11-164"><a href="#cb11-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-165"><a href="#cb11-165" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
-<span id="cb11-166"><a href="#cb11-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-167"><a href="#cb11-167" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
-<span id="cb11-168"><a href="#cb11-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-169"><a href="#cb11-169" aria-hidden="true" tabindex="-1"></a>This entry is more of a mental note for my future self than anything else (which I guess most of this blog is tbh).</span>
-<span id="cb11-170"><a href="#cb11-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-171"><a href="#cb11-171" aria-hidden="true" tabindex="-1"></a>If you’ve ever worked with Generalized Procrustes Analysis (GPA) in statistical shape modeling, you’ve probably come across the *isotropic scaling* step. It sounds innocent enough — just scale all coordinates equally — but this step is both powerful and a little sneaky. Let’s unpack what’s really going on.</span>
-<span id="cb11-172"><a href="#cb11-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-173"><a href="#cb11-173" aria-hidden="true" tabindex="-1"></a><span class="fu">### Where it fits in GPA</span></span>
-<span id="cb11-174"><a href="#cb11-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-175"><a href="#cb11-175" aria-hidden="true" tabindex="-1"></a>The core idea of GPA is to remove differences that are *not* actual shape variation — things like translation, rotation, and scale — so that PCA or other analyses reflect pure shape.</span>
-<span id="cb11-176"><a href="#cb11-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-177"><a href="#cb11-177" aria-hidden="true" tabindex="-1"></a>For each shape (X) compared to a reference (often the current mean shape), GPA does:</span>
-<span id="cb11-178"><a href="#cb11-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-179"><a href="#cb11-179" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Translation:** Move the centroid to the origin.</span>
-<span id="cb11-180"><a href="#cb11-180" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Isotropic scaling:** Resize uniformly in all directions to match the reference size.</span>
-<span id="cb11-181"><a href="#cb11-181" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Rotation:** Rotate to minimize the distance to the reference.</span>
-<span id="cb11-182"><a href="#cb11-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-183"><a href="#cb11-183" aria-hidden="true" tabindex="-1"></a>Then it updates the mean shape and repeats until everything stops changing much.</span>
-<span id="cb11-184"><a href="#cb11-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-185"><a href="#cb11-185" aria-hidden="true" tabindex="-1"></a><span class="fu">### What isotropic scaling really is</span></span>
-<span id="cb11-186"><a href="#cb11-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-187"><a href="#cb11-187" aria-hidden="true" tabindex="-1"></a>Isotropic scaling means multiplying **all** coordinates by the same scalar (s).\</span>
-<span id="cb11-188"><a href="#cb11-188" aria-hidden="true" tabindex="-1"></a>No stretching in one direction, no skewing — every axis gets scaled equally.</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">  id: latest</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">  contents:</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">    - posts/**</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">    - '!posts/software-contributions/**'</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">  sort: "date desc"</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">  type: default</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">  categories: true</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co">  feed: true</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="an">page-layout:</span><span class="co"> full</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>Welcome to my blog.</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>This is intended to be a collection of ongoing and past projects, papers, coding adventures and whatever else seems worth sharing. This blog's running on GitHub Pages and is written using Quarto, (hopefully) making it easy to share code examples. And hey, if you spot something cool, you can dive straight into the GitHub repo and start playing around with it.</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Latest Posts</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>::: {#latest}</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Software Contributions</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="fu">### Functional Bootstrapped Bands (FunBootBand)</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Background story</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>The whole journey began when I started thinking about ways to adequately characterize differences between joint angles calculated from different measurement systems. In my case, I wanted to compare joint angles from a 3D camera system and an inertial measurement unit system. In terms of choosing appropriate statistics, there are some good reads about what **not** to do and how to implement methods for **discrete** data. See, e. g., the highly cited work by Bland and Altman (e.g the papers form 1986, or 2007), who introduced the so called Limits of Agreement (LoA) approach. There's much less literature, however, on how to handle continuous differences between two measurement systems.</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>One paper that caught my attention is the article by <span class="co">[</span><span class="ot">Røslien et al., (2012)</span><span class="co">](https://doi.org/10.1016/j.gaitpost.2012.05.001)</span>, which describes a way to expand the LoA method to continuous data by using a functional approach. The paper in a nutshell: Continuous data (aka curves) are approximated using functions to calculate a functional counterpart of the LoA. The problem, however, is that the approach described in the paper is not entirely functional. Rather, the actual calculation of the Functional Limits of Agreement is carried out for each individual point of the previously determined functional curves (for details see the implementation in the utilized R package *fda* by James Ramsay). Strictly speaking, this turns the whole idea of using functions on its head and results in functional LoA (or more generally: statistical bands) that are likely too narrow (<span class="co">[</span><span class="ot">Koska et al., 2023</span><span class="co">](https://doi.org/10.1016/j.jbiomech.2023.111506)</span>). Applied to my original problem of describing continuous differences between measurement systems, this would mean that the random measurement error is likely underestimated.</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>Another paper that describes a functional approach is the one by <span class="co">[</span><span class="ot">Lenhoff et al. (1999)</span><span class="co">]</span>(https://doi.org/10.1016/S0966-6362(98)00043-5), i.e., curves/time series are approximated using functions just like in Røislien et al. (2012). The paper is not specifically about quantifying differences between measurement systems, but more generally about the construction of statistical bands (more precisely confidence and prediction bands) for biomechanical curve data. The actual hack here is that the distribution of curves is estimated by bootstrapping the coefficients of the curve functions. This means that bands are no longer calculated pointwise, but the entire curve is included in the calculation. The method in Lenhoff et al., to the best of my knowledge, is based on the work of Olshen, Biden, Wyatt, and Sutherland from the 1980s (see, for example, Sutherland et al., 1988; Olshen et al., 1989).</span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Sutherland, D., Olshen, R., Biden, E., Wyatt, M., 1988. Development of Mature Walking. Mac Keith Press. Olshen, R.A., Biden, E.N., Wyatt, M.P., Sutherland, D.H., 1989. Gait analysis and the bootstrap. Ann. Statist. 17 (4), <span class="ot">&lt;http://dx.doi.org/10.1214/aos/1176347372&gt;</span>.</span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Olshen, R.A., Biden, E.N., Wyatt, M.P., Sutherland, D.H., 1989. Gait analysis and the bootstrap. Ann. Statist. 17 (4), <span class="ot">&lt;http://dx.doi.org/10.1214/aos/1176347372&gt;</span>.</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>As you can see, the method is not exactly new. I was all the more surprised that I wasn't able to find a coded version of the algorithm online. This forced me to implement the algorithm from scratch, which I did using R and the formulas in the appendix of Lenhoff et al. (1999). Extremely helpful at this point was the Matlab code that a former colleague at our institute, Dr. Doris Oriwol, kindly provided me with. Her code allowed me to cross-check my implementation and correct a couple of mistakes. For instance - if I remember correctly - I struggled to implement the correction facor that adjusts the width of the bands to the desired confidence level. Not sure if I'd gotten it right without Doris' help. So, full credit to Doris!</span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; *As a side note: I am very grateful for people who have the know-how and the time to review the code. The description in the Lenhoff paper is rather brief, and we were not always 100% sure whether we had correctly implemented the algorithm. Further opinions and possible corrections are very welcome.*</span></span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>I'm sure other researchers have been here before and would have loved to read a coded version of the algorithm. My hope is that sharing our code is a major pain release in that regard and will lead to more people adopting the method. As indicated by Lenhoff et al., functional statistical bands are not limited to the description of differences between measurement systems, but are useful wherever the variation of curve data needs to be analyzed statistically. This includes a ton of important tasks such as estimating population parameters, indicating precision, assessing statistical significance, comparing groups, forecasting future observations, quantifying uncertainty in predictions etc..</span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a>In the course of implementing the method, I noticed something else: The examined bootstrap methods (including that of Røislien) have implemented a naive bootstrap, meaning they assume independence of the curves in the dataset. Accordingly, the papers suggested to include only one curve per subject in the bootstrap. From a methodological point of view, this is somewhat problematic since it ignores the intraindividual variance component. In the context of investigating measurement errors, for instance, this means that the variance across repeated measurements within a person is not taken into account. This may further aggravate the problem of bands being too narrow.</span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a>We therefore extended the functional bootstrap bands to include a possibility to account for repeated measurements (i.e., dependent curves). This was realized using the two-stage or double bootstrap described in <span class="co">[</span><span class="ot">Davison and Hinkley (1997)</span><span class="co">](https://doi.org/10.1017/CBO9780511802843)</span>, in which subjects (including all of their curves) are sampled with replacement in the first stage, and one curve per subject is drawn without replacement in the second stage. In addition to sharing our code, this implementation of the two-stage bootstrap is - IMHO - the main contribution of 'our' FunBootBand method. A systematic comparison of the method with other methodological approaches for characterizing continuous differences between two measurement systemes (pointwise LoA, Functional LoA, Functional Bootstrapped bands) can be found in in <span class="co">[</span><span class="ot">Koska et al. (2023)</span><span class="co">](https://doi.org/10.1016/j.jbiomech.2023.111506)</span>. Here, we analyzed the coverage probabilites of these models in different error scenarios (simulated and real-world data) and found that the FunBootBands showed superior performance.</span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a>What follows are various versions of the functional bootstrap bands (ongoing development) in different programming languages. The R code has already been published as a (devtools) package, and I plan to add it to CRAN at some point as well. In addition, I'm currently porting the code to Python. If time permits and I can delve into Julia, this may be next in line. Besides porting the function to different languages to improve the accessibility, my main goal is to increase code efficiency and reduce computation times - after all, bootstrapping is quite a computationally intensive. In R this may be done using RCpp, a C++ version. In Python, there is Cython, which should significantly reduce execution time.</span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a><span class="fu">#### FunBootBand R</span></span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a>The <span class="co">[</span><span class="ot">FunBootBand</span><span class="co">](https://koda86.github.io/FunBootBand/)</span> package contains a function to generate statistical (prediction or confidence) bands from curve data using a functional approach and bootstrapping.</span>
+<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo=FALSE}</span></span>
+<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a><span class="in"># devtools::install_github("koda86/FunBootBand")</span></span>
+<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a><span class="in">library(FunBootBand)</span></span>
+<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a><span class="in">prediction.band &lt;- band(data,</span></span>
+<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a><span class="in">                        type = "prediction",</span></span>
+<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a><span class="in">                        B = 5,</span></span>
+<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a><span class="in">                        alpha = 0.05,</span></span>
+<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a><span class="in">                        iid = TRUE)</span></span>
+<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a><span class="in">plot(data[, 1], type = "l", ylim = c(-3, 3), ylab = "Amplitude")</span></span>
+<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a><span class="in">apply(data, 2, function(x) lines(x)) |&gt; invisible()</span></span>
+<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a><span class="in">apply(prediction.band, 1, function(x) lines(x, col = "red", lwd = 4)) |&gt; invisible()</span></span>
+<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a>The development version of FunBootBand can be installed from GitHub with:</span>
+<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a>devtools::install_github("koda86/FunBootBand")</span>
+<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a><span class="fu">#### FunBootBand Python</span></span>
+<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
+<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
+<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a>The first alpha-ish version is available, see here: <span class="ot">&lt;https://github.com/koda86/FunBootBand-python&gt;</span></span>
+<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a>My TODO list still includes a bunch of items, such as extensive testing ... I'm getting there. Learned a whole lot about Python in the process as well so far.</span>
+<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a><span class="fu">#### FunBootBand RCpp</span></span>
+<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
+<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
+<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a>On my TODO list.</span>
+<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a><span class="fu">### Effort to compress</span></span>
+<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
+<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
+<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a>While trying out different complexity measures, I stumbled upon the 'effort to compress' (ETC) method introduced in (Nagaraj et al., 2013). ETC is a complexity measure for which code was originally presented as Matlab and Python Code. This repository contains an R implementation of the algorithm.</span>
+<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">effort2compress</span><span class="co">](https://github.com/koda86/effort2compress)</span> (GitHub)</span>
+<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a>See also the website of Nithin Nagaraj for the Matlab and Python versions: <span class="co">[</span><span class="ot">Website Nagaraj</span><span class="co">](https://sites.google.com/site/nithinnagaraj2/journal/software-toolbox-for-etc-measure)</span></span>
+<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a>Python implementation: <span class="co">[</span><span class="ot">Github</span><span class="co">](https://github.com/pranaysy/ETCPy)</span></span>
+<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a><span class="fu">### Identify duplicates in metadata (DupliCheck)</span></span>
+<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
+<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
+<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-129"><a href="#cb11-129" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- </span><span class="al">TODO</span><span class="co">: Implementieren eines schnelleren Suchalgorithmus --&gt;</span></span>
+<span id="cb11-130"><a href="#cb11-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-131"><a href="#cb11-131" aria-hidden="true" tabindex="-1"></a>::: {#image-container style="text-align: center;"}</span>
+<span id="cb11-132"><a href="#cb11-132" aria-hidden="true" tabindex="-1"></a><span class="al">![DupliCheck](DupliCheck_logo.png)</span>{width="40%"}</span>
+<span id="cb11-133"><a href="#cb11-133" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb11-134"><a href="#cb11-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-135"><a href="#cb11-135" aria-hidden="true" tabindex="-1"></a>I was recently conducting a meta-analysis to get an idea of the effect of digital physiotherapy for the treatment of various orthopedic diseases. For this, I used Pubmed, Cochrane, BASE (Bielefeld Academic Search Engine) and Embase, which resulted in large csv files containing metadata from the identified scientific articles. This metadata includes paper titles, authors, and the DOI, among others. Not going to talk about the pain of designing adequate search strings and exporting these articles here ...</span>
+<span id="cb11-136"><a href="#cb11-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-137"><a href="#cb11-137" aria-hidden="true" tabindex="-1"></a>Before deciding which papers to include in the meta-analysis, I needed to identify duplicates, i.e., papers that appeared more than once. This seems like a fairly straightforward job, but, as usual, the devil is in the detail. This probably explains why I wasn't able to find a suitable R function for the job (though, to be honest, I didn't invest an awful lot of time searching).</span>
+<span id="cb11-138"><a href="#cb11-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-139"><a href="#cb11-139" aria-hidden="true" tabindex="-1"></a>One obvious candidate, the base function duplicated(), only works on exact copies of a string and fails if even a single character is off. This happens, for example, when author names are written differently across databases. For instance, the author "Çelik" is not the same as "Celik." Another issue is that two distinct papers can have identical titles and the same authors (in a different order). This should be discernible from their different DOIs, but DOIs are not always available and often come in various formats. The list of complications goes on, making the task more complex. To spare others from the same pain, I packed everything into a small R package called **DupliCheck**.</span>
+<span id="cb11-140"><a href="#cb11-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-141"><a href="#cb11-141" aria-hidden="true" tabindex="-1"></a>The package contains a single function called **dupliHunter**. dupliHunter takes a data frame with (at least) title, author, and DOI columns. It also includes a threshold parameter to possibly fine-tune the allowed similarity between titles (calculated using stringdist::stringdistmatrix with the Jaccard distance method).</span>
+<span id="cb11-142"><a href="#cb11-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-143"><a href="#cb11-143" aria-hidden="true" tabindex="-1"></a>Here's how you can use the package:</span>
+<span id="cb11-144"><a href="#cb11-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-147"><a href="#cb11-147" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-148"><a href="#cb11-148" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span>
+<span id="cb11-149"><a href="#cb11-149" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb11-150"><a href="#cb11-150" aria-hidden="true" tabindex="-1"></a><span class="co"># devtools::install_github("koda86/DupliCheck")</span></span>
+<span id="cb11-151"><a href="#cb11-151" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DupliCheck)</span>
+<span id="cb11-152"><a href="#cb11-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-153"><a href="#cb11-153" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"~/tmp/data.RData"</span>) <span class="co"># Example data; load your own data here</span></span>
+<span id="cb11-154"><a href="#cb11-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-155"><a href="#cb11-155" aria-hidden="true" tabindex="-1"></a>duplicates <span class="ot">&lt;-</span> <span class="fu">dupliHunter</span>(data,</span>
+<span id="cb11-156"><a href="#cb11-156" aria-hidden="true" tabindex="-1"></a>                            <span class="at">title_col =</span> <span class="st">"Title"</span>,</span>
+<span id="cb11-157"><a href="#cb11-157" aria-hidden="true" tabindex="-1"></a>                            <span class="at">author_col =</span> <span class="st">"Authors"</span>,</span>
+<span id="cb11-158"><a href="#cb11-158" aria-hidden="true" tabindex="-1"></a>                            <span class="at">doi_col =</span> <span class="st">"DOI"</span>,</span>
+<span id="cb11-159"><a href="#cb11-159" aria-hidden="true" tabindex="-1"></a>                            <span class="at">threshold =</span> <span class="fl">0.03</span>)</span>
+<span id="cb11-160"><a href="#cb11-160" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-161"><a href="#cb11-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-162"><a href="#cb11-162" aria-hidden="true" tabindex="-1"></a>The current version of the function works decently. I haven't quantified Type I and II error rates so far, but my experience from working with several datasets and the feedback from colleagues suggest that errors are minimal. I’m also optimistic about the function’s ability to generalize across data from different search engines since the tested files represent data from commonly used sources.</span>
+<span id="cb11-163"><a href="#cb11-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-164"><a href="#cb11-164" aria-hidden="true" tabindex="-1"></a>Computational cost and execution speed were issues with my initial (simplistic) loop-based approach. I did some optimzation that included preprocessing titles to escape special characters, or the use of parallel processing. This reduced the execution time for a 4191-row test file significantly (down from 2856 s to about 952 s). It’s not lightning fast, but it's acceptable for vanilla R code. I hope to port the code to C++ to speed up processing time for future projects. We'll see ...</span>
+<span id="cb11-165"><a href="#cb11-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-166"><a href="#cb11-166" aria-hidden="true" tabindex="-1"></a><span class="fu">## How Isotropic Scaling in GPA Works</span></span>
+<span id="cb11-167"><a href="#cb11-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-168"><a href="#cb11-168" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
+<span id="cb11-169"><a href="#cb11-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-170"><a href="#cb11-170" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
+<span id="cb11-171"><a href="#cb11-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-172"><a href="#cb11-172" aria-hidden="true" tabindex="-1"></a>This entry is more of a mental note for my future self than anything else (which I guess most of this blog is tbh).</span>
+<span id="cb11-173"><a href="#cb11-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-174"><a href="#cb11-174" aria-hidden="true" tabindex="-1"></a>If you’ve ever worked with Generalized Procrustes Analysis (GPA) in statistical shape modeling, you’ve probably come across the *isotropic scaling* step. It sounds innocent enough — just scale all coordinates equally — but this step is both powerful and a little sneaky. Let’s unpack what’s really going on.</span>
+<span id="cb11-175"><a href="#cb11-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-176"><a href="#cb11-176" aria-hidden="true" tabindex="-1"></a><span class="fu">### Where it fits in GPA</span></span>
+<span id="cb11-177"><a href="#cb11-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-178"><a href="#cb11-178" aria-hidden="true" tabindex="-1"></a>The core idea of GPA is to remove differences that are *not* actual shape variation — things like translation, rotation, and scale — so that PCA or other analyses reflect pure shape.</span>
+<span id="cb11-179"><a href="#cb11-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-180"><a href="#cb11-180" aria-hidden="true" tabindex="-1"></a>For each shape (X) compared to a reference (often the current mean shape), GPA does:</span>
+<span id="cb11-181"><a href="#cb11-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-182"><a href="#cb11-182" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Translation:** Move the centroid to the origin.</span>
+<span id="cb11-183"><a href="#cb11-183" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Isotropic scaling:** Resize uniformly in all directions to match the reference size.</span>
+<span id="cb11-184"><a href="#cb11-184" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Rotation:** Rotate to minimize the distance to the reference.</span>
+<span id="cb11-185"><a href="#cb11-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-186"><a href="#cb11-186" aria-hidden="true" tabindex="-1"></a>Then it updates the mean shape and repeats until everything stops changing much.</span>
+<span id="cb11-187"><a href="#cb11-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-188"><a href="#cb11-188" aria-hidden="true" tabindex="-1"></a><span class="fu">### What isotropic scaling really is</span></span>
 <span id="cb11-189"><a href="#cb11-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-190"><a href="#cb11-190" aria-hidden="true" tabindex="-1"></a>Mathematically, if (X \in \mathbb{R}\^{k \times m}) is a translated shape (with (k) points in (m) dimensions, usually (m=2) or (3)), the scaled shape is:</span>
-<span id="cb11-191"><a href="#cb11-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-192"><a href="#cb11-192" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb11-193"><a href="#cb11-193" aria-hidden="true" tabindex="-1"></a>X_{\text{scaled}} = s \, X</span>
-<span id="cb11-194"><a href="#cb11-194" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb11-195"><a href="#cb11-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-196"><a href="#cb11-196" aria-hidden="true" tabindex="-1"></a>The scalar (s <span class="sc">\&gt;</span> 0) is chosen so that the scaled shape is as close as possible to the reference (Y).</span>
-<span id="cb11-197"><a href="#cb11-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-198"><a href="#cb11-198" aria-hidden="true" tabindex="-1"></a><span class="fu">### Deriving the scaling factor</span></span>
-<span id="cb11-199"><a href="#cb11-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-200"><a href="#cb11-200" aria-hidden="true" tabindex="-1"></a>We want to minimize the squared Procrustes distance:</span>
-<span id="cb11-201"><a href="#cb11-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-202"><a href="#cb11-202" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb11-203"><a href="#cb11-203" aria-hidden="true" tabindex="-1"></a>D^2(s) = \|\, sX - Y \,\|_F^2</span>
-<span id="cb11-204"><a href="#cb11-204" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb11-205"><a href="#cb11-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-206"><a href="#cb11-206" aria-hidden="true" tabindex="-1"></a>where (\|\cdot\|<span class="sc">\_</span>F) is the Frobenius norm (sum of squared coordinates, square-rooted).</span>
-<span id="cb11-207"><a href="#cb11-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-208"><a href="#cb11-208" aria-hidden="true" tabindex="-1"></a>Expanding and differentiating with respect to (s):</span>
-<span id="cb11-209"><a href="#cb11-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-210"><a href="#cb11-210" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb11-211"><a href="#cb11-211" aria-hidden="true" tabindex="-1"></a>D^2(s) = s^2 \sum_{i,j} X_{ij}^2 - 2s \sum_{i,j} X_{ij} Y_{ij} + \sum_{i,j} Y_{ij}^2</span>
-<span id="cb11-212"><a href="#cb11-212" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb11-213"><a href="#cb11-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-214"><a href="#cb11-214" aria-hidden="true" tabindex="-1"></a>Set derivative to zero:</span>
-<span id="cb11-215"><a href="#cb11-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-216"><a href="#cb11-216" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb11-217"><a href="#cb11-217" aria-hidden="true" tabindex="-1"></a>2s \sum_{i,j} X_{ij}^2 - 2 \sum_{i,j} X_{ij} Y_{ij} = 0</span>
-<span id="cb11-218"><a href="#cb11-218" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb11-219"><a href="#cb11-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-220"><a href="#cb11-220" aria-hidden="true" tabindex="-1"></a>And solve:</span>
-<span id="cb11-221"><a href="#cb11-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-222"><a href="#cb11-222" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb11-223"><a href="#cb11-223" aria-hidden="true" tabindex="-1"></a>s = \frac{\sum_{i,j} X_{ij} Y_{ij}}{\sum_{i,j} X_{ij}^2}</span>
-<span id="cb11-224"><a href="#cb11-224" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb11-225"><a href="#cb11-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-226"><a href="#cb11-226" aria-hidden="true" tabindex="-1"></a>In matrix form:</span>
-<span id="cb11-227"><a href="#cb11-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-228"><a href="#cb11-228" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb11-229"><a href="#cb11-229" aria-hidden="true" tabindex="-1"></a>s = \frac{\mathrm{trace}(X^\mathsf{T} Y)}{\mathrm{trace}(X^\mathsf{T} X)}</span>
-<span id="cb11-230"><a href="#cb11-230" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb11-231"><a href="#cb11-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-232"><a href="#cb11-232" aria-hidden="true" tabindex="-1"></a><span class="fu">### The centroid size connection</span></span>
-<span id="cb11-233"><a href="#cb11-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-234"><a href="#cb11-234" aria-hidden="true" tabindex="-1"></a>If no specific reference is chosen yet (e.g., the very first iteration), shapes are often scaled to **unit centroid size**:</span>
-<span id="cb11-235"><a href="#cb11-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-236"><a href="#cb11-236" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb11-237"><a href="#cb11-237" aria-hidden="true" tabindex="-1"></a>C = \sqrt{\sum_{i=1}^k \sum_{j=1}^m X_{ij}^2}</span>
-<span id="cb11-238"><a href="#cb11-238" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb11-239"><a href="#cb11-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-240"><a href="#cb11-240" aria-hidden="true" tabindex="-1"></a>and</span>
-<span id="cb11-241"><a href="#cb11-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-242"><a href="#cb11-242" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb11-243"><a href="#cb11-243" aria-hidden="true" tabindex="-1"></a>s = \frac{1}{C}</span>
-<span id="cb11-244"><a href="#cb11-244" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb11-245"><a href="#cb11-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-246"><a href="#cb11-246" aria-hidden="true" tabindex="-1"></a>This prevents large shapes from dominating the mean early on.</span>
-<span id="cb11-247"><a href="#cb11-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-248"><a href="#cb11-248" aria-hidden="true" tabindex="-1"></a><span class="fu">### Why it matters</span></span>
-<span id="cb11-249"><a href="#cb11-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-250"><a href="#cb11-250" aria-hidden="true" tabindex="-1"></a>Without scaling, size differences will dominate PCA.\</span>
-<span id="cb11-251"><a href="#cb11-251" aria-hidden="true" tabindex="-1"></a>With isotropic scaling, we remove those size differences, leaving only relative point configurations.\</span>
-<span id="cb11-252"><a href="#cb11-252" aria-hidden="true" tabindex="-1"></a>That’s great for *pure shape* analysis — but it can be risky if size is biologically meaningful.</span>
-<span id="cb11-253"><a href="#cb11-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-254"><a href="#cb11-254" aria-hidden="true" tabindex="-1"></a>And here’s the catch: isotropic scaling ties *all* coordinate axes to a single size factor.\</span>
-<span id="cb11-255"><a href="#cb11-255" aria-hidden="true" tabindex="-1"></a>If your sample varies in length or width, this scaling will also change **vertical coordinates**, even if they were identical before.\</span>
-<span id="cb11-256"><a href="#cb11-256" aria-hidden="true" tabindex="-1"></a>That can create *artificial deformation* in anisotropic structures like weight-bearing feet — a subtle source of bias you might not expect.</span>
-<span id="cb11-257"><a href="#cb11-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-258"><a href="#cb11-258" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb11-259"><a href="#cb11-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-260"><a href="#cb11-260" aria-hidden="true" tabindex="-1"></a>So, isotropic scaling: simple to describe, easy to code, but worth thinking about carefully.\</span>
-<span id="cb11-261"><a href="#cb11-261" aria-hidden="true" tabindex="-1"></a>Because sometimes, what looks like a “neutral” preprocessing step can quietly rewrite your shape story.</span>
+<span id="cb11-190"><a href="#cb11-190" aria-hidden="true" tabindex="-1"></a>Isotropic scaling means multiplying **all** coordinates by the same scalar (s).\</span>
+<span id="cb11-191"><a href="#cb11-191" aria-hidden="true" tabindex="-1"></a>No stretching in one direction, no skewing — every axis gets scaled equally.</span>
+<span id="cb11-192"><a href="#cb11-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-193"><a href="#cb11-193" aria-hidden="true" tabindex="-1"></a>Mathematically, if (X \in \mathbb{R}\^{k \times m}) is a translated shape (with (k) points in (m) dimensions, usually (m=2) or (3)), the scaled shape is:</span>
+<span id="cb11-194"><a href="#cb11-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-195"><a href="#cb11-195" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb11-196"><a href="#cb11-196" aria-hidden="true" tabindex="-1"></a>X_{\text{scaled}} = s \, X</span>
+<span id="cb11-197"><a href="#cb11-197" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb11-198"><a href="#cb11-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-199"><a href="#cb11-199" aria-hidden="true" tabindex="-1"></a>The scalar (s <span class="sc">\&gt;</span> 0) is chosen so that the scaled shape is as close as possible to the reference (Y).</span>
+<span id="cb11-200"><a href="#cb11-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-201"><a href="#cb11-201" aria-hidden="true" tabindex="-1"></a><span class="fu">### Deriving the scaling factor</span></span>
+<span id="cb11-202"><a href="#cb11-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-203"><a href="#cb11-203" aria-hidden="true" tabindex="-1"></a>We want to minimize the squared Procrustes distance:</span>
+<span id="cb11-204"><a href="#cb11-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-205"><a href="#cb11-205" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb11-206"><a href="#cb11-206" aria-hidden="true" tabindex="-1"></a>D^2(s) = \|\, sX - Y \,\|_F^2</span>
+<span id="cb11-207"><a href="#cb11-207" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb11-208"><a href="#cb11-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-209"><a href="#cb11-209" aria-hidden="true" tabindex="-1"></a>where (\|\cdot\|<span class="sc">\_</span>F) is the Frobenius norm (sum of squared coordinates, square-rooted).</span>
+<span id="cb11-210"><a href="#cb11-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-211"><a href="#cb11-211" aria-hidden="true" tabindex="-1"></a>Expanding and differentiating with respect to (s):</span>
+<span id="cb11-212"><a href="#cb11-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-213"><a href="#cb11-213" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb11-214"><a href="#cb11-214" aria-hidden="true" tabindex="-1"></a>D^2(s) = s^2 \sum_{i,j} X_{ij}^2 - 2s \sum_{i,j} X_{ij} Y_{ij} + \sum_{i,j} Y_{ij}^2</span>
+<span id="cb11-215"><a href="#cb11-215" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb11-216"><a href="#cb11-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-217"><a href="#cb11-217" aria-hidden="true" tabindex="-1"></a>Set derivative to zero:</span>
+<span id="cb11-218"><a href="#cb11-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-219"><a href="#cb11-219" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb11-220"><a href="#cb11-220" aria-hidden="true" tabindex="-1"></a>2s \sum_{i,j} X_{ij}^2 - 2 \sum_{i,j} X_{ij} Y_{ij} = 0</span>
+<span id="cb11-221"><a href="#cb11-221" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb11-222"><a href="#cb11-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-223"><a href="#cb11-223" aria-hidden="true" tabindex="-1"></a>And solve:</span>
+<span id="cb11-224"><a href="#cb11-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-225"><a href="#cb11-225" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb11-226"><a href="#cb11-226" aria-hidden="true" tabindex="-1"></a>s = \frac{\sum_{i,j} X_{ij} Y_{ij}}{\sum_{i,j} X_{ij}^2}</span>
+<span id="cb11-227"><a href="#cb11-227" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb11-228"><a href="#cb11-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-229"><a href="#cb11-229" aria-hidden="true" tabindex="-1"></a>In matrix form:</span>
+<span id="cb11-230"><a href="#cb11-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-231"><a href="#cb11-231" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb11-232"><a href="#cb11-232" aria-hidden="true" tabindex="-1"></a>s = \frac{\mathrm{trace}(X^\mathsf{T} Y)}{\mathrm{trace}(X^\mathsf{T} X)}</span>
+<span id="cb11-233"><a href="#cb11-233" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb11-234"><a href="#cb11-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-235"><a href="#cb11-235" aria-hidden="true" tabindex="-1"></a><span class="fu">### The centroid size connection</span></span>
+<span id="cb11-236"><a href="#cb11-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-237"><a href="#cb11-237" aria-hidden="true" tabindex="-1"></a>If no specific reference is chosen yet (e.g., the very first iteration), shapes are often scaled to **unit centroid size**:</span>
+<span id="cb11-238"><a href="#cb11-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-239"><a href="#cb11-239" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb11-240"><a href="#cb11-240" aria-hidden="true" tabindex="-1"></a>C = \sqrt{\sum_{i=1}^k \sum_{j=1}^m X_{ij}^2}</span>
+<span id="cb11-241"><a href="#cb11-241" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb11-242"><a href="#cb11-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-243"><a href="#cb11-243" aria-hidden="true" tabindex="-1"></a>and</span>
+<span id="cb11-244"><a href="#cb11-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-245"><a href="#cb11-245" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb11-246"><a href="#cb11-246" aria-hidden="true" tabindex="-1"></a>s = \frac{1}{C}</span>
+<span id="cb11-247"><a href="#cb11-247" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb11-248"><a href="#cb11-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-249"><a href="#cb11-249" aria-hidden="true" tabindex="-1"></a>This prevents large shapes from dominating the mean early on.</span>
+<span id="cb11-250"><a href="#cb11-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-251"><a href="#cb11-251" aria-hidden="true" tabindex="-1"></a><span class="fu">### Why it matters</span></span>
+<span id="cb11-252"><a href="#cb11-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-253"><a href="#cb11-253" aria-hidden="true" tabindex="-1"></a>Without scaling, size differences will dominate PCA.\</span>
+<span id="cb11-254"><a href="#cb11-254" aria-hidden="true" tabindex="-1"></a>With isotropic scaling, we remove those size differences, leaving only relative point configurations.\</span>
+<span id="cb11-255"><a href="#cb11-255" aria-hidden="true" tabindex="-1"></a>That’s great for *pure shape* analysis — but it can be risky if size is biologically meaningful.</span>
+<span id="cb11-256"><a href="#cb11-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-257"><a href="#cb11-257" aria-hidden="true" tabindex="-1"></a>And here’s the catch: isotropic scaling ties *all* coordinate axes to a single size factor.\</span>
+<span id="cb11-258"><a href="#cb11-258" aria-hidden="true" tabindex="-1"></a>If your sample varies in length or width, this scaling will also change **vertical coordinates**, even if they were identical before.\</span>
+<span id="cb11-259"><a href="#cb11-259" aria-hidden="true" tabindex="-1"></a>That can create *artificial deformation* in anisotropic structures like weight-bearing feet — a subtle source of bias you might not expect.</span>
+<span id="cb11-260"><a href="#cb11-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-261"><a href="#cb11-261" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb11-262"><a href="#cb11-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-263"><a href="#cb11-263" aria-hidden="true" tabindex="-1"></a><span class="fu">## Disco Diffusion Music Video</span></span>
-<span id="cb11-264"><a href="#cb11-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-265"><a href="#cb11-265" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
-<span id="cb11-266"><a href="#cb11-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-267"><a href="#cb11-267" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
-<span id="cb11-268"><a href="#cb11-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-269"><a href="#cb11-269" aria-hidden="true" tabindex="-1"></a>This post is about a ('AI'-generated) music video that I created for my Band <span class="co">[</span><span class="ot">ICTRL</span><span class="co">](https://ictrl.bandcamp.com/track/dead-horse)</span>. Before I go on with the nerdy details, you should check out the video first:</span>
-<span id="cb11-270"><a href="#cb11-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-271"><a href="#cb11-271" aria-hidden="true" tabindex="-1"></a>::: {style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;"}</span>
-<span id="cb11-272"><a href="#cb11-272" aria-hidden="true" tabindex="-1"></a>&lt;iframe width="100%" height="100%" src="https://www.youtube.com/embed/l7dXeudFoDc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"&gt;</span>
+<span id="cb11-263"><a href="#cb11-263" aria-hidden="true" tabindex="-1"></a>So, isotropic scaling: simple to describe, easy to code, but worth thinking about carefully.\</span>
+<span id="cb11-264"><a href="#cb11-264" aria-hidden="true" tabindex="-1"></a>Because sometimes, what looks like a “neutral” preprocessing step can quietly rewrite your shape story.</span>
+<span id="cb11-265"><a href="#cb11-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-266"><a href="#cb11-266" aria-hidden="true" tabindex="-1"></a><span class="fu">## Disco Diffusion Music Video</span></span>
+<span id="cb11-267"><a href="#cb11-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-268"><a href="#cb11-268" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
+<span id="cb11-269"><a href="#cb11-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-270"><a href="#cb11-270" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
+<span id="cb11-271"><a href="#cb11-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-272"><a href="#cb11-272" aria-hidden="true" tabindex="-1"></a>This post is about a ('AI'-generated) music video that I created for my Band <span class="co">[</span><span class="ot">ICTRL</span><span class="co">](https://ictrl.bandcamp.com/track/dead-horse)</span>. Before I go on with the nerdy details, you should check out the video first:</span>
 <span id="cb11-273"><a href="#cb11-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-274"><a href="#cb11-274" aria-hidden="true" tabindex="-1"></a>&lt;/iframe&gt;</span>
-<span id="cb11-275"><a href="#cb11-275" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb11-274"><a href="#cb11-274" aria-hidden="true" tabindex="-1"></a>::: {style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;"}</span>
+<span id="cb11-275"><a href="#cb11-275" aria-hidden="true" tabindex="-1"></a>&lt;iframe width="100%" height="100%" src="https://www.youtube.com/embed/l7dXeudFoDc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"&gt;</span>
 <span id="cb11-276"><a href="#cb11-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-277"><a href="#cb11-277" aria-hidden="true" tabindex="-1"></a>The video illustrates our song Dead Horse, which is the first of a bunch of singles we are going to drop this year. The idea to create a video like this was inspired by a <span class="co">[</span><span class="ot">Reddit post</span><span class="co">](https://www.reddit.com/r/KGATLW/comments/1bxew7e/is_the_iron_lung_music_video_really_ai/)</span> about a recent video by one of my favorite bands: King Gizzard and the Lizzard Wizard (the song is called Iron Lung). The post provided some insights into how the video was created, e.g. this quote from user *No_Stay2400*:</span>
-<span id="cb11-278"><a href="#cb11-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-279"><a href="#cb11-279" aria-hidden="true" tabindex="-1"></a>*"From Spod, the guy who made it (in a Reddit post back when it came out): Cheers, yeah it was 2 months of trial and error, and using a bunch of different techniques alongside the newest diffusion programs as they rolled out. It was all mapped out frame by frame to work with the music, trying see if I could illustrate the feeling of the music through the video. At times it feels like driving a bus from the backseat, but is amazing when it all comes together. The hardest thing is steering it away from the generic look that AI art can get. Anyway, thanks."*</span>
-<span id="cb11-280"><a href="#cb11-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-281"><a href="#cb11-281" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- https://www.reddit.com/r/KGATLW/comments/xvdigb/music_video_iron_lung_ice_death_planets_lungs/ --&gt;</span></span>
-<span id="cb11-282"><a href="#cb11-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-283"><a href="#cb11-283" aria-hidden="true" tabindex="-1"></a>The main tool that caught my interest was Disco Diffusion, a neat open-source AI tool for generative art. Imagine typing in some text prompt and getting intricate pieces of visual art (for all "future" readers of the last sentence: Imagine a world where 'AI' was a new and exciting thing). Quickly, the idea was born to create a low-budget video where the prompts and thus the video sequences fit the lyrics of the song.</span>
-<span id="cb11-284"><a href="#cb11-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-285"><a href="#cb11-285" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Disco Diffusion uses some pretty advanced deep learning models to make it all happen --&gt;</span></span>
-<span id="cb11-286"><a href="#cb11-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-287"><a href="#cb11-287" aria-hidden="true" tabindex="-1"></a>Disco Diffusion was developed using Google Colab, which is a free, cloud-based Jupyter notebook environment provided by Google. If you are a data scientist or machine learning practitioner, you have probably heard of it. Being cloud-based, Colab requires no setup or installation. Users can start coding immediately in their web browser. Colab supports Python, so it was easy to read and understand the code. That bein said, there's absolutely no need for any programming skills, since there are empty fields for all relevant parameters, prompts etc. in the notebook.</span>
-<span id="cb11-288"><a href="#cb11-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-289"><a href="#cb11-289" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Colab notebooks and all generated files can be stored directly on Google Drive, making it easy to manage and share files.  --&gt;</span></span>
-<span id="cb11-290"><a href="#cb11-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-291"><a href="#cb11-291" aria-hidden="true" tabindex="-1"></a>Colab also provides access to powerful computational resources, including different GPUs and TPUs, which are essential for training deep learning models. There is a certain amount of free resources (so called compute units) one can use to test the setup and get some early images. That, however, is rather slow and these provided credits will be exhausted soon. So it makes sense to switch to the Colab Pro, which cost me roughly 50 Euros or so for a month. I know there's also a <span class="co">[</span><span class="ot">local version of Disco Diffusion</span><span class="co">](https://github.com/MohamadZeina/Disco_Diffusion_Local)</span>, but I didn't consider my computation ressources enough to make a video in reasonable time, so I abandoned that for the moment. This may be something to investigate more in the future, especially since I'm not particularly keen on throwing my money towards Google. Well.</span>
-<span id="cb11-292"><a href="#cb11-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-293"><a href="#cb11-293" aria-hidden="true" tabindex="-1"></a>The Colab notebook itself is pretty much self-explanatory. One has to run a bunch of cells to check GPU status, prepare folders and connect a (cloud) drive, import dependencies and set up runtime devices, define necessary functions and so on. The first interesting part are the diffusion and CLIP model settings. I watched a bunch of Youtube videos such as <span class="co">[</span><span class="ot">this one</span><span class="co">](https://www.youtube.com/watch?v=gWxmtdZL8FE)</span> where they explained which settings worked for them. Copying mostly from that, I used a "512x512_diffusion_uncond_finetune_008100" diffusion model and checked the 'use_secondary_model' box.</span>
-<span id="cb11-294"><a href="#cb11-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-295"><a href="#cb11-295" aria-hidden="true" tabindex="-1"></a>The next big thing are the settings. Here I set the number of steps to 150. this values, I believe, is responsible for the amount of details in a single frame. I further set the picture dimension to <span class="sc">\[</span>1280, 768<span class="sc">\]</span>. For all the rest, I stuck with the default settings.</span>
-<span id="cb11-296"><a href="#cb11-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-297"><a href="#cb11-297" aria-hidden="true" tabindex="-1"></a>For the animation settings, I chose the 2D animation mode, checked the 'key_frames' box, and set 'max_frames' to 3500. I calculated the number of frames (3500) to make the length of the video match the length of the song at the chosen framerate of 12 fps. To create the movement you can see in the video, I changed the following parameters (leaving the rest at default):</span>
-<span id="cb11-298"><a href="#cb11-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-299"><a href="#cb11-299" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; interp_spline = 'Linear'\</span></span>
-<span id="cb11-300"><a href="#cb11-300" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; angle = "0:(1.03)"\</span></span>
-<span id="cb11-301"><a href="#cb11-301" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; zoom = "0:(1.03)"\</span></span>
-<span id="cb11-302"><a href="#cb11-302" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; translation_x = "0:(0)"\</span></span>
-<span id="cb11-303"><a href="#cb11-303" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; translation_y = "0:(0)"\</span></span>
-<span id="cb11-304"><a href="#cb11-304" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; translation_z = "0:(10.0)"</span></span>
-<span id="cb11-305"><a href="#cb11-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-306"><a href="#cb11-306" aria-hidden="true" tabindex="-1"></a>Initially, I changed the values for the 3D rotation as well, which caused some hard to pin down errors. Took me way too long to figure that out and caused some real frustrations along the way.</span>
-<span id="cb11-307"><a href="#cb11-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-308"><a href="#cb11-308" aria-hidden="true" tabindex="-1"></a>Next in line was the design of the prompts. First of all, I spent a LOT of time figuring out which style I would like to have. The YouTube video linked above, created by a guy called Doctor Diffusion, used pictures from the Polish artist Zdzisław Beksiński, famously know for his dystopian surrealism, and the American artist Lisa Frank, who is known for rainbow and neon colors and stylized depictions of animals, including dolphins, pandas, and unicorns. I threw in some Edvard Munch, who's paintings I admire since being in the Munch museum in Oslo, and I really liked what I saw. Here are the exact prompts I used:</span>
-<span id="cb11-309"><a href="#cb11-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-310"><a href="#cb11-310" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; text_prompts = {\</span></span>
-<span id="cb11-311"><a href="#cb11-311" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 0: </span><span class="sc">\[</span><span class="at">"A single horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-312"><a href="#cb11-312" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 216: </span><span class="sc">\[</span><span class="at">"A single ear by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-313"><a href="#cb11-313" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 300: </span><span class="sc">\[</span><span class="at">"A single cloud by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-314"><a href="#cb11-314" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 300: </span><span class="sc">\[</span><span class="at">"A burning cloud by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-315"><a href="#cb11-315" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 384: </span><span class="sc">\[</span><span class="at">"A single horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-316"><a href="#cb11-316" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 468: </span><span class="sc">\[</span><span class="at">"A single running woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-317"><a href="#cb11-317" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 684: </span><span class="sc">\[</span><span class="at">"A single vomiting woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-318"><a href="#cb11-318" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 720: </span><span class="sc">\[</span><span class="at">"A single beating heart by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-319"><a href="#cb11-319" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 888: </span><span class="sc">\[</span><span class="at">"A single race horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-320"><a href="#cb11-320" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 1080: </span><span class="sc">\[</span><span class="at">"A single curtain by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-321"><a href="#cb11-321" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 1164: </span><span class="sc">\[</span><span class="at">"A single crow by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-322"><a href="#cb11-322" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 1212: </span><span class="sc">\[</span><span class="at">"A picture of a broken spine by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-323"><a href="#cb11-323" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 1320: </span><span class="sc">\[</span><span class="at">"A picture of a torch by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-324"><a href="#cb11-324" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 1380: </span><span class="sc">\[</span><span class="at">"A single running woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-325"><a href="#cb11-325" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 1560: </span><span class="sc">\[</span><span class="at">"A single vomiting woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-326"><a href="#cb11-326" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 1656: </span><span class="sc">\[</span><span class="at">"A single running horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-327"><a href="#cb11-327" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 1860: </span><span class="sc">\[</span><span class="at">"A single bass player by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-328"><a href="#cb11-328" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 1980: </span><span class="sc">\[</span><span class="at">"A single running horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-329"><a href="#cb11-329" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 2100: </span><span class="sc">\[</span><span class="at">"A single running woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-330"><a href="#cb11-330" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 2280: </span><span class="sc">\[</span><span class="at">"A single vomiting woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-331"><a href="#cb11-331" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 2340: </span><span class="sc">\[</span><span class="at">"A picture of a screaming woman in the background by Zdzisław Beksiński and Edvard Munch, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-332"><a href="#cb11-332" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 2400: </span><span class="sc">\[</span><span class="at">"A picture of a thunderstorm with fire in the background by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-333"><a href="#cb11-333" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 2460: </span><span class="sc">\[</span><span class="at">"A picture of a screaming woman in the background by Zdzisław Beksiński and Edvard Munch, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-334"><a href="#cb11-334" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 2520: </span><span class="sc">\[</span><span class="at">"A single vomiting woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-335"><a href="#cb11-335" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 2700: </span><span class="sc">\[</span><span class="at">"A picture of a horse running through a thunderstorm by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-336"><a href="#cb11-336" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 2940: </span><span class="sc">\[</span><span class="at">"A picture of a dying horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-337"><a href="#cb11-337" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 3060: </span><span class="sc">\[</span><span class="at">"A picture of a golden ship in the sea by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-338"><a href="#cb11-338" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 3144: </span><span class="sc">\[</span><span class="at">"A picture of a dying horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-339"><a href="#cb11-339" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 3204: </span><span class="sc">\[</span><span class="at">"A picture of a horse in hell by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-340"><a href="#cb11-340" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 3276: </span><span class="sc">\[</span><span class="at">"A picture of a horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
-<span id="cb11-341"><a href="#cb11-341" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 3372: </span><span class="sc">\[</span><span class="at">"A picture of a rainbow by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">\</span></span>
-<span id="cb11-342"><a href="#cb11-342" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; }</span></span>
-<span id="cb11-343"><a href="#cb11-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-344"><a href="#cb11-344" aria-hidden="true" tabindex="-1"></a>For the actual creation of the video, I set the 'blend' to 0.5 and always started at the 'final_frame' when I had to rerun the script. This happened quite a few times, for instance because of errors or when I ran out of computing units.</span>
-<span id="cb11-345"><a href="#cb11-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-346"><a href="#cb11-346" aria-hidden="true" tabindex="-1"></a>Finally, after the animation was, it required some minor editing to overlay the audio track onto the video. Et voilà, a new video was born.</span>
-<span id="cb11-347"><a href="#cb11-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-348"><a href="#cb11-348" aria-hidden="true" tabindex="-1"></a><span class="fu">## Isolating Bass Tracks</span></span>
-<span id="cb11-349"><a href="#cb11-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-350"><a href="#cb11-350" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
-<span id="cb11-351"><a href="#cb11-351" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-352"><a href="#cb11-352" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
-<span id="cb11-353"><a href="#cb11-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-354"><a href="#cb11-354" aria-hidden="true" tabindex="-1"></a>I am a fan Rick Beato's YouTube channel, especially the series 'What Makes This Song Great?'. Also, I always wondered how he got those isolated instrument tracks, especially the bass tracks. One reason, I assume, is that he's a well-copnnected producer with access to separated high-quality tracks directly from the artists or record labels for his deep dives.</span>
-<span id="cb11-355"><a href="#cb11-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-356"><a href="#cb11-356" aria-hidden="true" tabindex="-1"></a>As for my motivation, I thought it would be helpful to have isolated bass tracks for songs I would like to learn. The problem, though, is that I'm neither a producer nor well-connected. Also, for much of the music I like, YouTube - despite it's sheer endless content on almost every niche topic - does not provide either isolated bass tracks or bass players covering these songs. So I did some searching online and found that there a several ways to isolate tracks for single instruments. These include EQ and filtering, layering and reconstruction, and several audio separation techniques such as spectral editing or phase cancellation.</span>
-<span id="cb11-357"><a href="#cb11-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-358"><a href="#cb11-358" aria-hidden="true" tabindex="-1"></a>The most convenient way, at least for my purposes, seems to be machine learning and AI-based tools since they require the least amount of audio engineering know-how. My current go-to LLM suggested four options (assuming I need a free option available under Linux):</span>
-<span id="cb11-359"><a href="#cb11-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-360"><a href="#cb11-360" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Spleeter (by Deezer)</span>
-<span id="cb11-361"><a href="#cb11-361" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Demucs (by Facebook AI Research)</span>
-<span id="cb11-362"><a href="#cb11-362" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Open-Unmix</span>
-<span id="cb11-363"><a href="#cb11-363" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>VocalRemover.org (Command-Line Interface)</span>
-<span id="cb11-364"><a href="#cb11-364" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-365"><a href="#cb11-365" aria-hidden="true" tabindex="-1"></a>I decided to give Open-Unmix a try, mainly because of the description: "Open-Unmix is an open-source tool for music source separation, developed by the Music Technology Group at the Technical University of Madrid. It focuses on separating vocals, bass, and drums from music tracks."</span>
-<span id="cb11-366"><a href="#cb11-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-367"><a href="#cb11-367" aria-hidden="true" tabindex="-1"></a>Well, I like open-source solutions and I have an academic background, so that was enough to convince me. As for the cons, Open-Unmix may be less computationally efficient, but that wasn't my main concern at this stage. I may do a comparison of different tools in a future post, though. Open-Unmix utilizes a bidirectional LSTM architecture for effective separation and requires FFmpeg for audio processing. Also, like basically all the other tools in the list, Open-Unmix is Python-based. Here are the bash commands I used to set up everything:</span>
-<span id="cb11-368"><a href="#cb11-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-369"><a href="#cb11-369" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Install Python 3 and essential tools</span>
-<span id="cb11-370"><a href="#cb11-370" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-371"><a href="#cb11-371" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
-<span id="cb11-372"><a href="#cb11-372" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
-<span id="cb11-373"><a href="#cb11-373" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install python3 python3-venv python3-pip ffmpeg</span>
-<span id="cb11-374"><a href="#cb11-374" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-375"><a href="#cb11-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-376"><a href="#cb11-376" aria-hidden="true" tabindex="-1"></a>python3 is the Python 3 interpreter. python3-venv is the module to create virtual environments. python3-pip ist the Python package installer and ffmpeg is, well ffmpeg ;-)</span>
-<span id="cb11-377"><a href="#cb11-377" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-378"><a href="#cb11-378" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Create and activate a virtual environment</span>
-<span id="cb11-379"><a href="#cb11-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-380"><a href="#cb11-380" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
-<span id="cb11-381"><a href="#cb11-381" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
-<span id="cb11-382"><a href="#cb11-382" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv openunmix_env</span>
-<span id="cb11-383"><a href="#cb11-383" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> openunmix_env/bin/activate</span>
-<span id="cb11-384"><a href="#cb11-384" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-385"><a href="#cb11-385" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-386"><a href="#cb11-386" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Upgrade pip within the virtual environment</span>
-<span id="cb11-387"><a href="#cb11-387" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-388"><a href="#cb11-388" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
-<span id="cb11-389"><a href="#cb11-389" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--upgrade</span> pip</span>
-<span id="cb11-390"><a href="#cb11-390" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-391"><a href="#cb11-391" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-392"><a href="#cb11-392" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Install Open-Unmix and verify the installation</span>
-<span id="cb11-393"><a href="#cb11-393" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-394"><a href="#cb11-394" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
-<span id="cb11-395"><a href="#cb11-395" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install openunmix</span>
-<span id="cb11-396"><a href="#cb11-396" aria-hidden="true" tabindex="-1"></a><span class="ex">umx</span> <span class="at">--help</span></span>
-<span id="cb11-397"><a href="#cb11-397" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-398"><a href="#cb11-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-399"><a href="#cb11-399" aria-hidden="true" tabindex="-1"></a>By the way, 'deactivate' allows one to leave the virtual environment.</span>
-<span id="cb11-400"><a href="#cb11-400" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-401"><a href="#cb11-401" aria-hidden="true" tabindex="-1"></a>For a first test, I chose the song Exoplanet by Mother Engine. If converted this (YouTube video) <span class="sc">\[</span>https://www.youtube.com/watch?v=MJu7bSh_03I<span class="sc">\]</span> to an MP3 file and used this bash command:</span>
-<span id="cb11-402"><a href="#cb11-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-403"><a href="#cb11-403" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
-<span id="cb11-404"><a href="#cb11-404" aria-hidden="true" tabindex="-1"></a><span class="ex">umx</span> <span class="at">--outdir</span> ~/music/isolated_tracks ~/music/isolated_tracks/Exoplanet.mp3</span>
-<span id="cb11-405"><a href="#cb11-405" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-406"><a href="#cb11-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-407"><a href="#cb11-407" aria-hidden="true" tabindex="-1"></a>from which I got this error:</span>
-<span id="cb11-408"><a href="#cb11-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-409"><a href="#cb11-409" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
-<span id="cb11-410"><a href="#cb11-410" aria-hidden="true" tabindex="-1"></a><span class="ex">torch.OutOfMemoryError:</span> CUDA out of memory. Tried to allocate 640.00 MiB. GPU 0 has a total capacity of 1.95 GiB of which 518.62 MiB is free. Including non-PyTorch memory, this process has 1.44 GiB memory in use. Of the allocated memory 1.36 GiB is allocated by PyTorch, and 44.48 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  <span class="er">(</span><span class="ex">https://pytorch.org/docs/stable/notes/cuda.html#environment-variables</span><span class="kw">)</span></span>
-<span id="cb11-411"><a href="#cb11-411" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-412"><a href="#cb11-412" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-413"><a href="#cb11-413" aria-hidden="true" tabindex="-1"></a>This error message indicates that my GPU does not have sufficient memory to process the audio file using Open-Unmix. I therefore switched to CPU Processing (instead of GPU processing).</span>
-<span id="cb11-414"><a href="#cb11-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-415"><a href="#cb11-415" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
-<span id="cb11-416"><a href="#cb11-416" aria-hidden="true" tabindex="-1"></a><span class="ex">umx</span> <span class="at">--no-cuda</span> <span class="at">--outdir</span> ~/music/isolated_tracks ~/music/isolated_tracks/Exoplanet.mp3</span>
-<span id="cb11-417"><a href="#cb11-417" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-418"><a href="#cb11-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-419"><a href="#cb11-419" aria-hidden="true" tabindex="-1"></a>This did the track and created a folder named 'Exoplanet' including isolated (<span class="sc">\*</span>.wav) tracks for bass, drums, vocals and others in the same directory as the original MP3 file.</span>
-<span id="cb11-420"><a href="#cb11-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-421"><a href="#cb11-421" aria-hidden="true" tabindex="-1"></a>Here's the isolated bass track for "Exoplanet" by Mother Engine:</span>
-<span id="cb11-422"><a href="#cb11-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-423"><a href="#cb11-423" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">🎧 Listen to "Exoplanet" Isolated Bass Track</span><span class="co">](assets/audio/bass.mp3)</span>{target="_blank"}</span>
-<span id="cb11-424"><a href="#cb11-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-425"><a href="#cb11-425" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- &lt;audio controls&gt; --&gt;</span></span>
-<span id="cb11-426"><a href="#cb11-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-427"><a href="#cb11-427" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   &lt;source src="bass.mp3" type="audio/mpeg"&gt; --&gt;</span></span>
-<span id="cb11-428"><a href="#cb11-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-429"><a href="#cb11-429" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   Your browser does not support the audio element. --&gt;</span></span>
-<span id="cb11-430"><a href="#cb11-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-431"><a href="#cb11-431" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- &lt;/audio&gt; --&gt;</span></span>
-<span id="cb11-432"><a href="#cb11-432" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-433"><a href="#cb11-433" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- How can I track the time needed to process this on my system (system specs)? --&gt;</span></span>
-<span id="cb11-434"><a href="#cb11-434" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-435"><a href="#cb11-435" aria-hidden="true" tabindex="-1"></a>There are some additional tricks that may help improve the performance for future tries. I could, for instance, ...</span>
-<span id="cb11-436"><a href="#cb11-436" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-437"><a href="#cb11-437" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Optimize CPU processing</span>
-<span id="cb11-438"><a href="#cb11-438" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-439"><a href="#cb11-439" aria-hidden="true" tabindex="-1"></a>For instance,</span>
-<span id="cb11-440"><a href="#cb11-440" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-441"><a href="#cb11-441" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
-<span id="cb11-442"><a href="#cb11-442" aria-hidden="true" tabindex="-1"></a><span class="ex">umx</span> <span class="at">--no-cuda</span> <span class="at">--outdir</span> ~/music/isolated_tracks ~/music/isolated_tracks/Exoplanet.mp3 <span class="at">--start</span> 30 <span class="at">--duration</span> 60</span>
-<span id="cb11-443"><a href="#cb11-443" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-444"><a href="#cb11-444" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-445"><a href="#cb11-445" aria-hidden="true" tabindex="-1"></a>should processes a 60-second segment starting at 30 seconds into the track. I could also limit the number of targets/tracks to specific instruments (e.g., bass):</span>
-<span id="cb11-446"><a href="#cb11-446" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-447"><a href="#cb11-447" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
-<span id="cb11-448"><a href="#cb11-448" aria-hidden="true" tabindex="-1"></a><span class="ex">umx</span> <span class="at">--no-cuda</span> <span class="at">--outdir</span> ~/music/isolated_tracks <span class="at">--targets</span> bass ~/music/isolated_tracks/Exoplanet.mp3</span>
-<span id="cb11-449"><a href="#cb11-449" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-450"><a href="#cb11-450" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-451"><a href="#cb11-451" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Explore alternative, faster and less resource-intensive tools such as Spleeter or Demucs.</span>
-<span id="cb11-452"><a href="#cb11-452" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-453"><a href="#cb11-453" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Or I could use higher-quality audio files such as WAV, or FLAC instead of compressed formats like MP3. These may yield better separation results and may also reduce processing time due to less decoding overhead.</span>
+<span id="cb11-277"><a href="#cb11-277" aria-hidden="true" tabindex="-1"></a>&lt;/iframe&gt;</span>
+<span id="cb11-278"><a href="#cb11-278" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb11-279"><a href="#cb11-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-280"><a href="#cb11-280" aria-hidden="true" tabindex="-1"></a>The video illustrates our song Dead Horse, which is the first of a bunch of singles we are going to drop this year. The idea to create a video like this was inspired by a <span class="co">[</span><span class="ot">Reddit post</span><span class="co">](https://www.reddit.com/r/KGATLW/comments/1bxew7e/is_the_iron_lung_music_video_really_ai/)</span> about a recent video by one of my favorite bands: King Gizzard and the Lizzard Wizard (the song is called Iron Lung). The post provided some insights into how the video was created, e.g. this quote from user *No_Stay2400*:</span>
+<span id="cb11-281"><a href="#cb11-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-282"><a href="#cb11-282" aria-hidden="true" tabindex="-1"></a>*"From Spod, the guy who made it (in a Reddit post back when it came out): Cheers, yeah it was 2 months of trial and error, and using a bunch of different techniques alongside the newest diffusion programs as they rolled out. It was all mapped out frame by frame to work with the music, trying see if I could illustrate the feeling of the music through the video. At times it feels like driving a bus from the backseat, but is amazing when it all comes together. The hardest thing is steering it away from the generic look that AI art can get. Anyway, thanks."*</span>
+<span id="cb11-283"><a href="#cb11-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-284"><a href="#cb11-284" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- https://www.reddit.com/r/KGATLW/comments/xvdigb/music_video_iron_lung_ice_death_planets_lungs/ --&gt;</span></span>
+<span id="cb11-285"><a href="#cb11-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-286"><a href="#cb11-286" aria-hidden="true" tabindex="-1"></a>The main tool that caught my interest was Disco Diffusion, a neat open-source AI tool for generative art. Imagine typing in some text prompt and getting intricate pieces of visual art (for all "future" readers of the last sentence: Imagine a world where 'AI' was a new and exciting thing). Quickly, the idea was born to create a low-budget video where the prompts and thus the video sequences fit the lyrics of the song.</span>
+<span id="cb11-287"><a href="#cb11-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-288"><a href="#cb11-288" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Disco Diffusion uses some pretty advanced deep learning models to make it all happen --&gt;</span></span>
+<span id="cb11-289"><a href="#cb11-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-290"><a href="#cb11-290" aria-hidden="true" tabindex="-1"></a>Disco Diffusion was developed using Google Colab, which is a free, cloud-based Jupyter notebook environment provided by Google. If you are a data scientist or machine learning practitioner, you have probably heard of it. Being cloud-based, Colab requires no setup or installation. Users can start coding immediately in their web browser. Colab supports Python, so it was easy to read and understand the code. That bein said, there's absolutely no need for any programming skills, since there are empty fields for all relevant parameters, prompts etc. in the notebook.</span>
+<span id="cb11-291"><a href="#cb11-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-292"><a href="#cb11-292" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Colab notebooks and all generated files can be stored directly on Google Drive, making it easy to manage and share files.  --&gt;</span></span>
+<span id="cb11-293"><a href="#cb11-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-294"><a href="#cb11-294" aria-hidden="true" tabindex="-1"></a>Colab also provides access to powerful computational resources, including different GPUs and TPUs, which are essential for training deep learning models. There is a certain amount of free resources (so called compute units) one can use to test the setup and get some early images. That, however, is rather slow and these provided credits will be exhausted soon. So it makes sense to switch to the Colab Pro, which cost me roughly 50 Euros or so for a month. I know there's also a <span class="co">[</span><span class="ot">local version of Disco Diffusion</span><span class="co">](https://github.com/MohamadZeina/Disco_Diffusion_Local)</span>, but I didn't consider my computation ressources enough to make a video in reasonable time, so I abandoned that for the moment. This may be something to investigate more in the future, especially since I'm not particularly keen on throwing my money towards Google. Well.</span>
+<span id="cb11-295"><a href="#cb11-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-296"><a href="#cb11-296" aria-hidden="true" tabindex="-1"></a>The Colab notebook itself is pretty much self-explanatory. One has to run a bunch of cells to check GPU status, prepare folders and connect a (cloud) drive, import dependencies and set up runtime devices, define necessary functions and so on. The first interesting part are the diffusion and CLIP model settings. I watched a bunch of Youtube videos such as <span class="co">[</span><span class="ot">this one</span><span class="co">](https://www.youtube.com/watch?v=gWxmtdZL8FE)</span> where they explained which settings worked for them. Copying mostly from that, I used a "512x512_diffusion_uncond_finetune_008100" diffusion model and checked the 'use_secondary_model' box.</span>
+<span id="cb11-297"><a href="#cb11-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-298"><a href="#cb11-298" aria-hidden="true" tabindex="-1"></a>The next big thing are the settings. Here I set the number of steps to 150. this values, I believe, is responsible for the amount of details in a single frame. I further set the picture dimension to <span class="sc">\[</span>1280, 768<span class="sc">\]</span>. For all the rest, I stuck with the default settings.</span>
+<span id="cb11-299"><a href="#cb11-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-300"><a href="#cb11-300" aria-hidden="true" tabindex="-1"></a>For the animation settings, I chose the 2D animation mode, checked the 'key_frames' box, and set 'max_frames' to 3500. I calculated the number of frames (3500) to make the length of the video match the length of the song at the chosen framerate of 12 fps. To create the movement you can see in the video, I changed the following parameters (leaving the rest at default):</span>
+<span id="cb11-301"><a href="#cb11-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-302"><a href="#cb11-302" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; interp_spline = 'Linear'\</span></span>
+<span id="cb11-303"><a href="#cb11-303" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; angle = "0:(1.03)"\</span></span>
+<span id="cb11-304"><a href="#cb11-304" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; zoom = "0:(1.03)"\</span></span>
+<span id="cb11-305"><a href="#cb11-305" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; translation_x = "0:(0)"\</span></span>
+<span id="cb11-306"><a href="#cb11-306" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; translation_y = "0:(0)"\</span></span>
+<span id="cb11-307"><a href="#cb11-307" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; translation_z = "0:(10.0)"</span></span>
+<span id="cb11-308"><a href="#cb11-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-309"><a href="#cb11-309" aria-hidden="true" tabindex="-1"></a>Initially, I changed the values for the 3D rotation as well, which caused some hard to pin down errors. Took me way too long to figure that out and caused some real frustrations along the way.</span>
+<span id="cb11-310"><a href="#cb11-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-311"><a href="#cb11-311" aria-hidden="true" tabindex="-1"></a>Next in line was the design of the prompts. First of all, I spent a LOT of time figuring out which style I would like to have. The YouTube video linked above, created by a guy called Doctor Diffusion, used pictures from the Polish artist Zdzisław Beksiński, famously know for his dystopian surrealism, and the American artist Lisa Frank, who is known for rainbow and neon colors and stylized depictions of animals, including dolphins, pandas, and unicorns. I threw in some Edvard Munch, who's paintings I admire since being in the Munch museum in Oslo, and I really liked what I saw. Here are the exact prompts I used:</span>
+<span id="cb11-312"><a href="#cb11-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-313"><a href="#cb11-313" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; text_prompts = {\</span></span>
+<span id="cb11-314"><a href="#cb11-314" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 0: </span><span class="sc">\[</span><span class="at">"A single horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-315"><a href="#cb11-315" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 216: </span><span class="sc">\[</span><span class="at">"A single ear by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-316"><a href="#cb11-316" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 300: </span><span class="sc">\[</span><span class="at">"A single cloud by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-317"><a href="#cb11-317" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 300: </span><span class="sc">\[</span><span class="at">"A burning cloud by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-318"><a href="#cb11-318" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 384: </span><span class="sc">\[</span><span class="at">"A single horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-319"><a href="#cb11-319" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 468: </span><span class="sc">\[</span><span class="at">"A single running woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-320"><a href="#cb11-320" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 684: </span><span class="sc">\[</span><span class="at">"A single vomiting woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-321"><a href="#cb11-321" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 720: </span><span class="sc">\[</span><span class="at">"A single beating heart by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-322"><a href="#cb11-322" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 888: </span><span class="sc">\[</span><span class="at">"A single race horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-323"><a href="#cb11-323" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 1080: </span><span class="sc">\[</span><span class="at">"A single curtain by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-324"><a href="#cb11-324" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 1164: </span><span class="sc">\[</span><span class="at">"A single crow by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-325"><a href="#cb11-325" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 1212: </span><span class="sc">\[</span><span class="at">"A picture of a broken spine by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-326"><a href="#cb11-326" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 1320: </span><span class="sc">\[</span><span class="at">"A picture of a torch by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-327"><a href="#cb11-327" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 1380: </span><span class="sc">\[</span><span class="at">"A single running woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-328"><a href="#cb11-328" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 1560: </span><span class="sc">\[</span><span class="at">"A single vomiting woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-329"><a href="#cb11-329" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 1656: </span><span class="sc">\[</span><span class="at">"A single running horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-330"><a href="#cb11-330" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 1860: </span><span class="sc">\[</span><span class="at">"A single bass player by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-331"><a href="#cb11-331" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 1980: </span><span class="sc">\[</span><span class="at">"A single running horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-332"><a href="#cb11-332" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 2100: </span><span class="sc">\[</span><span class="at">"A single running woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-333"><a href="#cb11-333" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 2280: </span><span class="sc">\[</span><span class="at">"A single vomiting woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-334"><a href="#cb11-334" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 2340: </span><span class="sc">\[</span><span class="at">"A picture of a screaming woman in the background by Zdzisław Beksiński and Edvard Munch, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-335"><a href="#cb11-335" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 2400: </span><span class="sc">\[</span><span class="at">"A picture of a thunderstorm with fire in the background by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-336"><a href="#cb11-336" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 2460: </span><span class="sc">\[</span><span class="at">"A picture of a screaming woman in the background by Zdzisław Beksiński and Edvard Munch, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-337"><a href="#cb11-337" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 2520: </span><span class="sc">\[</span><span class="at">"A single vomiting woman by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-338"><a href="#cb11-338" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 2700: </span><span class="sc">\[</span><span class="at">"A picture of a horse running through a thunderstorm by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-339"><a href="#cb11-339" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 2940: </span><span class="sc">\[</span><span class="at">"A picture of a dying horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-340"><a href="#cb11-340" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 3060: </span><span class="sc">\[</span><span class="at">"A picture of a golden ship in the sea by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-341"><a href="#cb11-341" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 3144: </span><span class="sc">\[</span><span class="at">"A picture of a dying horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-342"><a href="#cb11-342" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 3204: </span><span class="sc">\[</span><span class="at">"A picture of a horse in hell by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-343"><a href="#cb11-343" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 3276: </span><span class="sc">\[</span><span class="at">"A picture of a horse by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">,\</span></span>
+<span id="cb11-344"><a href="#cb11-344" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 3372: </span><span class="sc">\[</span><span class="at">"A picture of a rainbow by Zdzisław Beksiński and Lisa Frank, Trending on artstation."</span><span class="sc">\]</span><span class="at">\</span></span>
+<span id="cb11-345"><a href="#cb11-345" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; }</span></span>
+<span id="cb11-346"><a href="#cb11-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-347"><a href="#cb11-347" aria-hidden="true" tabindex="-1"></a>For the actual creation of the video, I set the 'blend' to 0.5 and always started at the 'final_frame' when I had to rerun the script. This happened quite a few times, for instance because of errors or when I ran out of computing units.</span>
+<span id="cb11-348"><a href="#cb11-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-349"><a href="#cb11-349" aria-hidden="true" tabindex="-1"></a>Finally, after the animation was, it required some minor editing to overlay the audio track onto the video. Et voilà, a new video was born.</span>
+<span id="cb11-350"><a href="#cb11-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-351"><a href="#cb11-351" aria-hidden="true" tabindex="-1"></a><span class="fu">## Isolating Bass Tracks</span></span>
+<span id="cb11-352"><a href="#cb11-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-353"><a href="#cb11-353" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
+<span id="cb11-354"><a href="#cb11-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-355"><a href="#cb11-355" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to expand&lt;/summary&gt;</span>
+<span id="cb11-356"><a href="#cb11-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-357"><a href="#cb11-357" aria-hidden="true" tabindex="-1"></a>I am a fan Rick Beato's YouTube channel, especially the series 'What Makes This Song Great?'. Also, I always wondered how he got those isolated instrument tracks, especially the bass tracks. One reason, I assume, is that he's a well-copnnected producer with access to separated high-quality tracks directly from the artists or record labels for his deep dives.</span>
+<span id="cb11-358"><a href="#cb11-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-359"><a href="#cb11-359" aria-hidden="true" tabindex="-1"></a>As for my motivation, I thought it would be helpful to have isolated bass tracks for songs I would like to learn. The problem, though, is that I'm neither a producer nor well-connected. Also, for much of the music I like, YouTube - despite it's sheer endless content on almost every niche topic - does not provide either isolated bass tracks or bass players covering these songs. So I did some searching online and found that there a several ways to isolate tracks for single instruments. These include EQ and filtering, layering and reconstruction, and several audio separation techniques such as spectral editing or phase cancellation.</span>
+<span id="cb11-360"><a href="#cb11-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-361"><a href="#cb11-361" aria-hidden="true" tabindex="-1"></a>The most convenient way, at least for my purposes, seems to be machine learning and AI-based tools since they require the least amount of audio engineering know-how. My current go-to LLM suggested four options (assuming I need a free option available under Linux):</span>
+<span id="cb11-362"><a href="#cb11-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-363"><a href="#cb11-363" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Spleeter (by Deezer)</span>
+<span id="cb11-364"><a href="#cb11-364" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Demucs (by Facebook AI Research)</span>
+<span id="cb11-365"><a href="#cb11-365" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Open-Unmix</span>
+<span id="cb11-366"><a href="#cb11-366" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>VocalRemover.org (Command-Line Interface)</span>
+<span id="cb11-367"><a href="#cb11-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-368"><a href="#cb11-368" aria-hidden="true" tabindex="-1"></a>I decided to give Open-Unmix a try, mainly because of the description: "Open-Unmix is an open-source tool for music source separation, developed by the Music Technology Group at the Technical University of Madrid. It focuses on separating vocals, bass, and drums from music tracks."</span>
+<span id="cb11-369"><a href="#cb11-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-370"><a href="#cb11-370" aria-hidden="true" tabindex="-1"></a>Well, I like open-source solutions and I have an academic background, so that was enough to convince me. As for the cons, Open-Unmix may be less computationally efficient, but that wasn't my main concern at this stage. I may do a comparison of different tools in a future post, though. Open-Unmix utilizes a bidirectional LSTM architecture for effective separation and requires FFmpeg for audio processing. Also, like basically all the other tools in the list, Open-Unmix is Python-based. Here are the bash commands I used to set up everything:</span>
+<span id="cb11-371"><a href="#cb11-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-372"><a href="#cb11-372" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Install Python 3 and essential tools</span>
+<span id="cb11-373"><a href="#cb11-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-374"><a href="#cb11-374" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
+<span id="cb11-375"><a href="#cb11-375" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb11-376"><a href="#cb11-376" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install python3 python3-venv python3-pip ffmpeg</span>
+<span id="cb11-377"><a href="#cb11-377" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-378"><a href="#cb11-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-379"><a href="#cb11-379" aria-hidden="true" tabindex="-1"></a>python3 is the Python 3 interpreter. python3-venv is the module to create virtual environments. python3-pip ist the Python package installer and ffmpeg is, well ffmpeg ;-)</span>
+<span id="cb11-380"><a href="#cb11-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-381"><a href="#cb11-381" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Create and activate a virtual environment</span>
+<span id="cb11-382"><a href="#cb11-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-383"><a href="#cb11-383" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
+<span id="cb11-384"><a href="#cb11-384" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb11-385"><a href="#cb11-385" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv openunmix_env</span>
+<span id="cb11-386"><a href="#cb11-386" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> openunmix_env/bin/activate</span>
+<span id="cb11-387"><a href="#cb11-387" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-388"><a href="#cb11-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-389"><a href="#cb11-389" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Upgrade pip within the virtual environment</span>
+<span id="cb11-390"><a href="#cb11-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-391"><a href="#cb11-391" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
+<span id="cb11-392"><a href="#cb11-392" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--upgrade</span> pip</span>
+<span id="cb11-393"><a href="#cb11-393" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-394"><a href="#cb11-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-395"><a href="#cb11-395" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Install Open-Unmix and verify the installation</span>
+<span id="cb11-396"><a href="#cb11-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-397"><a href="#cb11-397" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
+<span id="cb11-398"><a href="#cb11-398" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install openunmix</span>
+<span id="cb11-399"><a href="#cb11-399" aria-hidden="true" tabindex="-1"></a><span class="ex">umx</span> <span class="at">--help</span></span>
+<span id="cb11-400"><a href="#cb11-400" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-401"><a href="#cb11-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-402"><a href="#cb11-402" aria-hidden="true" tabindex="-1"></a>By the way, 'deactivate' allows one to leave the virtual environment.</span>
+<span id="cb11-403"><a href="#cb11-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-404"><a href="#cb11-404" aria-hidden="true" tabindex="-1"></a>For a first test, I chose the song Exoplanet by Mother Engine. If converted this (YouTube video) <span class="sc">\[</span>https://www.youtube.com/watch?v=MJu7bSh_03I<span class="sc">\]</span> to an MP3 file and used this bash command:</span>
+<span id="cb11-405"><a href="#cb11-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-406"><a href="#cb11-406" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
+<span id="cb11-407"><a href="#cb11-407" aria-hidden="true" tabindex="-1"></a><span class="ex">umx</span> <span class="at">--outdir</span> ~/music/isolated_tracks ~/music/isolated_tracks/Exoplanet.mp3</span>
+<span id="cb11-408"><a href="#cb11-408" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-409"><a href="#cb11-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-410"><a href="#cb11-410" aria-hidden="true" tabindex="-1"></a>from which I got this error:</span>
+<span id="cb11-411"><a href="#cb11-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-412"><a href="#cb11-412" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
+<span id="cb11-413"><a href="#cb11-413" aria-hidden="true" tabindex="-1"></a><span class="ex">torch.OutOfMemoryError:</span> CUDA out of memory. Tried to allocate 640.00 MiB. GPU 0 has a total capacity of 1.95 GiB of which 518.62 MiB is free. Including non-PyTorch memory, this process has 1.44 GiB memory in use. Of the allocated memory 1.36 GiB is allocated by PyTorch, and 44.48 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  <span class="er">(</span><span class="ex">https://pytorch.org/docs/stable/notes/cuda.html#environment-variables</span><span class="kw">)</span></span>
+<span id="cb11-414"><a href="#cb11-414" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-415"><a href="#cb11-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-416"><a href="#cb11-416" aria-hidden="true" tabindex="-1"></a>This error message indicates that my GPU does not have sufficient memory to process the audio file using Open-Unmix. I therefore switched to CPU Processing (instead of GPU processing).</span>
+<span id="cb11-417"><a href="#cb11-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-418"><a href="#cb11-418" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
+<span id="cb11-419"><a href="#cb11-419" aria-hidden="true" tabindex="-1"></a><span class="ex">umx</span> <span class="at">--no-cuda</span> <span class="at">--outdir</span> ~/music/isolated_tracks ~/music/isolated_tracks/Exoplanet.mp3</span>
+<span id="cb11-420"><a href="#cb11-420" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-421"><a href="#cb11-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-422"><a href="#cb11-422" aria-hidden="true" tabindex="-1"></a>This did the track and created a folder named 'Exoplanet' including isolated (<span class="sc">\*</span>.wav) tracks for bass, drums, vocals and others in the same directory as the original MP3 file.</span>
+<span id="cb11-423"><a href="#cb11-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-424"><a href="#cb11-424" aria-hidden="true" tabindex="-1"></a>Here's the isolated bass track for "Exoplanet" by Mother Engine:</span>
+<span id="cb11-425"><a href="#cb11-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-426"><a href="#cb11-426" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">🎧 Listen to "Exoplanet" Isolated Bass Track</span><span class="co">](assets/audio/bass.mp3)</span>{target="_blank"}</span>
+<span id="cb11-427"><a href="#cb11-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-428"><a href="#cb11-428" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- &lt;audio controls&gt; --&gt;</span></span>
+<span id="cb11-429"><a href="#cb11-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-430"><a href="#cb11-430" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   &lt;source src="bass.mp3" type="audio/mpeg"&gt; --&gt;</span></span>
+<span id="cb11-431"><a href="#cb11-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-432"><a href="#cb11-432" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   Your browser does not support the audio element. --&gt;</span></span>
+<span id="cb11-433"><a href="#cb11-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-434"><a href="#cb11-434" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- &lt;/audio&gt; --&gt;</span></span>
+<span id="cb11-435"><a href="#cb11-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-436"><a href="#cb11-436" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- How can I track the time needed to process this on my system (system specs)? --&gt;</span></span>
+<span id="cb11-437"><a href="#cb11-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-438"><a href="#cb11-438" aria-hidden="true" tabindex="-1"></a>There are some additional tricks that may help improve the performance for future tries. I could, for instance, ...</span>
+<span id="cb11-439"><a href="#cb11-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-440"><a href="#cb11-440" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Optimize CPU processing</span>
+<span id="cb11-441"><a href="#cb11-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-442"><a href="#cb11-442" aria-hidden="true" tabindex="-1"></a>For instance,</span>
+<span id="cb11-443"><a href="#cb11-443" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-444"><a href="#cb11-444" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
+<span id="cb11-445"><a href="#cb11-445" aria-hidden="true" tabindex="-1"></a><span class="ex">umx</span> <span class="at">--no-cuda</span> <span class="at">--outdir</span> ~/music/isolated_tracks ~/music/isolated_tracks/Exoplanet.mp3 <span class="at">--start</span> 30 <span class="at">--duration</span> 60</span>
+<span id="cb11-446"><a href="#cb11-446" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-447"><a href="#cb11-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-448"><a href="#cb11-448" aria-hidden="true" tabindex="-1"></a>should processes a 60-second segment starting at 30 seconds into the track. I could also limit the number of targets/tracks to specific instruments (e.g., bass):</span>
+<span id="cb11-449"><a href="#cb11-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-450"><a href="#cb11-450" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
+<span id="cb11-451"><a href="#cb11-451" aria-hidden="true" tabindex="-1"></a><span class="ex">umx</span> <span class="at">--no-cuda</span> <span class="at">--outdir</span> ~/music/isolated_tracks <span class="at">--targets</span> bass ~/music/isolated_tracks/Exoplanet.mp3</span>
+<span id="cb11-452"><a href="#cb11-452" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-453"><a href="#cb11-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-454"><a href="#cb11-454" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Explore alternative, faster and less resource-intensive tools such as Spleeter or Demucs.</span>
+<span id="cb11-455"><a href="#cb11-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-456"><a href="#cb11-456" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Or I could use higher-quality audio files such as WAV, or FLAC instead of compressed formats like MP3. These may yield better separation results and may also reduce processing time due to less decoding overhead.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
