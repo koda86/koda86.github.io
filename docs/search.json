@@ -60,6 +60,6 @@
     "href": "index.html#latest-posts",
     "title": "Daniel Koska",
     "section": "Latest Posts",
-    "text": "Latest Posts\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow Isotropic Scaling Works in Generalized Procrustes Analysis\n\n\n\n\n\n\nstatistical-shape-modeling\n\n\ngpa\n\n\nscaling\n\n\n\nA deep dive into isotropic scaling in GPA with formulas, intuition, and potential pitfalls.\n\n\n\n\n\nAug 12, 2025\n\n\nDaniel Koska\n\n\n\n\n\n\nNo matching items"
+    "text": "Latest Posts\n{{&lt; listing    contents=\"posts/**,!posts/software-contributions/**\"    sort=\"date desc\"    type=\"default\"    categories=true    feed=true &gt;}}"
   }
 ]
