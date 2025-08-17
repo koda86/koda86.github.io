@@ -1,0 +1,19 @@
+/* Remove the borders (lines) from the listing items */
+.quarto-listing .list-group-item {
+  border: none !important;
+}
+
+/* Hide empty list items (sometimes Quarto inserts placeholders) */
+.quarto-listing .list-group-item:empty {
+  display: none !important;
+}
+
+/* Tighten spacing so the posts start right under the heading */
+.quarto-listing .list-group {
+  margin-top: 0 !important;
+}
+.quarto-listing .list-group-item {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+}
+
