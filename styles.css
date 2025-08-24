@@ -1,0 +1,29 @@
+/* --- Remove horizontal line below "Latest Posts" heading --- */
+h2#latest-posts,
+h2#latest-posts + hr {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+h2#latest-posts::after {
+  content: none !important;
+}
+
+/* --- Remove horizontal rules inside the blog listing --- */
+.quarto-listing hr {
+  display: none !important;
+  border: 0 !important;
+  margin: 0 !important;
+  height: 0 !important;
+}
+
+/* --- Remove top borders that some themes add to list items --- */
+.quarto-listing .list-group-item,
+.quarto-listing .list .list-item {
+  border-top: 0 !important;
+}
+
+/* (Optional) tighten spacing between posts once rules are gone */
+.quarto-listing .list-item {
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+}
