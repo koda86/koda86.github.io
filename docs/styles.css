@@ -1,0 +1,42 @@
+/* --- Remove horizontal rules (if any were inserted) --- */
+.quarto-listing hr {
+  display: none !important;
+  border: 0 !important;
+  margin: 0 !important;
+  height: 0 !important;
+}
+
+/* --- Remove borders Quarto/Bootstrap puts around posts --- */
+#listing-latest .list > .quarto-post {
+  border-top: 0 !important;
+  padding-top: 0 !important;
+  margin-top: 0.75rem !important;  /* leave a little space */
+}
+
+/* Make sure the very first post sits tight under “Latest Posts” */
+#listing-latest .list > .quarto-post:first-child {
+  margin-top: 0 !important;
+}
+
+/* Optional: tighten spacing between heading and listing */
+#latest-posts + #listing-latest {
+  margin-top: 0.5rem !important;
+}
+
+/* --- Remove heading underline if theme adds one --- */
+h2.anchored[data-anchor-id="latest-posts"] {
+  border-bottom: 0 !important;
+  padding-bottom: 0.25rem !important;
+  box-shadow: none !important;
+}
+h2.anchored[data-anchor-id="latest-posts"]::after {
+  content: none !important;
+}
+
+#listing-latest .list > .quarto-post {
+  border-top: 0 !important;
+}
+
+#listing-latest .list > .quarto-post:first-child {
+  margin-top: 0 !important;
+}
