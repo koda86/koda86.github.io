@@ -20,88 +20,69 @@
 
 
 
-<p>## Introduction</p>
-<p>Generalized Procrustes Analysis (GPA) is a core step in Statistical Shape Modeling (SSM).<br>
-It removes differences in position, orientation, and size so that what’s left reflects <strong>pure shape</strong>.</p>
-<p>One crucial step in GPA is <strong>isotropic scaling</strong> — a uniform scaling in all directions.<br>
-It sounds harmless, but understanding exactly how it works (and where it can cause trouble) is important.</p>
-<hr>
-<p>## Where Isotropic Scaling Fits in GPA</p>
-<p>In each GPA iteration, every shape is:</p>
+<section id="how-isotropic-scaling-in-gpa-works" class="level2">
+<h2 class="anchored" data-anchor-id="how-isotropic-scaling-in-gpa-works">How Isotropic Scaling in GPA Works</h2>
+<details>
+<summary>
+Click to expand
+</summary>
+<p>This entry is more of a mental note for my future self than anything else (which I guess most of this blog is tbh).</p>
+<p>If you’ve ever worked with Generalized Procrustes Analysis (GPA) in statistical shape modeling, you’ve probably come across the <em>isotropic scaling</em> step. It sounds innocent enough — just scale all coordinates equally — but this step is both powerful and a little sneaky. Let’s unpack what’s really going on.</p>
+<section id="where-it-fits-in-gpa" class="level3">
+<h3 class="anchored" data-anchor-id="where-it-fits-in-gpa">Where it fits in GPA</h3>
+<p>The core idea of GPA is to remove differences that are <em>not</em> actual shape variation — things like translation, rotation, and scale — so that PCA or other analyses reflect pure shape.</p>
+<p>For each shape (X) compared to a reference (often the current mean shape), GPA does:</p>
 <ol type="1">
-<li><strong>Translated</strong> – moved so its centroid is at the origin.<br>
-</li>
-<li><strong>Isotropically scaled</strong> – zoomed in or out so it matches the reference shape’s size.<br>
-</li>
-<li><strong>Rotated</strong> – oriented to minimize the squared distance to the reference.</li>
+<li><strong>Translation:</strong> Move the centroid to the origin.</li>
+<li><strong>Isotropic scaling:</strong> Resize uniformly in all directions to match the reference size.</li>
+<li><strong>Rotation:</strong> Rotate to minimize the distance to the reference.</li>
 </ol>
-<p>These steps repeat until the mean shape stabilizes.</p>
-<hr>
-<p>## Definition</p>
-<p>Isotropic scaling multiplies <strong>all coordinates</strong> by the same scalar <code>s</code>:</p>
-<p>[ X_{} = s X ]</p>
-<p>No shearing, no stretching in one direction — the aspect ratio stays fixed.</p>
-<hr>
-<p>## How the Scaling Factor Is Computed</p>
-<p>Let:</p>
-<ul>
-<li>( X ) = translated shape<br>
-</li>
-<li>( Y ) = translated reference shape<br>
-</li>
-<li>( k ) = number of points, ( m ) = dimensions</li>
-</ul>
-<p>We choose ( s ) to minimize the squared Procrustes distance:</p>
-<p>[ D^2(s) = | sX - Y |_F^2 ]</p>
-<p>Expanding:</p>
-<p>[ D^2(s) = s^2 <em>{i,j} X</em>{ij}^2 - 2s <em>{i,j} X</em>{ij}Y_{ij} + <em>{i,j} Y</em>{ij}^2 ]</p>
-<p>Derivative wrt ( s ), set to zero:</p>
-<p>[ = 2s <em>{i,j} X</em>{ij}^2 - 2 <em>{i,j} X</em>{ij}Y_{ij} = 0 ]</p>
-<p>Solve:</p>
-<p>[ s = ]</p>
-<p>Or in matrix form:</p>
-<p>[ s = ]</p>
-<hr>
-<p>## Connection to Centroid Size</p>
-<p>If there’s no specific reference shape (initial step), each shape is often scaled to <strong>unit centroid size</strong>:</p>
-<p>[ C = ]</p>
-<p>Scaling to unit size means:</p>
-<p>[ s = ]</p>
-<p>This prevents large shapes from dominating the early mean shape.</p>
-<hr>
-<p>## Why It Matters</p>
-<ul>
-<li><strong>Without scaling:</strong> Size differences dominate PCA results.<br>
-</li>
-<li><strong>With isotropic scaling:</strong> You analyze only shape variation.<br>
-</li>
-<li><strong>But beware:</strong> If size is biologically relevant, removing it discards important info.</li>
-</ul>
-<hr>
-<p>## Pitfalls — Hidden Artifacts</p>
-<p>Here’s where it gets interesting. Isotropic scaling links all coordinate axes to a <strong>single size factor</strong>.<br>
-If your sample varies in length or width, the scaling factor changes — and that <strong>also changes vertical coordinates</strong>, even if those vertical values were constant before scaling.</p>
-<p>This can create <strong>artificial vertical deformation</strong>.<br>
-PCA may then interpret this as meaningful biological variation, when in fact it’s just a side-effect of the scaling.</p>
-<hr>
-<p>## Intuition</p>
-<p>Think of each shape as a clay model:</p>
-<ul>
-<li><strong>Translation</strong> moves the center to the origin.<br>
-</li>
-<li><strong>Isotropic scaling</strong> zooms it in/out so it matches the reference size.<br>
-</li>
-<li><strong>Rotation</strong> aligns features as best as possible.</li>
-</ul>
-<p>Simple idea — but in practice, the isotropic step can subtly distort regions that were never meant to change.</p>
-<hr>
-<p>## Closing Thoughts</p>
-<p>Isotropic scaling is essential in many GPA workflows, but like any preprocessing step, it’s not neutral — it <strong>changes your data</strong> in a specific way.<br>
-If your study focuses on regions that should remain fixed (e.g., plantar surface in foot scans), you may need <strong>constrained alignment</strong> to avoid bias.</p>
+<p>Then it updates the mean shape and repeats until everything stops changing much.</p>
+</section>
+<section id="what-isotropic-scaling-really-is" class="level3">
+<h3 class="anchored" data-anchor-id="what-isotropic-scaling-really-is">What isotropic scaling really is</h3>
+<p>Isotropic scaling means multiplying <strong>all</strong> coordinates by the same scalar (s).<br>
+No stretching in one direction, no skewing — every axis gets scaled equally.</p>
+<p>Mathematically, if (X ^{k m}) is a translated shape (with (k) points in (m) dimensions, usually (m=2) or (3)), the scaled shape is:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AX_%7B%5Ctext%7Bscaled%7D%7D%20=%20s%20%5C,%20X%0A"></p>
+<p>The scalar (s &gt; 0) is chosen so that the scaled shape is as close as possible to the reference (Y).</p>
+</section>
+<section id="deriving-the-scaling-factor" class="level3">
+<h3 class="anchored" data-anchor-id="deriving-the-scaling-factor">Deriving the scaling factor</h3>
+<p>We want to minimize the squared Procrustes distance:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AD%5E2(s)%20=%20%5C%7C%5C,%20sX%20-%20Y%20%5C,%5C%7C_F%5E2%0A"></p>
+<p>where (||_F) is the Frobenius norm (sum of squared coordinates, square-rooted).</p>
+<p>Expanding and differentiating with respect to (s):</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AD%5E2(s)%20=%20s%5E2%20%5Csum_%7Bi,j%7D%20X_%7Bij%7D%5E2%20-%202s%20%5Csum_%7Bi,j%7D%20X_%7Bij%7D%20Y_%7Bij%7D%20+%20%5Csum_%7Bi,j%7D%20Y_%7Bij%7D%5E2%0A"></p>
+<p>Set derivative to zero:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A2s%20%5Csum_%7Bi,j%7D%20X_%7Bij%7D%5E2%20-%202%20%5Csum_%7Bi,j%7D%20X_%7Bij%7D%20Y_%7Bij%7D%20=%200%0A"></p>
+<p>And solve:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0As%20=%20%5Cfrac%7B%5Csum_%7Bi,j%7D%20X_%7Bij%7D%20Y_%7Bij%7D%7D%7B%5Csum_%7Bi,j%7D%20X_%7Bij%7D%5E2%7D%0A"></p>
+<p>In matrix form:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0As%20=%20%5Cfrac%7B%5Cmathrm%7Btrace%7D(X%5E%5Cmathsf%7BT%7D%20Y)%7D%7B%5Cmathrm%7Btrace%7D(X%5E%5Cmathsf%7BT%7D%20X)%7D%0A"></p>
+</section>
+<section id="the-centroid-size-connection" class="level3">
+<h3 class="anchored" data-anchor-id="the-centroid-size-connection">The centroid size connection</h3>
+<p>If no specific reference is chosen yet (e.g., the very first iteration), shapes are often scaled to <strong>unit centroid size</strong>:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AC%20=%20%5Csqrt%7B%5Csum_%7Bi=1%7D%5Ek%20%5Csum_%7Bj=1%7D%5Em%20X_%7Bij%7D%5E2%7D%0A"></p>
+<p>and</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0As%20=%20%5Cfrac%7B1%7D%7BC%7D%0A"></p>
+<p>This prevents large shapes from dominating the mean early on.</p>
+</section>
+<section id="why-it-matters" class="level3">
+<h3 class="anchored" data-anchor-id="why-it-matters">Why it matters</h3>
+<p>Without scaling, size differences will dominate PCA.<br>
+With isotropic scaling, we remove those size differences, leaving only relative point configurations.<br>
+That’s great for <em>pure shape</em> analysis — but it can be risky if size is biologically meaningful.</p>
+<p>And here’s the catch: isotropic scaling ties <em>all</em> coordinate axes to a single size factor.<br>
+If your sample varies in length or width, this scaling will also change <strong>vertical coordinates</strong>, even if they were identical before.<br>
+That can create <em>artificial deformation</em> in anisotropic structures like weight-bearing feet — a subtle source of bias you might not expect.</p>
 
 
 <!-- -->
 
+</section>
+</details></section>
 
  ]]></description>
   <category>statistical-shape-modeling</category>
