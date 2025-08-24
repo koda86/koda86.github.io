@@ -7,7 +7,7 @@ format:
 listing:
   id: latest
   contents:
-    - posts/**/*.qmd
+    - posts/**
     - '!posts/software-contributions/**'
   sort: "date desc"
   type: default
