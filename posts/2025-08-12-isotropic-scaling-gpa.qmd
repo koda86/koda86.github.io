@@ -11,12 +11,6 @@ format:
 page-layout: article
 ---
   
-## How Isotropic Scaling in GPA Works
-
-<details>
-
-<summary>Click to expand</summary>
-
 This entry is more of a mental note for my future self than anything else (which I guess most of this blog is tbh).
 
 If you’ve ever worked with Generalized Procrustes Analysis (GPA) in statistical shape modeling, you’ve probably come across the *isotropic scaling* step. It sounds innocent enough — just scale all coordinates equally — but this step is both powerful and a little sneaky. Let’s unpack what’s really going on.

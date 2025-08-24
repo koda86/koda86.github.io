@@ -20,12 +20,6 @@
 
 
 
-<section id="how-isotropic-scaling-in-gpa-works" class="level2">
-<h2 class="anchored" data-anchor-id="how-isotropic-scaling-in-gpa-works">How Isotropic Scaling in GPA Works</h2>
-<details>
-<summary>
-Click to expand
-</summary>
 <p>This entry is more of a mental note for my future self than anything else (which I guess most of this blog is tbh).</p>
 <p>If you’ve ever worked with Generalized Procrustes Analysis (GPA) in statistical shape modeling, you’ve probably come across the <em>isotropic scaling</em> step. It sounds innocent enough — just scale all coordinates equally — but this step is both powerful and a little sneaky. Let’s unpack what’s really going on.</p>
 <section id="where-it-fits-in-gpa" class="level3">
@@ -82,7 +76,6 @@ That can create <em>artificial deformation</em> in anisotropic structures like w
 <!-- -->
 
 </section>
-</details></section>
 
  ]]></description>
   <category>statistical-shape-modeling</category>
