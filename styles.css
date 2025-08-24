@@ -32,3 +32,11 @@ h2.anchored[data-anchor-id="latest-posts"] {
 h2.anchored[data-anchor-id="latest-posts"]::after {
   content: none !important;
 }
+
+#listing-latest .list > .quarto-post {
+  border-top: 0 !important;
+}
+
+#listing-latest .list > .quarto-post:first-child {
+  margin-top: 0 !important;
+}
