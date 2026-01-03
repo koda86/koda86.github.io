@@ -1,6 +1,6 @@
 ---
 title: "Daniel Koska"
-subtitle: "Data; Science; Biomechanics"
+subtitle: "Statistics, Data, Science, Biomechanics"
 format:
   html:
     code-tools: false

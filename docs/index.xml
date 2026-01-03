@@ -10,7 +10,58 @@
 <atom:link href="https://koda86.github.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>Posts on statistics, biomechanics, and other topics.</description>
 <generator>quarto-1.6.42</generator>
-<lastBuildDate>Mon, 11 Aug 2025 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 02 Jan 2026 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Why Overlapping Confidence Intervals Are Potentially Misleading</title>
+  <dc:creator>Daniel Koska</dc:creator>
+  <link>https://koda86.github.io/posts/2026-03-01-overlapping_confidence_intervals.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Again, this post is more of a reference for future debates than a mathematically/statistically sound evaluation of the topic. I might have to create sort of a Answer-to-FAQ soon. I’m also pretty sure there might be similar posts available online, but this is my take on it and might help me to better remember the discussion later on.</p>
+<section id="some-background" class="level3">
+<h3 class="anchored" data-anchor-id="some-background">Some background</h3>
+<p>One of the things that haunts me since I visited my first statistics course at the university (btw., back then we were taught to analyze data in Excel sheets) was that researchers regularly use overlap in confidence intervals to analyze statistical significance of mean group differences between two groups. The idea is that you use some visualization device such as a box plot (I believe back then we used bar plots) to plot the dispersion of data in both groups right next to each other. You then add confidence intervals to these plots and check if the intervals overlap (see Fig. 1).</p>
+<p>Fig. 1</p>
+<p>Not sure I was a aware about that back then, but even with a little more backgroud this seems logical at a first glance since confidence intervals and statistical tests (e.g., t-tests) share the same mathematical foundation:</p>
+<p>Explain this with formulas …</p>
+<p>I believe that question I carried with me for years is this: Are overlapping confidence intervals a valid replacement for statistical tests of mean differences or rather a rough heuristic that is potentially problematic/misleading? My intuition tells me the latter is true, so the idea of this post is to investigate this using a small example with simulated data.</p>
+</section>
+<section id="why-overlap-is-not-significance" class="level3">
+<h3 class="anchored" data-anchor-id="why-overlap-is-not-significance">Why overlap is not significance</h3>
+<p>From my understanding, there are three primary reasons why overlap is not a good subsitute for tests of statistical significance:</p>
+<ol type="1">
+<li><strong>Confidence intervals are for indivual estimates, not for their difference:</strong> …</li>
+<li><strong>The difference has it’s own sampling variability:</strong> This is a particularly important and reoccuring point, …</li>
+<li><strong>The overlap heuristic only works under specific conditions/assumptions:</strong> …</li>
+</ol>
+<p>Then it updates the mean shape and repeats until everything stops changing much.</p>
+</section>
+<section id="cumming-and-finch-2005" class="level3">
+<h3 class="anchored" data-anchor-id="cumming-and-finch-2005">Cumming and Finch (2005)</h3>
+<p>Lorem ipsum.</p>
+</section>
+<section id="best-practice" class="level3">
+<h3 class="anchored" data-anchor-id="best-practice">Best practice</h3>
+<p>Lorem ipsum.</p>
+</section>
+<section id="simlation-example" class="level3">
+<h3 class="anchored" data-anchor-id="simlation-example">Simlation example</h3>
+<p>Lorem ipsum.</p>
+
+
+<!-- -->
+
+</section>
+
+ ]]></description>
+  <category>confidence intervals</category>
+  <category>statistical significance</category>
+  <guid>https://koda86.github.io/posts/2026-03-01-overlapping_confidence_intervals.html</guid>
+  <pubDate>Fri, 02 Jan 2026 23:00:00 GMT</pubDate>
+</item>
 <item>
   <title>How Isotropic Scaling Works in Generalized Procrustes Analysis</title>
   <dc:creator>Daniel Koska</dc:creator>

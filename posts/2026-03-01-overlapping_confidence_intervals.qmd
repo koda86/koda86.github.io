@@ -1,0 +1,48 @@
+---
+title: "Why Overlapping Confidence Intervals Are Potentially Misleading"
+author: "Daniel Koska"
+date: 2026-01-03
+categories: [confidence intervals, statistical significance]
+description: "A little reminder on  why using overlap of confidence intervals as a substitute for statistical tests of significance ofmean differences is problematic"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+page-layout: article
+---
+  
+Again, this post is more of a reference for future debates than a mathematically/statistically sound evaluation of the topic. I might have to create sort of a Answer-to-FAQ soon. I'm also pretty sure there might be similar posts available online, but this is my take on it and might help me to better remember the discussion later on.
+
+### Some background
+
+One of the things that haunts me since I visited my first statistics course at the university (btw., back then we were taught to analyze data in Excel sheets) was that researchers regularly use overlap in confidence intervals to analyze statistical significance of mean group differences between two groups. The idea is that you use some visualization device such as a box plot (I believe back then we used bar plots) to plot the dispersion of data in both groups right next to each other. You then add confidence intervals to these plots and check if the intervals overlap (see Fig. 1).
+
+Fig. 1
+
+Not sure I was a aware about that back then, but even with a little more backgroud this seems logical at a first glance since confidence intervals and statistical tests (e.g., t-tests) share the same mathematical foundation:
+
+Explain this with formulas ...
+
+I believe that question I carried with me for years is this: Are overlapping confidence intervals a valid replacement for statistical tests of mean differences or rather a rough heuristic that is potentially problematic/misleading? My intuition tells me the latter is true, so the idea of this post is to investigate this using a small example with simulated data.
+
+### Why overlap is not significance
+
+From my understanding, there are three primary reasons why overlap is not a good subsitute for tests of statistical significance:
+
+1.  **Confidence intervals are for indivual estimates, not for their difference:** ...
+2.  **The difference has it's own sampling variability:** This is a particularly important and reoccuring point, ...
+3.  **The overlap heuristic only works under specific conditions/assumptions:** ...
+
+Then it updates the mean shape and repeats until everything stops changing much.
+
+### Cumming and Finch (2005)
+
+Lorem ipsum.
+
+### Best practice
+
+Lorem ipsum.
+
+### Simlation example
+
+Lorem ipsum. 
