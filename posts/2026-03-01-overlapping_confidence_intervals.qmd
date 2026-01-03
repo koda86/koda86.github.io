@@ -11,17 +11,17 @@ format:
 page-layout: article
 ---
   
-Again, this post is more of a reference for future debates than a mathematically/statistically sound evaluation of the topic. I might have to create sort of a Answer-to-FAQ soon. I'm also pretty sure there might be similar posts available online, but this is my take on it and might help me to better remember the discussion later on.
+Again, this post is more of a reference for future debates than a mathematically or statistically sound evaluation of the topic. There will probably be more posts like this in the future, maybe even a separate "Answers-to-FAQ" section. Also, I would be surprised if there aren't any similar (and probably better) posts and answers available online. Cross Validated seems like a strong candidate here. However, I did not check the internet extensively prior to writing this since I really wanted this to be my personal explanation plus I wanted to increase the chance of being able to remember/recall this later on.
 
 ### Some background
 
-One of the things that haunts me since I visited my first statistics course at the university (btw., back then we were taught to analyze data in Excel sheets) was that researchers regularly use overlap in confidence intervals to analyze statistical significance of mean group differences between two groups. The idea is that you use some visualization device such as a box plot (I believe back then we used bar plots) to plot the dispersion of data in both groups right next to each other. You then add confidence intervals to these plots and check if the intervals overlap (see Fig. 1).
+One of the things that haunt me since I visited my first statistics course at the university (btw., back then we were taught to analyze data in Excel sheets o_O) was that researchers regularly use overlap in confidence intervals (CIs) to analyze statistical significance of mean group differences between two groups. The idea is to use some visualization device such as a box plot (I believe back then we used bar plots) to plot the dispersion of data in both groups right next to each other. You then add CIs to these plots and check if they overlap (see Fig. 1).
 
 Fig. 1
 
-Not sure I was a aware about that back then, but even with a little more backgroud this seems logical at a first glance since confidence intervals and statistical tests (e.g., t-tests) share the same mathematical foundation:
+Not sure I was a aware about this back then, but CIs and statistical tests (e.g., t-tests) really seem to alike mathematically at a first glance.
 
-Explain this with formulas ...
+... Explain this with formulas ...
 
 I believe that question I carried with me for years is this: Are overlapping confidence intervals a valid replacement for statistical tests of mean differences or rather a rough heuristic that is potentially problematic/misleading? My intuition tells me the latter is true, so the idea of this post is to investigate this using a small example with simulated data.
 
