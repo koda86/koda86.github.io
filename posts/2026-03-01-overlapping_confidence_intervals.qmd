@@ -3,7 +3,7 @@ title: "Why Overlapping Confidence Intervals Are Potentially Misleading"
 author: "Daniel Koska"
 date: 2026-01-03
 categories: [confidence intervals, statistical significance]
-description: "A little reminder on  why using overlap of confidence intervals as a substitute for statistical tests of significance ofmean differences is problematic"
+description: "A little reminder on  why using overlap of confidence intervals as a substitute for statistical tests is problematic"
 format:
   html:
     toc: true
