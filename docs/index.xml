@@ -12,7 +12,7 @@
 <generator>quarto-1.6.42</generator>
 <lastBuildDate>Fri, 02 Jan 2026 23:00:00 GMT</lastBuildDate>
 <item>
-  <title>Why Overlapping Confidence Intervals Are Potentially Misleading</title>
+  <title>When confidence intervals stop meaning what you think they mean</title>
   <dc:creator>Daniel Koska</dc:creator>
   <link>https://koda86.github.io/posts/2026-03-01-overlapping_confidence_intervals.html</link>
   <description><![CDATA[ 
@@ -20,36 +20,76 @@
 
 
 
-<p>Again, this post is more of a reference for future debates than a mathematically or statistically sound evaluation of the topic. There will probably be more posts like this in the future, maybe even a separate “Answers-to-FAQ” section. Also, I would be surprised if there aren’t any similar (and probably better) posts and answers available online. Cross Validated seems like a strong candidate here. However, I did not check the internet extensively prior to writing this since I really wanted this to be my personal explanation plus I wanted to increase the chance of being able to remember/recall this later on.</p>
-<section id="some-background" class="level3">
-<h3 class="anchored" data-anchor-id="some-background">Some background</h3>
-<p>One of the things that haunt me since I visited my first statistics course at the university (btw., back then we were taught to analyze data in Excel sheets o_O) was that researchers regularly use overlap in confidence intervals (CIs) to analyze statistical significance of mean group differences between two groups. The idea is to use some visualization device such as a box plot (I believe back then we used bar plots) to plot the dispersion of data in both groups right next to each other. You then add CIs to these plots and check if they overlap (see Fig. 1).</p>
-<p>Fig. 1</p>
-<p>Not sure I was a aware about this back then, but CIs and statistical tests (e.g., t-tests) really seem to alike mathematically at a first glance.</p>
-<p>… Explain this with formulas …</p>
-<p>I believe that question I carried with me for years is this: Are overlapping confidence intervals a valid replacement for statistical tests of mean differences or rather a rough heuristic that is potentially problematic/misleading? My intuition tells me the latter is true, so the idea of this post is to investigate this using a small example with simulated data.</p>
+<p>Every few years, the same statistical advice makes the rounds again: “Don’t judge differences by whether confidence intervals overlap.” That advice is correct. It’s also old. And, at least for normally distributed means, it’s largely settled science.</p>
+<p>So if that were the whole story, there wouldn’t be much left to say.</p>
+<p>But here’s the part that isn’t settled — and that, in practice, matters far more.</p>
+<section id="asymmetric-confidence-intervals-are-everywhere" class="level3">
+<h3 class="anchored" data-anchor-id="asymmetric-confidence-intervals-are-everywhere">Asymmetric confidence intervals are everywhere</h3>
+<p>In modern applied research, especially in medicine, epidemiology, and the social sciences, confidence intervals are very often asymmetric. Think of:</p>
+<ul>
+<li><p>Odds ratios</p></li>
+<li><p>Hazard ratios</p></li>
+<li><p>Rate ratios</p></li>
+<li><p>Quantiles</p></li>
+<li><p>Bootstrap confidence intervals</p></li>
+<li><p>Robust estimators</p></li>
+</ul>
+<p>These intervals are routinely shown in forest plots, tables, and figures. They are shown correctly, computed correctly, and interpreted correctly with respect to the null value (e.g., HR = 1).</p>
+<p>And yet, something subtle happens the moment we start comparing them visually.</p>
 </section>
-<section id="why-overlap-is-not-significance" class="level3">
-<h3 class="anchored" data-anchor-id="why-overlap-is-not-significance">Why overlap is not significance</h3>
-<p>From my understanding, there are three primary reasons why overlap is not a good subsitute for tests of statistical significance:</p>
-<ol type="1">
-<li><strong>Confidence intervals are for indivual estimates, not for their difference:</strong> …</li>
-<li><strong>The difference has it’s own sampling variability:</strong> This is a particularly important and reoccuring point, …</li>
-<li><strong>The overlap heuristic only works under specific conditions/assumptions:</strong> …</li>
-</ol>
-<p>Then it updates the mean shape and repeats until everything stops changing much.</p>
+<section id="forest-plots-get-one-thing-exactly-right" class="level3">
+<h3 class="anchored" data-anchor-id="forest-plots-get-one-thing-exactly-right">Forest plots get one thing exactly right</h3>
+<p>Let’s be clear about this upfront: forest plots in randomized trials are not the problem.</p>
+<p>In a standard forest plot, what you see is a contrast — a difference, a log-ratio, or some other effect estimate — along with its confidence interval. Checking whether that interval includes the null value is a perfectly valid inferential step.</p>
+<p>This holds regardless of whether the CI is symmetric or asymmetric.</p>
+<p>No issue there.</p>
 </section>
-<section id="cumming-and-finch-2005" class="level3">
-<h3 class="anchored" data-anchor-id="cumming-and-finch-2005">Cumming and Finch (2005)</h3>
-<p>Lorem ipsum.</p>
+<section id="where-things-quietly-go-off-the-rails" class="level3">
+<h3 class="anchored" data-anchor-id="where-things-quietly-go-off-the-rails">Where things quietly go off the rails</h3>
+<p>The problem starts one step later, and it’s a step we take almost automatically.</p>
+<p>Consider a subgroup analysis in a randomized trial. You see something like this:</p>
+<p>Subgroup A: <img src="https://latex.codecogs.com/png.latex?%5Cmathrm%7BHR%7D%20=%200.72"> (95% CI 0.57–0.92)</p>
+<p>Subgroup B: <img src="https://latex.codecogs.com/png.latex?%5Cmathrm%7BHR%7D%20=%200.92"> (95% CI 0.64–1.31)</p>
+<p><img src="https://latex.codecogs.com/png.latex?p_%7B%5Ctext%7Binteraction%7D%7D%20=%200.23"></p>
+<p>Statistically, the message is straightforward: there is no evidence that the treatment effect differs between subgroups.</p>
+<p>Visually, however, the message feels different. One interval excludes 1. The other doesn’t. The intervals look quite different in width and position. It is almost irresistible to think: “It works here, but not there.”</p>
+<p>At that point, no one is explicitly computing CI overlap. No one is writing down a test statistic. But inference is happening anyway — by eye.</p>
 </section>
-<section id="best-practice" class="level3">
-<h3 class="anchored" data-anchor-id="best-practice">Best practice</h3>
-<p>Lorem ipsum.</p>
+<section id="why-asymmetry-breaks-the-intuition" class="level3">
+<h3 class="anchored" data-anchor-id="why-asymmetry-breaks-the-intuition">Why asymmetry breaks the intuition</h3>
+<p>With symmetric confidence intervals for means, the idea of “overlap” at least has a rough geometric interpretation. You can argue about how conservative it is, but you know what you’re looking at.</p>
+<p>With asymmetric intervals, that intuition collapses:</p>
+<p>The point estimate is no longer centered.</p>
+<p>The left and right sides of the interval do not have comparable meaning.</p>
+<p>The visual distance between two intervals depends on scale, transformation, and estimator — not just uncertainty.</p>
+<p>Two asymmetric confidence intervals can overlap substantially and still correspond to a statistically meaningful difference in effects. They can also look strikingly different while the interaction test clearly says “no evidence of effect modification.”</p>
+<p>In that setting, asking whether the intervals “overlap” is not just unreliable — it’s ill-defined.</p>
 </section>
-<section id="simlation-example" class="level3">
-<h3 class="anchored" data-anchor-id="simlation-example">Simlation example</h3>
-<p>Lorem ipsum.</p>
+<section id="this-is-not-a-niche-problem" class="level3">
+<h3 class="anchored" data-anchor-id="this-is-not-a-niche-problem">This is not a niche problem</h3>
+<p>Importantly, this is not about bad statistics or sloppy analyses.</p>
+<p>You can find this exact pattern in well-conducted secondary analyses published in journals like JAMA and JAMA Network Open: asymmetric confidence intervals shown side by side, interaction tests reported (and non-significant), and yet a strong visual pull toward subgroup comparisons.</p>
+<p>The analyses are fine. The plots are fine. The trouble lies entirely in how easily the human visual system turns those plots into informal hypothesis tests.</p>
+</section>
+<section id="the-real-lesson-for-practice" class="level3">
+<h3 class="anchored" data-anchor-id="the-real-lesson-for-practice">The real lesson for practice</h3>
+<p>So what should we actually learn from this?</p>
+<p>Not that confidence intervals are useless. Not that forest plots are misleading. And not that everyone is doing statistics wrong.</p>
+<p>The lesson is simpler and more uncomfortable:</p>
+<p>Once confidence intervals are asymmetric, “overlap” is no longer an inferential concept.</p>
+<p>At that point, visual comparison answers no well-defined statistical question. If you want to know whether two effects differ, you need a confidence interval for their difference (or ratio), or a formal interaction test.</p>
+<p>Anything else is pattern recognition masquerading as inference.</p>
+</section>
+<section id="a-rule-that-actually-helps" class="level3">
+<h3 class="anchored" data-anchor-id="a-rule-that-actually-helps">A rule that actually helps</h3>
+<p>If you want a single practical rule to take away, it’s this:</p>
+<p>Confidence intervals can be interpreted against their null value. They cannot, in general, be interpreted against each other — especially when they are asymmetric.</p>
+<p>That rule won’t make figures prettier. But it will prevent a surprising number of subtle misinterpretations.</p>
+<p>And in applied statistics, that’s usually the best kind of improvement.</p>
+</section>
+<section id="what-to-do-instead-in-one-sentence" class="level3">
+<h3 class="anchored" data-anchor-id="what-to-do-instead-in-one-sentence">What to do instead (in one sentence)</h3>
+<p>If your real question is “Are these two effects different?”, compute a confidence interval for the contrast of effects (or run an explicit interaction test). Do not try to answer that question by eyeballing whether two asymmetric confidence intervals overlap.</p>
 
 
 <!-- -->
@@ -58,7 +98,8 @@
 
  ]]></description>
   <category>confidence intervals</category>
-  <category>statistical significance</category>
+  <category>inference</category>
+  <category>visualization</category>
   <guid>https://koda86.github.io/posts/2026-03-01-overlapping_confidence_intervals.html</guid>
   <pubDate>Fri, 02 Jan 2026 23:00:00 GMT</pubDate>
 </item>
