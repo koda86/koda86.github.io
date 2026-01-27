@@ -1,0 +1,191 @@
+---
+title: "Intuition on reduced variance estimates in pointwise vs. functional analyses"
+author: "Daniel Koska"
+date: 2026-01-27
+categories: [statistics, time series, functional data analysis]
+format:
+  html:
+    toc: true
+    toc-depth: 2
+page-layout: article
+---
+
+<!-- --- -->
+<!--   title: "Intuition on reduced variance estimates in pointwise vs. functional analyses" -->
+<!-- date: 2026-01-27 -->
+<!-- categories: [statistics, time series, functional data analysis] -->
+<!-- format: -->
+<!--   html: -->
+<!--   toc: true -->
+<!-- code-fold: true -->
+<!-- code-tools: true -->
+<!-- --- -->
+  
+## Motivation
+  
+  It is well established in the statistical literature that **pointwise statistics underestimate uncertainty when applied to time-continuous data**, such as curves or trajectories. I have already written about this issue a couple of times — most often in the context of **pointwise versus functional confidence or prediction bands**.
+
+The explanation usually given is technically correct but somewhat unsatisfying:
+  
+  > *Pointwise methods treat time points as independent, even though time series are correlated.*
+  
+  While this statement identifies the problem, it often stops one intuition step too early.  
+It does not fully explain **why** this independence assumption is problematic in practice, nor **how** it leads to underestimated uncertainty at the level of the *entire curve*.
+
+This post is an attempt to fill that gap — deliberately avoiding formulas where possible and focusing instead on the underlying mechanism.
+
+---
+  
+## What variance is actually trying to quantify
+  
+  At a conceptual level, variance answers a very simple question:
+  
+  > *How freely can the object I observe fluctuate around its mean?*
+  
+  For scalar data, this is straightforward: values scatter up and down, and variance quantifies that scatter.
+
+For time series, however, the object of interest is not a single value, but a **curve**.  
+And curves can fluctuate in very different ways:
+  
+  - by shifting up or down as a whole  
+- by bending smoothly  
+- by changing shape or timing  
+- by exhibiting local noise  
+
+The crucial point is that **not all of these fluctuation patterns are independent**.
+
+---
+  
+## Degrees of freedom as “independent ways to vary”
+  
+  A helpful intuition is to think of degrees of freedom not as a number in a formula, but as:
+  
+  > **The number of independent ways in which the data can meaningfully vary.**
+  
+  If a curve could vary independently at every time point, pointwise statistics would be appropriate.
+
+Most real time series, however, do not behave like that.
+
+---
+  
+## A thought experiment: curves that only shift vertically
+  
+  Consider an extreme but instructive example.
+
+Assume that all observed curves share exactly the same shape and differ **only by a vertical offset**:
+  
+  - one subject’s curve is always slightly higher  
+- another subject’s curve is always slightly lower  
+
+Importantly:
+  
+  - there *is* real variability between curves  
+- this variability can be large  
+- but it is driven by **a single latent factor**
+  
+  In other words, the entire curve can move — but only in one direction.
+
+---
+  
+## What pointwise variance sees (and what it misses)
+  
+  If we compute pointwise variance across curves at each time point, we will indeed observe scatter:
+  
+  - at every time point, curves differ  
+- pointwise variance can be substantial  
+
+So far, nothing is “wrong”.
+
+The problem arises when these variances are **implicitly interpreted as independent information across time**.
+
+Pointwise reasoning silently assumes:
+  
+  > *Each time point reflects a different aspect of variability.*
+  
+  But in the vertical-shift example, this is false:
+  
+  - every time point reflects **the same underlying fluctuation**
+  - no new information is gained by observing additional time points
+
+The same variability is simply being **repeated over time**.
+
+---
+  
+## Variance dilution: spreading one fluctuation across many points
+  
+  Here is the key intuition.
+
+The total amount of variability in the data is fixed.  
+If that variability lives in **one coherent direction** (e.g. a global vertical shift), then uncertainty about the curve as a whole should be **large**.
+
+Pointwise methods, however, implicitly:
+  
+  - treat each time point as an independent degree of freedom  
+- distribute this single source of variability across many assumed degrees of freedom  
+- thereby making uncertainty at each point look deceptively small  
+
+This is not because variance is computed incorrectly, but because it is **assigned to the wrong level of the data structure**.
+
+The variability belongs to the curve — not to individual time points.
+
+---
+  
+  ## Why this matters for inference
+  
+  This mismatch becomes relevant whenever we ask **curve-level questions**, for example:
+  
+  - *Does a new curve lie within the expected range?*  
+  - *How uncertain is the entire trajectory?*  
+  - *Do two functional signals differ in a meaningful way?*  
+  
+  Pointwise bands answer a weaker question:
+  
+  > *Is this value plausible at this specific time point?*
+  
+  Functional inference addresses a stronger one:
+  
+  > *Is the entire curve plausible as a single object?*
+  
+  By ignoring how tightly time points are coupled, pointwise methods underestimate how often **whole curves** should be considered unusual.
+
+---
+  
+## Optional illustration
+  
+  The following simple simulation illustrates the idea.  
+All curves differ only by a vertical shift.
+
+```{r}
+library(tidyverse)
+
+set.seed(1)
+
+t <- seq(0, 1, length.out = 100)
+n <- 30
+
+offsets <- rnorm(n, sd = 1)
+
+df <- purrr::map_dfr(seq_len(n), function(i) {
+  tibble(
+    t = t,
+    y = sin(2 * pi * t) + offsets[i],
+    id = i
+  )
+})
+
+df %>%
+  ggplot(aes(t, y, group = id)) +
+  geom_line(alpha = 0.5) +
+  stat_summary(
+    aes(group = 1),
+    fun = mean,
+    geom = "line",
+    linewidth = 1.2
+  ) +
+  theme_minimal() +
+  labs(
+    title = "Curves differ only by a vertical shift",
+    subtitle = "Pointwise variance is identical across time but reflects one shared fluctuation",
+    x = "Time",
+    y = "Signal"
+  )

@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2026-01-27-intuition_pointwise.html",
       "/posts/2026-03-01-overlapping_confidence_intervals.html",
       "/posts/2025-08-12-isotropic-scaling-gpa.html"
     ]
