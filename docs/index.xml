@@ -32,14 +32,13 @@
 <!-- --- -->
 <section id="motivation" class="level2">
 <h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
-<p>It is well established in the statistical literature that <strong>pointwise statistics underestimate uncertainty when applied to time-continuous data</strong>, such as curves or trajectories. I have already written about this issue a couple of times — most often in the context of <strong>pointwise versus functional confidence or prediction bands</strong>.</p>
-<p>The explanation usually given is technically correct but somewhat unsatisfying:</p>
+<p>It is well established in the statistical literature that pointwise statistics underestimate uncertainty when applied to time series data. I have already written about this issue a couple of times, most often in the context of pointwise versus functional confidence or prediction bands.</p>
+<p>The typical explanation usually given is technically correct but somewhat unsatisfying:</p>
 <blockquote class="blockquote">
 <p><em>Pointwise methods treat time points as independent, even though time series are correlated.</em></p>
 </blockquote>
-<p>While this statement identifies the problem, it often stops one intuition step too early.<br>
-It does not fully explain <strong>why</strong> this independence assumption is problematic in practice, nor <strong>how</strong> it leads to underestimated uncertainty at the level of the <em>entire curve</em>.</p>
-<p>This post is an attempt to fill that gap — deliberately avoiding formulas where possible and focusing instead on the underlying mechanism.</p>
+<p>While this statement certainly identifies the problem, it often stops one intuition step too early (imho). In other words, it does not fully explain why this independence assumption is problematic in practice, nor how it leads to underestimated uncertainty at the level of the entire curve.</p>
+<p>This post is an attempt to fill that gap. I try to deliberately avoid formulas where possible and focus on the underlying mechanism.</p>
 <hr>
 </section>
 <section id="what-variance-is-actually-trying-to-quantify" class="level2">

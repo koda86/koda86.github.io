@@ -23,16 +23,15 @@ page-layout: article
   
 ## Motivation
   
-  It is well established in the statistical literature that **pointwise statistics underestimate uncertainty when applied to time-continuous data**, such as curves or trajectories. I have already written about this issue a couple of times — most often in the context of **pointwise versus functional confidence or prediction bands**.
+It is well established in the statistical literature that pointwise statistics underestimate uncertainty when applied to time series data. I have already written about this issue a couple of times, most often in the context of pointwise versus functional confidence or prediction bands.
 
-The explanation usually given is technically correct but somewhat unsatisfying:
+The typical explanation usually given is technically correct but somewhat unsatisfying: 
   
   > *Pointwise methods treat time points as independent, even though time series are correlated.*
   
-  While this statement identifies the problem, it often stops one intuition step too early.  
-It does not fully explain **why** this independence assumption is problematic in practice, nor **how** it leads to underestimated uncertainty at the level of the *entire curve*.
+While this statement certainly identifies the problem, it often stops one intuition step too early (imho). In other words, it does not fully explain why this independence assumption is problematic in practice, nor how it leads to underestimated uncertainty at the level of the entire curve.
 
-This post is an attempt to fill that gap — deliberately avoiding formulas where possible and focusing instead on the underlying mechanism.
+This post is an attempt to fill that gap. I try to deliberately avoid formulas where possible and focus on the underlying mechanism.
 
 ---
   
