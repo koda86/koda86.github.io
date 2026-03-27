@@ -41,7 +41,7 @@ These intervals are often perfectly fine. They are computed correctly, reported 
 
 Whether symmetric or not, the overlap between two separate confidence intervals is often used as a visual shortcut for deciding whether two effects differ. But that shortcut can easily disagree with the result of a corresponding statistical test.
 
-The reason is simple: the statistical test does not ask whether two displayed intervals overlap. It asks whether the contrast between the two effects is compatible with zero on the relevant scale, for example whether $A - B = 0$, whether $\log(A/B) = 0$, or, in a subgroup analysis, whether an interaction term is zero. That is a different inferential question from "“"do the two displayed intervals overlap"?
+The reason is simple: the statistical test does not ask whether two displayed intervals overlap. It asks whether the contrast between the two effects is compatible with zero on the relevant scale, for example whether $A - B = 0$, whether $\log(A/B) = 0$, or, in a subgroup analysis, whether an interaction term is zero. That is a different inferential question from "do the two displayed intervals overlap"?
 
 <!-- Whether symmetric or not, the overlap between two separate confidence intervals is often examined visually as a shortcut for deciding whether two effects differ. Many times, the result of this shortcut is not compatible with the result of a corresponding statistical test. The statistical test asks whether the difference between the two effects is compatible with zero, for example whether $A - B = 0$, whether $\log(A/B) = 0$, or, in a subgroup analysis, whether an interaction term is zero. That is a different inferential question from "do the two displayed intervals overlap"? -->
 
