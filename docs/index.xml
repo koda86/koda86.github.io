@@ -182,76 +182,651 @@ All curves differ only by a vertical shift.</p>
 
 
 
-<p>Every few years, the same statistical advice makes the rounds again: “Don’t judge differences by whether confidence intervals overlap.” That advice is correct. It’s also old. And, at least for normally distributed means, it’s largely settled science.</p>
-<p>So if that were the whole story, there wouldn’t be much left to say.</p>
-<p>But here’s the part that isn’t settled — and that, in practice, matters far more.</p>
+<p>Every once in a while, I come across the same piece of statistical advice:</p>
+<blockquote class="blockquote">
+<p>“Don’t judge differences by whether confidence intervals overlap”.</p>
+</blockquote>
+<p>At first glance, that sounds like one of those annoyingly technical rules statisticians like to repeat without explaining properly. For a long time, I more or less accepted it, but never really sat down to work through why it is true, when it matters, and what exactly goes wrong. This post is my attempt to do that.</p>
+<!-- And, at least for normally distributed means, it’s largely settled science. -->
 <section id="asymmetric-confidence-intervals-are-everywhere" class="level3">
 <h3 class="anchored" data-anchor-id="asymmetric-confidence-intervals-are-everywhere">Asymmetric confidence intervals are everywhere</h3>
-<p>In modern applied research, especially in medicine, epidemiology, and the social sciences, confidence intervals are very often asymmetric. Think of:</p>
+<p>Confidence intervals are often asymmetric. This is not some strange edge case. It is completely routine. Think of:</p>
 <ul>
-<li><p>Odds ratios</p></li>
-<li><p>Hazard ratios</p></li>
-<li><p>Rate ratios</p></li>
-<li><p>Quantiles</p></li>
-<li><p>Bootstrap confidence intervals</p></li>
-<li><p>Robust estimators</p></li>
+<li><p>odds ratios</p></li>
+<li><p>hazard ratios</p></li>
+<li><p>rate ratios</p></li>
+<li><p>quantiles</p></li>
+<li><p>bootstrap(d) intervals</p></li>
+<li><p>profile-likelihood intervals</p></li>
 </ul>
-<p>These intervals are routinely shown in forest plots, tables, and figures. They are shown correctly, computed correctly, and interpreted correctly with respect to the null value (e.g., HR = 1).</p>
-<p>And yet, something subtle happens the moment we start comparing them visually.</p>
-</section>
-<section id="forest-plots-get-one-thing-exactly-right" class="level3">
-<h3 class="anchored" data-anchor-id="forest-plots-get-one-thing-exactly-right">Forest plots get one thing exactly right</h3>
-<p>Let’s be clear about this upfront: forest plots in randomized trials are not the problem.</p>
-<p>In a standard forest plot, what you see is a contrast — a difference, a log-ratio, or some other effect estimate — along with its confidence interval. Checking whether that interval includes the null value is a perfectly valid inferential step.</p>
-<p>This holds regardless of whether the CI is symmetric or asymmetric.</p>
-<p>No issue there.</p>
+<p>These intervals are often perfectly fine. They are computed correctly, reported correctly, and for a single estimate they are usually interpreted correctly. In particular, asking whether such an interval includes the null value is often a perfectly sensible inferential step.</p>
 </section>
 <section id="where-things-quietly-go-off-the-rails" class="level3">
 <h3 class="anchored" data-anchor-id="where-things-quietly-go-off-the-rails">Where things quietly go off the rails</h3>
-<p>The problem starts one step later, and it’s a step we take almost automatically.</p>
-<p>Consider a subgroup analysis in a randomized trial. You see something like this:</p>
+<p>Whether symmetric or not, the overlap between two separate confidence intervals is often used as a visual shortcut for deciding whether two effects differ. But that shortcut can easily disagree with the result of a corresponding statistical test.</p>
+<p>The reason is simple: the statistical test does not ask whether two displayed intervals overlap. It asks whether the contrast between the two effects is compatible with zero on the relevant scale, for example whether <img src="https://latex.codecogs.com/png.latex?A%20-%20B%20=%200">, whether <img src="https://latex.codecogs.com/png.latex?%5Clog(A/B)%20=%200">, or, in a subgroup analysis, whether an interaction term is zero. That is a different inferential question from ““”do the two displayed intervals overlap”?</p>
+<!-- Whether symmetric or not, the overlap between two separate confidence intervals is often examined visually as a shortcut for deciding whether two effects differ. Many times, the result of this shortcut is not compatible with the result of a corresponding statistical test. The statistical test asks whether the difference between the two effects is compatible with zero, for example whether $A - B = 0$, whether $\log(A/B) = 0$, or, in a subgroup analysis, whether an interaction term is zero. That is a different inferential question from "do the two displayed intervals overlap"? -->
+<!-- In addition, the discrepancy described above (between the result of the visual examination and a test result) becomes worse with increasing asymmetry of confidence intervals. -->
+<!-- These intervals are often perfectly fine. They are computed correctly, reported correctly, and for a single estimate they are usually interpreted correctly. In particular, asking whether such an interval includes the null value is often a perfectly sensible inferential step. -->
+<!-- So the problem is not that asymmetric confidence intervals are invalid. The problem starts when we begin to compare them visually. -->
+<!-- ### Forest plots are usually not the problem -->
+<!-- A standard forest plot usually shows an estimate of a contrast — for example a treatment effect — together with its confidence interval. In that setting, checking whether the interval contains the null value is a perfectly legitimate inferential move. That remains true whether the interval is symmetric or asymmetric. So this is not an attack on forest plots. -->
+<p>Let’s have a closer look at this. Suppose a subgroup analysis reports something like this:</p>
 <p>Subgroup A: <img src="https://latex.codecogs.com/png.latex?%5Cmathrm%7BHR%7D%20=%200.72"> (95% CI 0.57–0.92)</p>
 <p>Subgroup B: <img src="https://latex.codecogs.com/png.latex?%5Cmathrm%7BHR%7D%20=%200.92"> (95% CI 0.64–1.31)</p>
 <p><img src="https://latex.codecogs.com/png.latex?p_%7B%5Ctext%7Binteraction%7D%7D%20=%200.23"></p>
-<p>Statistically, the message is straightforward: there is no evidence that the treatment effect differs between subgroups.</p>
-<p>Visually, however, the message feels different. One interval excludes 1. The other doesn’t. The intervals look quite different in width and position. It is almost irresistible to think: “It works here, but not there.”</p>
-<p>At that point, no one is explicitly computing CI overlap. No one is writing down a test statistic. But inference is happening anyway — by eye.</p>
+<p>Formally, the message is straightforward: there is no convincing evidence that the treatment effect differs between subgroups. Visually, however, the message feels different. One interval excludes 1, the other does not. That creates a strong pull toward a different interpretation, something like:</p>
+<blockquote class="blockquote">
+<p>“Looks like the treatment works in subgroup A, but not in subgroup B.”</p>
+</blockquote>
+<p>That conclusion is very tempting. It is also not what the interaction test says. And this is where the trouble starts. The eye is informally comparing two separate confidence intervals, while the formal analysis is answering a different question.</p>
 </section>
-<section id="why-asymmetry-breaks-the-intuition" class="level3">
-<h3 class="anchored" data-anchor-id="why-asymmetry-breaks-the-intuition">Why asymmetry breaks the intuition</h3>
-<p>With symmetric confidence intervals for means, the idea of “overlap” at least has a rough geometric interpretation. You can argue about how conservative it is, but you know what you’re looking at.</p>
-<p>With asymmetric intervals, that intuition collapses:</p>
-<p>The point estimate is no longer centered.</p>
-<p>The left and right sides of the interval do not have comparable meaning.</p>
-<p>The visual distance between two intervals depends on scale, transformation, and estimator — not just uncertainty.</p>
-<p>Two asymmetric confidence intervals can overlap substantially and still correspond to a statistically meaningful difference in effects. They can also look strikingly different while the interaction test clearly says “no evidence of effect modification.”</p>
-<p>In that setting, asking whether the intervals “overlap” is not just unreliable — it’s ill-defined.</p>
+<section id="the-key-mistake" class="level3">
+<h3 class="anchored" data-anchor-id="the-key-mistake">The key mistake</h3>
+<p>A confidence interval for effect A and a confidence interval for effect B are <strong>not</strong> the same thing as a confidence interval for the contrast between them. That contrast might be:</p>
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?A%20-%20B">,</li>
+<li><img src="https://latex.codecogs.com/png.latex?%5Clog(A/B)">,</li>
+<li>or some other difference depending on the model and effect measure.</li>
+</ul>
+<p>These are different inferential objects. And this is the real reason why CI overlap is unreliable. Even for symmetric 95% confidence intervals, overlap does not correspond neatly to a 5% test of equality. Once intervals are asymmetric on the displayed scale, the visual shortcut becomes even less trustworthy.</p>
 </section>
-<section id="this-is-not-a-niche-problem" class="level3">
-<h3 class="anchored" data-anchor-id="this-is-not-a-niche-problem">This is not a niche problem</h3>
-<p>Importantly, this is not about bad statistics or sloppy analyses.</p>
-<p>You can find this exact pattern in well-conducted secondary analyses published in journals like JAMA and JAMA Network Open: asymmetric confidence intervals shown side by side, interaction tests reported (and non-significant), and yet a strong visual pull toward subgroup comparisons.</p>
-<p>The analyses are fine. The plots are fine. The trouble lies entirely in how easily the human visual system turns those plots into informal hypothesis tests.</p>
+<section id="why-asymmetry-makes-the-problem-worse" class="level3">
+<h3 class="anchored" data-anchor-id="why-asymmetry-makes-the-problem-worse">Why asymmetry makes the problem worse</h3>
+<p>To be clear: asymmetry does <strong>not</strong> destroy inference. What it destroys is the comforting illusion that inference by eye is geometrically straightforward. Once intervals are asymmetric on the plotted scale, several things become harder to interpret visually:</p>
+<ul>
+<li>the point estimate is no longer centered in the interval,</li>
+<li>left and right distances no longer mean the same thing,</li>
+<li>the apparent distance between intervals depends on the chosen scale,</li>
+<li>and overlap is no longer tied to any simple testing rule.</li>
+</ul>
+<p>That last point matters a lot.</p>
+<p>For ratio measures such as odds ratios or hazard ratios, intervals are often constructed on the log scale and then back-transformed. On the log scale, the interval may be perfectly symmetric. On the original scale, it becomes asymmetric. So even the visual geometry depends on the parameterization. That alone should make us suspicious of the idea that overlap on the displayed scale has some stable inferential meaning. Usually, it does not.</p>
 </section>
-<section id="the-real-lesson-for-practice" class="level3">
-<h3 class="anchored" data-anchor-id="the-real-lesson-for-practice">The real lesson for practice</h3>
-<p>So what should we actually learn from this?</p>
-<p>Not that confidence intervals are useless. Not that forest plots are misleading. And not that everyone is doing statistics wrong.</p>
-<p>The lesson is simpler and more uncomfortable:</p>
-<p>Once confidence intervals are asymmetric, “overlap” is no longer an inferential concept.</p>
-<p>At that point, visual comparison answers no well-defined statistical question. If you want to know whether two effects differ, you need a confidence interval for their difference (or ratio), or a formal interaction test.</p>
-<p>Anything else is pattern recognition masquerading as inference.</p>
+<section id="a-simple-simulation" class="level3">
+<h3 class="anchored" data-anchor-id="a-simple-simulation">A simple simulation</h3>
+<p>To make this more concrete, let us simulate a situation in which two subgroup-specific effects are estimated independently.</p>
+<p>I simulate two log-effects, as one might obtain from two subgroup analyses. On the log scale, standard Wald inference is straightforward. I then exponentiate the estimates and intervals to obtain ratio measures with asymmetric confidence intervals on the original scale.</p>
+<p>The question is: how often do two 95% confidence intervals overlap on the ratio scale even though the formal test comparing the two log-effects is statistically significant?</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(knitr)</span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set.seed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb1-5"></span>
+<span id="cb1-6">n_sim <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20000</span></span>
+<span id="cb1-7"></span>
+<span id="cb1-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># True effects on the log scale</span></span>
+<span id="cb1-9">mu1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">log</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.60</span>)</span>
+<span id="cb1-10">mu2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">log</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.10</span>)</span>
+<span id="cb1-11"></span>
+<span id="cb1-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Standard errors of the subgroup-specific log-effects</span></span>
+<span id="cb1-13">se1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.17</span></span>
+<span id="cb1-14">se2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.17</span></span>
+<span id="cb1-15"></span>
+<span id="cb1-16">sim <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tibble</span>(</span>
+<span id="cb1-17">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">theta1 =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rnorm</span>(n_sim, mu1, se1),</span>
+<span id="cb1-18">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">theta2 =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rnorm</span>(n_sim, mu2, se2)</span>
+<span id="cb1-19">) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb1-20">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(</span>
+<span id="cb1-21">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">est1 =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">exp</span>(theta1),</span>
+<span id="cb1-22">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">est2 =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">exp</span>(theta2),</span>
+<span id="cb1-23"></span>
+<span id="cb1-24">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">l1 =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">exp</span>(theta1 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.96</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> se1),</span>
+<span id="cb1-25">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">u1 =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">exp</span>(theta1 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.96</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> se1),</span>
+<span id="cb1-26">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">l2 =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">exp</span>(theta2 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.96</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> se2),</span>
+<span id="cb1-27">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">u2 =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">exp</span>(theta2 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.96</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> se2),</span>
+<span id="cb1-28"></span>
+<span id="cb1-29">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">overlap =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pmax</span>(l1, l2) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pmin</span>(u1, u2),</span>
+<span id="cb1-30"></span>
+<span id="cb1-31">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">z_diff =</span> (theta1 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> theta2) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(se1<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> se2<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>),</span>
+<span id="cb1-32">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">p_diff =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">abs</span>(z_diff)),</span>
+<span id="cb1-33">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sig_diff =</span> p_diff <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span></span>
+<span id="cb1-34">  )</span>
+<span id="cb1-35"></span>
+<span id="cb1-36">summary_table_num <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> sim <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb1-37">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summarise</span>(</span>
+<span id="cb1-38">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Intervals overlap</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(overlap),</span>
+<span id="cb1-39">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Formal comparison is significant</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(sig_diff),</span>
+<span id="cb1-40">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Overlap despite significant difference</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(overlap <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> sig_diff),</span>
+<span id="cb1-41">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Overlap among significant comparisons</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(overlap <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> sig_diff) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(sig_diff)</span>
+<span id="cb1-42">  )</span>
+<span id="cb1-43"></span>
+<span id="cb1-44">summary_table <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> summary_table_num <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb1-45">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">across</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">everything</span>(), <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste0</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> .x, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"%"</span>)))</span>
+<span id="cb1-46"></span>
+<span id="cb1-47"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(summary_table, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">align =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"cccc"</span>)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 25%">
+<col style="width: 30%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Intervals overlap</th>
+<th style="text-align: center;">Formal comparison is significant</th>
+<th style="text-align: center;">Overlap despite significant difference</th>
+<th style="text-align: center;">Overlap among significant comparisons</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">59.7%</td>
+<td style="text-align: center;">71.1%</td>
+<td style="text-align: center;">30.9%</td>
+<td style="text-align: center;">43.4%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The key result in Table 1 is <strong>Overlap despite significant difference</strong>. Here, it is 30.9%. So in nearly one third of all simulated datasets, the two asymmetric confidence intervals overlap even though the formal test indicates a statistically significant difference between effects.</p>
+<p>That is not a small technical exception. It means that visual overlap can easily coexist with formal evidence for a difference, so “the intervals overlap” is clearly not a reliable shorthand for “there is no difference”.</p>
+<p>The final column, <strong>Overlap among significant comparisons</strong>, shows the same issue from another angle. Although the formal comparison is significant in 71.1% of simulations, 43.4% of those significant cases still display overlapping confidence intervals. Put differently, even when the data support a difference statistically, the visual impression from the two separate intervals is often ambiguous or misleading.</p>
 </section>
-<section id="a-rule-that-actually-helps" class="level3">
-<h3 class="anchored" data-anchor-id="a-rule-that-actually-helps">A rule that actually helps</h3>
-<p>If you want a single practical rule to take away, it’s this:</p>
-<p>Confidence intervals can be interpreted against their null value. They cannot, in general, be interpreted against each other — especially when they are asymmetric.</p>
-<p>That rule won’t make figures prettier. But it will prevent a surprising number of subtle misinterpretations.</p>
-<p>And in applied statistics, that’s usually the best kind of improvement.</p>
+<section id="one-plotted-example" class="level3">
+<h3 class="anchored" data-anchor-id="one-plotted-example">One plotted example</h3>
+<p>We can also extract one concrete simulation run where this happens and plot it.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">example_row <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> sim <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(overlap, sig_diff) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">slice</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb2-4"></span>
+<span id="cb2-5">example_plot_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tibble</span>(</span>
+<span id="cb2-6">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">subgroup =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"A"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B"</span>),</span>
+<span id="cb2-7">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">estimate =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(example_row<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>est1, example_row<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>est2),</span>
+<span id="cb2-8">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lower =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(example_row<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>l1, example_row<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>l2),</span>
+<span id="cb2-9">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">upper =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(example_row<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>u1, example_row<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>u2)</span>
+<span id="cb2-10">) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">across</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>subgroup, <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(.x, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)))</span>
+<span id="cb2-12"></span>
+<span id="cb2-13">example_p <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> example_row<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>p_diff[[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]]</span>
+<span id="cb2-14"></span>
+<span id="cb2-15">knitr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(</span>
+<span id="cb2-16">  example_plot_data,</span>
+<span id="cb2-17">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">align =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"c"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"c"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"c"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"c"</span>),</span>
+<span id="cb2-18">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"One simulated example with overlapping asymmetric confidence intervals despite a statistically significant difference test."</span></span>
+<span id="cb2-19">)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>One simulated example with overlapping asymmetric confidence intervals despite a statistically significant difference test.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">subgroup</th>
+<th style="text-align: center;">estimate</th>
+<th style="text-align: center;">lower</th>
+<th style="text-align: center;">upper</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">0.619</td>
+<td style="text-align: center;">0.444</td>
+<td style="text-align: center;">0.864</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">1.147</td>
+<td style="text-align: center;">0.822</td>
+<td style="text-align: center;">1.600</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(example_plot_data, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> estimate, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> subgroup)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb3-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.8</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb3-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_errorbar</span>(</span>
+<span id="cb3-4">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xmin =</span> lower, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xmax =</span> upper),</span>
+<span id="cb3-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">orientation =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"y"</span>,</span>
+<span id="cb3-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">width =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.12</span></span>
+<span id="cb3-7">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb3-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_vline</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xintercept =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">linetype =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb3-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(</span>
+<span id="cb3-10">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Effect estimate (ratio scale)"</span>,</span>
+<span id="cb3-11">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NULL</span>,</span>
+<span id="cb3-12">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Overlapping asymmetric confidence intervals"</span>,</span>
+<span id="cb3-13">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">subtitle =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste0</span>(</span>
+<span id="cb3-14">      <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"But the formal test comparing effects gives p = "</span>,</span>
+<span id="cb3-15">      <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">formatC</span>(example_p, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">digits =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">format =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"f"</span>)</span>
+<span id="cb3-16">    )</span>
+<span id="cb3-17">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb3-18">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">base_size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://koda86.github.io/posts/2026-03-01-overlapping_confidence_intervals_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The table presents one concrete simulated dataset in which the two subgroup-specific confidence intervals overlap, even though the formal test comparing the effects is statistically significant. So while confidence intervals can often be interpreted against their null value, they generally should not be interpreted against each other by eye.</p>
+<p>That is true in general and it becomes especially important when the intervals are asymmetric on the displayed scale. The more asymmetric the displayed intervals become, the easier it is to forget that the visual comparison is happening on a scale whose geometry may have little to do with the inferential question we actually care about.</p>
 </section>
-<section id="what-to-do-instead-in-one-sentence" class="level3">
-<h3 class="anchored" data-anchor-id="what-to-do-instead-in-one-sentence">What to do instead (in one sentence)</h3>
-<p>If your real question is “Are these two effects different?”, compute a confidence interval for the contrast of effects (or run an explicit interaction test). Do not try to answer that question by eyeballing whether two asymmetric confidence intervals overlap.</p>
+<section id="what-to-do-instead" class="level3">
+<h3 class="anchored" data-anchor-id="what-to-do-instead">What to do instead</h3>
+<p>If the real scientific question is whether two effects are differ, then the right response is not to stare harder at two separate confidence intervals. Instead, compute one of the following:</p>
+<ul>
+<li>a confidence interval for the difference in effects,</li>
+<li>a confidence interval for the ratio of effects,</li>
+<li>or an explicit interaction test.</li>
+</ul>
+<p>In other words: answer the question you actually care about with the inferential object that actually corresponds to it.</p>
+<p>Asymmetric confidence intervals do not break inference. But they do break the intuition that visual overlap is telling us something simple. And that is exactly why they deserve a bit more caution than they usually get.</p>
 
 
 <!-- -->
