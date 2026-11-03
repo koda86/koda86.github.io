@@ -6,17 +6,26 @@ website:
   title: "Koda86 Blog"
   site-url: https://koda86.github.io
   description: "Posts on statistics, biomechanics, and other topics."
+
   navbar:
     left:
       - text: "Home"
         href: index.qmd
       - text: "About"
         href: about.qmd
+      - text: "Publications"
+        href: publications.qmd
+      - text: "Contact"
+        href: contact.qmd
     right:
       - icon: github
         href: https://github.com/koda86/koda86.github.io
+
   page-footer:
-    left: "© 2025 Koda86"
+    left: "© 2026 Koda86"
+    center:
+      - text: "Privacy Policy"
+        href: privacy.qmd
     right: "Built with [Quarto](https://quarto.org/)"
 
 format:
@@ -31,4 +40,3 @@ format:
 
 execute:
   freeze: auto
-

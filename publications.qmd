@@ -1,0 +1,121 @@
+---
+title: "Publications"
+description: "Journal articles, conference abstracts, software, and other research outputs by Daniel Koska."
+format:
+  html:
+    code-tools: false
+    toc: true
+    toc-depth: 2
+---
+
+This page lists my peer-reviewed publications and other research outputs. Paper titles link to the publisher's record via DOI wherever available. **Koska D** is highlighted in the author lists.
+
+## Peer-reviewed journal articles
+
+### 2026
+
+- Helwig J, Vanrenterghem J, **Koska D**, Gollhofer A, Willwacher S (2026). [Agreement of markerless and marker-based joint kinetics in team sport-specific change-of-direction movements](https://doi.org/10.1038/s41598-026-72910-3). *Scientific Reports*, 16:31298.
+
+- **Koska D**, Germano A, Schmidt D, Harsch AK, Maiwald C (2026). [Quantifying the added value of foot-controlled force variables in predicting mild cognitive impairment](https://doi.org/10.1038/s41598-026-62094-1). *Scientific Reports*, 16:22261.
+
+- Krumm D, **Koska D**, Wakode J, Odenwald S, Maiwald C (2026). [Multimodal data on bipedal locomotion during prolonged treadmill recordings at varying speeds](https://doi.org/10.1038/s41597-026-07445-3). *Scientific Data*, 13:761.
+
+- **Koska D**, Biermann N, Maiwald C (2026). [Simulation-based analysis of rigid alignment bias in PCA of weight-bearing foot shapes](https://doi.org/10.1016/j.jbiomech.2026.113280). *Journal of Biomechanics*, 201:113280.
+
+### 2025
+
+- Helwig J, Vanrenterghem J, Anedda B, **Koska D**, Hipper M, Denis Y, Braun L, Segers V, Gollhofer A, Willwacher S (2025). [Comparison of lower body joint kinematics during change of direction tasks estimated using a markerless and a marker-based method](https://doi.org/10.1038/s41598-025-21143-x). *Scientific Reports*, 15:34119.
+
+- Mayer TA, **Koska D**, Harsch AK, Maiwald C (2025). [Effectiveness of Self-Training With a Web-Based Digital Health Application Versus Physiotherapy in the Treatment of Disorders of the Patella: Randomized Controlled Trial](https://doi.org/10.2196/66463). *Journal of Medical Internet Research*, 27:e66463.
+
+- **Koska D**, Zetzsche R, Mayer TA, Maiwald C (2025). [Supervised vs. Self-Managed Exercise Therapy for Improving Shoulder Function After Traumatic Dislocation and Sprain: A Systematic Review and Meta-Analysis](https://doi.org/10.3390/sports13010023). *Sports*, 13(1):23.
+
+- Wagner D, Mayer TA, **Koska D**, Harsch AK, Riehl F, Maiwald C (2025). [Webbasiertes Eigentraining effektiver als Physiotherapie](https://doi.org/10.1007/s00142-024-00747-x). *Arthroskopie*, 38(1):83–87.
+
+### 2023
+
+- **Koska D**, Oriwol D, Maiwald C (2023). [Comparison of statistical models for characterizing continuous differences between two biomechanical measurement systems](https://doi.org/10.1016/j.jbiomech.2023.111506). *Journal of Biomechanics*, 149:111506.
+
+- Harsch AK, Kunert A, **Koska D**, Maiwald C (2023). [Quantifying workload using nonlinear dynamical measures of biomechanical parameters during cycling on a roller trainer](https://doi.org/10.1371/journal.pone.0285408). *PLOS ONE*, 18(5):e0285408.
+
+### 2022
+
+- Mayer TA, Harsch AK, **Koska D**, Hensel-Unger R, Maiwald C (2022). [Effects of an active hand exoskeleton on forearm muscle activity in industrial assembly grips](https://doi.org/10.3233/WOR-211272). *Work*, 72(4):1577–1591.
+
+### 2021
+
+- Kopiske K, **Koska D**, Baumann T, Maiwald C, Einhäuser W (2021). [Icy road ahead—rapid adjustments of gaze-gait interactions during perturbed naturalistic walking](https://doi.org/10.1167/jov.21.8.11). *Journal of Vision*, 21(8):11.
+
+### 2020
+
+- Kunert A, **Koska D**, Maiwald C (2020). [Investigation of the pedaling forces in a cycling field test using the non-linear measure ML1](https://doi.org/10.1177/1754337120975953). *Proceedings of the Institution of Mechanical Engineers, Part P: Journal of Sports Engineering and Technology*, 235(3):219–226 (online 2020; issue 2021).
+
+- Mayer TA, Harsch AK, **Koska D**, Hensel-Unger R, Maiwald C (2020). [Einfluss eines aktiven Hand-Exoskeletts auf die Muskelaktivität im Unterarm bei industriellen Montage-Greifarten](https://doi.org/10.17147/asu-2008-8787). *ASU – Arbeitsmedizin, Sozialmedizin, Umweltmedizin*, 2020(08).
+
+- **Koska D**, Maiwald C (2020). [A time-series based framework for exploring the unknown effects of shoe comfort-induced biomechanical adaptations](https://doi.org/10.1080/19424280.2020.1734866). *Footwear Science*, 12(2):113–122.
+
+### 2019
+
+- Kunert A, Ott M, Reuter T, **Koska D**, Maiwald C (2019). [Phase space methods for non-linear analysis of pedalling forces in cycling](https://doi.org/10.1371/journal.pone.0198914). *PLOS ONE*, 14(4):e0198914.
+
+### 2018
+
+- **Koska D**, Gaudel J, Hein T, Maiwald C (2018). [Validation of an inertial measurement unit for the quantification of rearfoot kinematics during running](https://doi.org/10.1016/j.gaitpost.2018.06.007). *Gait & Posture*, 64:135–140.
+
+## Conference abstracts
+
+### 2025
+
+- Harsch AK, **Koska D**, Maiwald C (2025). The Role of Treadmill Experience in Local Gait Stability Under Normal and Asymmetric Walking Conditions. XXX Congress of the International Society of Biomechanics, Stockholm, Sweden, July 27–31.
+
+- Stenvers T, **Koska D**, Milani TL, Zippenfennig C (2025). How different shoe conditions influence the frequency components of ground reaction forces during walking. XXX Congress of the International Society of Biomechanics, Stockholm, Sweden, July 27–31.
+
+### 2023
+
+- Krumm D, Wakode J, **Koska D**, Odenwald S (2023). Open dataset for bipedal locomotion on an instrumented treadmill. XXIX Congress of the International/Japanese Society of Biomechanics, Fukuoka, Japan, p. 981.
+
+- **Koska D**, Harsch AK, Germano AMC, Schmidt D, Maiwald C (2023). Does a foot-eye coordination variable add value to the prediction of mild cognitive impairment? XXIX Congress of the International Society of Biomechanics, Fukuoka, Japan, July 30–August 3.
+
+- Harsch AK, **Koska D**, Maiwald C (2023). Investigating the relationship between local and global gait stability. XXIX Congress of the International/Japanese Society of Biomechanics, Fukuoka, Japan, p. 828.
+
+### 2020
+
+- Kopiske K, **Koska D**, Baumann T, Maiwald C, Einhäuser W (2020). [Icy road ahead – gaze during perturbed walking](https://doi.org/10.1167/jov.20.11.559). Journal of Vision, 20(11):559 (conference abstract).
+
+### 2019
+
+- Kunert A, Reuter T, **Koska D**, Maiwald C (2019). Nichtlineare Variabilitätsanalyse der Trittbewegung im Radsport. 11. Kongress der Deutschen Gesellschaft für Biomechanik (DGfB), Berlin, Germany, April 3–5, abstract V84, p. 151.
+
+- **Koska D**, Maiwald C (2019). [A time-series based pattern recognition method to analyze rollover kinematics in running](https://doi.org/10.1080/19424280.2019.1606306). Footwear Science, 11(Suppl. 1):S162–S163.
+
+### 2017
+
+- Kunert A, Ott M, Reuter T, **Koska D**, Maiwald C (2017). Abschätzung der individuellen Beanspruchung durch Variabilitätsanalyse der Trittbewegung im Radsport. 23. Sportwissenschaftlicher Hochschultag der dvs, Munich, Germany, September 13–15, p. 258.
+
+- Gaudel J, **Koska D**, Maiwald C (2017). [Reproducibility of rearfoot kinematics measured with inertial sensors during outdoor running on different surfaces](https://doi.org/10.1080/19424280.2017.1314364). Footwear Science, 9(Suppl. 1):106–108; 13th Footwear Biomechanics Symposium, Gold Coast, Australia.
+
+- Gaudel J, **Koska D**, Maiwald C (2017). [The influence of foot strike and speed on the validity of inertial sensors to analyse rearfoot kinematics during running](https://doi.org/10.1080/19424280.2017.1314354). Footwear Science, 9(Suppl. 1):S88–S89.
+
+### 2015
+
+- Sakaguchi M, Wannop JW, Madden R, **Koska D**, Stefanyshyn DJ (2015). [Effects of shoe bending stiffness and surface stiffness on lower extremity biomechanics during running](https://doi.org/10.1080/19424280.2015.1036930). Footwear Science, 7(Suppl. 1):S4–S6.
+
+## Research software
+
+- **Koska D** (2026). [**funbootband: Simultaneous Confidence and Prediction Bands for Functional Data**](https://CRAN.R-project.org/package=funbootband). R package, CRAN, version 0.3.0. [DOI](https://doi.org/10.32614/CRAN.package.funbootband).
+
+- **Koska D**. [**effort2compress**](https://github.com/koda86/effort2compress). R implementation of the effort-to-compress (ETC) complexity measure introduced by Nagaraj et al. (2013). Research code, GitHub.
+
+- **Koska D**. [**DupliCheck**](https://github.com/koda86/DupliCheck). R package for identifying duplicate bibliographic records using titles, authors, and DOIs. GitHub.
+
+## Clinical study report
+
+- Mayer T, **Koska D**, Harsch AK, Maiwald C (2024). [Prospektive randomisierte kontrollierte klinische Studie zur Wirksamkeit eines Eigentrainings mit der Digitalen Gesundheitsanwendung “Mawendo” bei der Behandlung von Krankheiten der Patella (ICD-10-GM M22)](https://doi.org/10.60687/ubcq-2498). Chemnitz University of Technology. Clinical study report.
+
+## Theses
+
+- **Koska D** (2023). *Methodische Ansätze zur Analyse biomechanischer Zeitreihendaten*. Chemnitz University of Technology. Doctoral dissertation.
+
+- **Koska D** (2015). *Entwicklung eines Messprotokolls zur Quantifizierung von Rückfußparametern mittels inertialer Messeinheiten*. Chemnitz University of Technology. Bachelor's thesis.
+
+- **Koska D** (2011). *Erstellung eines kinematischen Vorhersagemodells der menschlichen Schulter für die Erfassung, Synthese und Bewertung von Greifbewegungen*. Chemnitz University of Technology. Magister thesis.

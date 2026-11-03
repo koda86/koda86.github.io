@@ -1,0 +1,190 @@
+---
+  title: "Privacy Policy"
+---
+  
+  Last updated: November 3, 2026
+
+## 1. Controller
+
+The person responsible for the processing of personal data
+on this website is:
+  
+  **Daniel Koska**  
+  Chemnitz, Germany
+
+For questions about data protection or to exercise your rights
+under the General Data Protection Regulation (GDPR), please
+use the [contact form](contact.qmd).
+
+## 2. Hosting and website access
+
+This website is hosted using **GitHub Pages**, a service provided
+by GitHub.
+
+When you access this website, technical information is transmitted
+to GitHub's servers. GitHub states that visitors' IP addresses
+are logged and stored for security purposes, regardless of whether
+they are signed in to GitHub.
+
+Additional technical information, such as browser details,
+requested resources, and access times, may also be processed
+as part of the operation of the hosting service.
+
+The purpose of this processing is to provide the website and
+maintain its technical functionality and security.
+
+The legal basis for processing under my responsibility is
+Article 6(1)(f) GDPR (legitimate interests). My legitimate
+interest is to provide a functional and secure personal website.
+
+GitHub may process personal data outside the European Economic
+Area, including in the United States. GitHub describes the
+applicable data transfer safeguards in its privacy statement.
+
+Further information:
+  
+  [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)
+
+## 3. Contact form
+
+This website provides a contact form that allows visitors to
+send messages without directly using an email application.
+
+When you submit the form, the following information is processed:
+  
+  - Name, if provided (optional)
+- Email address (required)
+- Message content (required)
+- Technical information associated with the submission
+
+The information is used exclusively to process your inquiry,
+communicate with you, and respond to your message.
+
+The legal basis is Article 6(1)(f) GDPR (legitimate interests).
+My legitimate interest is to respond to inquiries from visitors,
+researchers, potential collaborators, and other interested persons.
+
+Where your inquiry concerns steps prior to entering into a
+contract, Article 6(1)(b) GDPR may apply instead.
+
+Providing your information is voluntary. However, an email
+address and a message are necessary to submit an inquiry
+through the contact form and receive a response.
+
+### Contact form processing through Form.taxi
+
+The contact form is processed using **Form.taxi**, operated by
+wrkt*biz Reinhard S??llradl, Austria.
+
+Form.taxi receives, processes, and delivers the information
+submitted through the form.
+
+According to Form.taxi, submitted information is processed and
+stored exclusively within the European Union. Its hosting
+infrastructure is located in Dresden, Germany.
+
+In addition to the information entered into the form,
+Form.taxi processes the sender's IP address, browser
+identifier (user agent), and submission date and time.
+
+These technical data are used for form delivery, spam prevention,
+and security.
+
+Form.taxi acts as a data processor under Article 28 GDPR.
+
+Further information:
+
+[Form.taxi Privacy Information](https://www.docs.form.taxi/en/privacy)
+
+### Email delivery
+
+Contact form submissions are forwarded to my email inbox
+through the email notification functionality provided by Form.taxi.
+
+My email service is provided by **Proton AG**, Switzerland.
+
+Switzerland is recognized by the European Commission as providing
+an adequate level of data protection under Article 45 GDPR.
+
+Further information:
+
+[Proton Privacy Policy](https://proton.me/legal/privacy)
+
+### Retention of contact requests
+
+Personal data submitted through the contact form is retained
+only as long as necessary to process the inquiry and any
+related correspondence.
+
+Messages are deleted when they are no longer required,
+unless continued retention is necessary for legal obligations
+or the establishment, exercise, or defense of legal claims.
+
+According to Form.taxi, submissions are automatically deleted
+from its submission archive after a maximum of one year.
+Submissions classified as spam are deleted after one month.
+
+Copies of correspondence stored in my email account are
+managed separately and deleted when they are no longer needed
+for the purposes described above.
+
+## 4. Cookies and tracking
+
+The contact form on this website uses standard HTML and does
+not require JavaScript, advertising cookies, or external
+tracking scripts.
+
+The form itself does not use analytics or marketing technologies.
+
+Technical information may nevertheless be processed by the
+hosting provider and the contact form service as described
+in the preceding sections.
+
+## 5. External links
+
+This website contains links to external websites, including
+scientific publications, software repositories, and other
+online resources.
+
+When you follow an external link, you leave this website.
+The external provider may process personal data according
+to its own privacy policy.
+
+## 6. Your rights under the GDPR
+
+Under the GDPR, you have the following rights, subject to
+the applicable legal conditions:
+
+- **Access (Article 15):** Request information about your
+  personal data being processed.
+- **Rectification (Article 16):** Request correction of
+  inaccurate personal data.
+- **Erasure (Article 17):** Request deletion of your
+  personal data.
+- **Restriction (Article 18):** Request restriction
+  of processing under certain circumstances.
+- **Data portability (Article 20):** Receive your personal
+  data in a structured, commonly used, machine-readable
+  format where this right applies.
+- **Objection (Article 21):** Object to processing based
+  on legitimate interests under the applicable conditions.
+
+To exercise these rights, please use the
+[contact form](contact.qmd).
+
+You also have the right to lodge a complaint with a
+competent data protection supervisory authority.
+
+The supervisory authority in Saxony is:
+
+**S??chsische Datenschutz- und Transparenzbeauftragte**
+
+[www.datenschutz.sachsen.de](https://www.datenschutz.sachsen.de/)
+
+## 7. Changes to this Privacy Policy
+
+This Privacy Policy may be updated if the technical
+configuration of the website changes or if changes
+in applicable law make an update necessary.
+
+The current version is available on this page.

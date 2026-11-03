@@ -1,0 +1,7 @@
+---
+  title: "Message sent"
+---
+  
+  Thank you for getting in touch. Your message has been submitted.
+
+[Return to the homepage](index.qmd)

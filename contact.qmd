@@ -1,0 +1,73 @@
+---
+title: "Contact"
+---
+
+Feel free to get in touch using the form below.
+
+```{=html}
+<form action="https://form.taxi/s/1b2pc6m4" method="POST">
+
+  <!-- Honeypot field for spam protection -->
+  <div style="position:absolute; left:-9999px;"
+       aria-hidden="true">
+    <label for="website">Leave this field empty</label>
+    <input type="text"
+           name="_gotcha"
+           id="website"
+           tabindex="-1"
+           autocomplete="off">
+  </div>
+
+  <!-- Name -->
+  <div class="mb-3">
+    <label for="name" class="form-label">
+      Name (optional)
+    </label>
+    <input type="text"
+           name="name"
+           id="name"
+           class="form-control"
+           autocomplete="name">
+  </div>
+
+  <!-- Email address -->
+  <div class="mb-3">
+    <label for="email" class="form-label">
+      Email address *
+    </label>
+    <input type="email"
+           name="email"
+           id="email"
+           class="form-control"
+           autocomplete="email"
+           required>
+  </div>
+
+  <!-- Message -->
+  <div class="mb-3">
+    <label for="message" class="form-label">
+      Message *
+    </label>
+    <textarea name="message"
+              id="message"
+              class="form-control"
+              rows="6"
+              required></textarea>
+  </div>
+
+  <!-- Privacy information -->
+  <p class="small text-muted">
+    The information you provide will be processed
+    to handle and respond to your inquiry.
+    Please do not include sensitive personal information.
+    For further details, see the
+    <a href="privacy.html">Privacy Policy</a>.
+  </p>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary">
+    Send message
+  </button>
+
+</form>
+```

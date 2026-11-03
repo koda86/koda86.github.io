@@ -5,18 +5,16 @@ image: dk_bass.png
 
 **Daniel Koska**
 
-dkoska\@proton.me
+<!-- dkoska\@proton.me -->
 
 [GitHub/koda86](https://github.com/koda86)
 
 ------------------------------------------------------------------------
 
-Hey there! I'm currently working as a postdoc at Chemnitz University of Technology.
+Welcome to blog. I'm Daniel and intend to write about topics such as statistical modeling, machine learnign, biomechanical research, music, or whatever comes to my mind (admitttedly, currently, this is far less frequent than I'd like).
 
-My professional playground includes data analysis, research methods, and stats. My PhD (finished 2023) involved developing methods for adequately characterizing continuous biomechanical data such as joint angles or force curves. Every now and then, I do some machine learning stuff and play with dynamic systems methods.
+I’m a big fan of Free and Open Source Software, as well as the idea of open science in general. You’ll usually find me coding in R and Python. I am the author of the R package [funbootband](https://cran.r-project.org/web/packages/funbootband/index.html).
 
-I'm a big supporter of Free and Open Source Software, as well as the idea of open science -- it's the way to go! You'll usually find me coding in R and Python.
-
-Off the clock, I switch gears and jam on my bass. 🎸
+Off the clock, I switch gears and jam on my bass and guitar. 🎸 If you are into Doom/Stoner music, check out my band Ufo Krause [Ufo Krause](https://ufokrause.org/) 
 
 ![](dk_bass.png){fig-align="center" width="281"}

@@ -2,22 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://koda86.github.io/about.html</loc>
-    <lastmod>2024-01-02T10:03:41.910Z</lastmod>
+    <lastmod>2026-11-03T10:27:55.296Z</lastmod>
   </url>
   <url>
-    <loc>https://koda86.github.io/posts/2026-03-01-overlapping_confidence_intervals.html</loc>
-    <lastmod>2026-03-27T10:38:51.250Z</lastmod>
+    <loc>https://koda86.github.io/privacy.html</loc>
+    <lastmod>2026-11-03T10:14:56.026Z</lastmod>
+  </url>
+  <url>
+    <loc>https://koda86.github.io/posts/2026-01-27-intuition_pointwise.html</loc>
+    <lastmod>2026-01-27T07:46:01.869Z</lastmod>
   </url>
   <url>
     <loc>https://koda86.github.io/posts/2025-08-12-isotropic-scaling-gpa.html</loc>
     <lastmod>2025-08-24T14:35:50.584Z</lastmod>
   </url>
   <url>
+    <loc>https://koda86.github.io/publications.html</loc>
+    <lastmod>2026-11-03T10:23:03.129Z</lastmod>
+  </url>
+  <url>
+    <loc>https://koda86.github.io/contact.html</loc>
+    <lastmod>2026-11-03T10:09:07.595Z</lastmod>
+  </url>
+  <url>
+    <loc>https://koda86.github.io/posts/2026-03-01-overlapping_confidence_intervals.html</loc>
+    <lastmod>2026-03-27T10:38:51.250Z</lastmod>
+  </url>
+  <url>
     <loc>https://koda86.github.io/index.html</loc>
     <lastmod>2026-01-03T11:43:30.833Z</lastmod>
   </url>
   <url>
-    <loc>https://koda86.github.io/posts/2026-01-27-intuition_pointwise.html</loc>
-    <lastmod>2026-01-27T07:46:01.869Z</lastmod>
+    <loc>https://koda86.github.io/thank-you.html</loc>
+    <lastmod>2026-11-03T10:02:05.119Z</lastmod>
   </url>
 </urlset>
